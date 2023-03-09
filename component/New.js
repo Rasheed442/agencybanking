@@ -8,9 +8,9 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import {toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+
 toast.configure()
 function New({handle}) {
-  
       const [fullname, setFullname] = useState()
       const [phonenumber, setNumber] = useState()
       const [business_name, setBusinessname] = useState()
