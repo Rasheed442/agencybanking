@@ -1,0 +1,81 @@
+.overlay{
+    background-color: rgba(0, 0, 0, 0.206);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+}
+.background{
+    padding: 40px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2,auto);
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.header{
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 50px;
+    padding: 40px;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+}
+.name label{
+    font-size: 15px;
+}
+.name input{
+    height: 60px;
+    width: 25rem;
+    padding: 20px;
+    outline: none;
+    color: gray;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 15px;
+}
+.name ::placeholder{
+    font-size: 13px;
+}
+.name span{
+    color: red;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container h3{
+    font-size: 30px;
+    font-weight: 500;
+}
+.btn{
+    margin-top: 25px;
+}
+.btn button{
+    height: 60px;
+    width: 25rem;
+    background-color: #1B59F8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.name select{
+    height: 60px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 15px;
+    color: gray;
+}

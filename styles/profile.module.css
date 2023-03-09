@@ -1,0 +1,172 @@
+.background{
+    display: flex;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+.header{
+    width: 100vw;
+}
+/* .main{
+    width: 100vw;
+} */
+.profile{
+    display: flex;
+    gap: 20px;
+}
+.prof{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+}
+.prof p{
+    font-size: 20px;
+}
+.prof span{
+    background-color: #E8EEFE;
+    color:#1B59F8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.reminder div{
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 10px;
+    margin-left: -10px;
+}
+.reminder{
+    display: flex;
+}
+.name span{
+    color: gray;
+    font-size: 13px
+}
+.line{
+    width: 2px;
+    height: 50px;
+    background-color: gainsboro;
+}
+.search input{
+    border: none;  
+     width: 30rem;
+     outline: none;
+     font-size: 15px;
+}
+.search{
+    border: 1px solid gray;
+    padding: 15px;
+    border-radius: 20px;
+    height: 50px;
+}
+.bg{
+    background-color:#fbfbfb;
+    padding: 20px;
+    border-radius: 20px;
+}
+.bg1{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+.person{
+    background-image: url("/cover.png");
+    height: 10rem;
+    width: 90%;
+    margin: 30px;
+    border-radius: 20px;
+}
+.person1{
+    padding: 40px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2.5rem;
+    padding-right: 5rem;
+    gap: 10rem;
+}
+
+.middle{
+    display: flex;
+    padding-right: 5rem;
+    padding-left: 2.5rem;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.name input{
+    height: 40px;
+    width: 25rem;
+    background-color: #E8EEFE;
+    border: 1px solid blue;
+    border-radius: 5px;
+    color: #212121;
+    outline: none;
+    font-size: 13px;
+    padding-left: 20px;
+}
+.name ::placeholder{
+    color: #212121;
+}
+.agent{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.agent input{
+    height: 40px;
+    width: 15rem;
+    background-color: #E8EEFE;
+    border: 1px solid blue;
+    border-radius: 5px;
+    outline: none;
+    color: #212121;
+    font-size: 13px;
+    padding-left: 20px;
+}
+.agent ::placeholder{
+    color: #212121;
+}
+.add{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 2.5rem;
+}
+.add input{
+    height: 40px;
+    width: 90%;
+    background-color: #E8EEFE;
+    border: 1px solid blue;
+    border-radius: 5px;
+    outline: none;
+    color: #212121;
+    font-size: 13px;
+    padding-left: 20px;
+}
+.add ::placeholder{
+    color: #212121;
+}
+

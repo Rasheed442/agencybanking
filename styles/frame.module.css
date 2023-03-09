@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    padding: 30px;
+}
+.terminal{
+    background-color: white;
+    display: flex;
+    width: 10rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 7px;
+    padding: 10px;
+}
+.terminal span{
+    color: gray;
+}
+
+.gridout{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 20px;
+}
+.static{
+    display: flex;
+    justify-content: space-between;
+}
+.static select{
+    border: none;
+}
+.main{
+    background-color: white;
+    width: 25rem;
+}

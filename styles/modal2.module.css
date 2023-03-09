@@ -1,0 +1,195 @@
+.container{
+    background-color: rgba(0, 0, 0, 0.346);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.white{
+    background-color: white;
+    margin: 60px;
+    padding-bottom: 130px;
+    padding-top: 30px;
+    border-radius: 30px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    padding-left: 6rem;
+}
+.header h1{
+    font-size: 40px;
+    font-weight: 500;
+}
+.payment{
+    display: flex;
+    flex-direction: column;
+    padding-left: 6rem;
+    gap: 10px;
+}
+.method{
+    border: 1px solid gray;
+    width: 90%;
+    height: 4rem;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+.method input{
+   width: 80%;
+   border: none;
+   font-size: 20px;
+   outline: none;
+}
+.btn{
+    display: flex;
+    flex-direction: column;
+}
+.btn button{
+    width: 90%;
+    height: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid gainsboro;
+    background-color: white;
+    color: gray;
+    transition: 0.2s;
+}
+.btn button:hover{
+    background-color: blue;
+    color: white;
+}
+.amount{
+    padding-left: 6rem;
+    padding-top: 30px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.amount button{
+    width: 25rem;
+    height: 55px;
+    font-size: 17px;
+    color: gray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.amount input{
+    height: 4rem;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+    width: 80%;
+    cursor: pointer;
+    color: gray;
+    outline: none;
+}
+.bulk{
+    padding-left: 6rem;
+    padding-top: 30px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.bulk label{
+    cursor: pointer;
+}
+.bulk input{
+    font-size: 30px;
+    font-weight: 500;
+}
+.file {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+    cursor: pointer;
+  }
+  .fileinput{
+    background-color: gainsboro;
+    height: 60px;
+    padding: 10px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+.naration{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.proceed{
+    padding-left: 6rem;
+    padding-top: 5rem;
+}
+.proceed button{
+    width: 90%;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+    transition: 0.5s;
+    border: none;
+    border-radius: 10px;
+}
+.proceed button:hover{
+    opacity: 0.6;
+}
+.agentaccount_number{
+    padding-top: 30px;
+    display: flex;
+  
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 6rem;
+}
+.agentaccount_number input{
+    height: 60px;
+    padding: 20px;
+    width: 80%;
+    outline: none;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid gainsboro;
+
+}
+.savings{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.373);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.saved{
+    background-color: white;
+    padding: 20px;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 10rem;
+    border-radius: 20px;
+}
+.saved p{
+    color: gray;
+}
+/* .agentaccount_number input{
+    font-size: 20px;
+    width: 170%;
+    outline: none;
+} */

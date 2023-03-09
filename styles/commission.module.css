@@ -1,0 +1,137 @@
+.header{
+    display: flex;
+    width: 100vw;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.container h1{
+    font-weight: 500;
+    font-size: 25px;
+}
+.profile{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.reminder div{
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 10px;
+    margin-left: -10px;
+}
+.reminder{
+    display: flex;
+}
+/* .reminder img{
+    margin-left: -8px;
+} */
+.name{
+    color: black;
+}
+.name p{
+    text-transform: capitalize;
+}
+.name span{
+    color: gray;
+    font-size: 12px
+}
+.line{
+    width: 2px;
+    height: 50px;
+    background-color: gainsboro;
+}
+.main{
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+}
+.whitesmoke{
+    background-color: whitesmoke;
+    height: 100vh;
+    padding: 20px;
+}
+.white{
+    background-color: white;
+    height: 100vh;
+    border-radius: 10px;
+}
+.commission{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.commission p{
+    font-size: 18px;
+}
+.search{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #00A4E4;
+    border-radius: 20px;
+    gap: 15px;
+    background-color: #F8FAFF;
+}
+.search ::placeholder{
+    color: gray;
+}
+.search input{
+    border: none;
+    background-color: #F8FAFF;
+    width: 30rem;
+    outline: none;
+}
+.airtime{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.airtime p{
+    font-size: 13px;
+}
+.flexout{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cfcccc;
+    border-top: 1px solid #cfcccc;
+    cursor: pointer;
+}
+.biller{
+    display: flex;
+    gap: 5%;
+    padding: 30px;
+    align-items: center;
+}
+.biller p{
+    font-size: 19px;
+}
+.biller button{
+    background-color: #1B59F8;
+    border: none;
+    width: 12rem;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
+.network{
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+    cursor: pointer;
+}
+.electric{
+    padding-right: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+    gap: 10px;
+    width: 100%;
+}

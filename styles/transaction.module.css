@@ -1,0 +1,84 @@
+.background{
+    background-color: white;
+    border-radius: 10px;
+}
+.container{
+    padding-top: 20px;
+}
+.transact{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(221, 217, 217);
+    padding: 30px;
+    color: gray;
+}
+.transact p{
+    color: #1B59F8;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+.transact h3{
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+.profile{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+.profile p{
+   font-size: 11px;
+   padding: 5PX;
+   border-radius: 2px;
+}
+.profile span{
+    font-size: 10px;
+    color: gray;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.gridout{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.footer span{
+    color: #969494;
+    font-size: 13px;
+}
+.btn{
+    display: flex;
+    gap: 15px;
+}
+.btn button{
+    height: 30px;
+    padding: 5px;
+    display: flex;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #969494;
+    border: 1px solid gray;
+}
+.btn1{
+    display: flex;
+    gap: 10px;
+}
+.btn1 button{
+ background-color: transparent;
+ width: 30px;
+ cursor: pointer;
+ display: flex;
+ border-radius: 5px;
+ justify-content: center;
+} 

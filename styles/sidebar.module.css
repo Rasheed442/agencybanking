@@ -1,0 +1,76 @@
+
+.container{
+    padding: 10px;
+    display: flex;
+    padding-top: 3rem;
+    flex-direction: column;
+    gap: 5px;
+    padding-left: 0;
+    /* width: 15rem; */
+    /* position: fixed; */
+}
+.head{
+    display: flex;
+    gap: 10px;
+    padding-left: 20px;
+    width: 13rem;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+    color: gray;
+}
+.head p{
+    font-size: 14px;
+}
+.exit1{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    border-top: 2px solid gainsboro;
+    margin-top: 5rem;
+    gap: 30px;
+}
+.exit1 h4{
+    color: gray;
+    font-weight: 500;
+    font-size: 12px;
+}
+.exit{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid gainsboro;
+    cursor: pointer;
+}
+.exit span{
+    color: gray;
+    font-size: 12px;
+}
+.profile{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.profile h4{
+    color: black;
+}
+.top{
+    background-color: #E8EEFE;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 13rem;
+    border-left: 5px solid #1B59F8;
+
+}
+/* .top p{
+    color: #1B59F8;
+} */
+.top2{
+    color: #1B59F8;
+}
+@media screen and (max-width:1427px) {
+    .container{
+        display: none;
+    }
+}

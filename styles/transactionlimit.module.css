@@ -1,0 +1,136 @@
+.header{
+    display: flex;
+    width: 100vw;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.container h1{
+    font-weight: 500;
+    font-size: 25px;
+}
+.profile{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.reminder div{
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 10px;
+    margin-left: -10px;
+}
+.reminder{
+    display: flex;
+}
+/* .reminder img{
+    margin-left: -8px;
+} */
+.name{
+    color: black;
+}
+.name p{
+    text-transform: capitalize;
+}
+.name span{
+    color: gray;
+    font-size: 12px
+}
+.line{
+    width: 2px;
+    height: 50px;
+    background-color: gainsboro;
+}
+.main{
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+}
+.whitesmoke{
+    background-color: whitesmoke;
+    height: 100%;
+    padding: 20px;
+}
+.white{
+    background-color: white;
+    height: 100vh;
+    border-radius: 10px;
+}
+.commission{
+    padding: 30px;
+    border-bottom: 1px solid rgb(173, 172, 172);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.commission p{
+    font-size: 16px;
+}
+.commission button{
+    background-color:#1B59F8;
+    color: white;
+    width: 10rem;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.timer{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #EFF6FF;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+.timer p{
+    font-size: 13px;
+}
+.timer span{
+    font-size: 10px;
+    color: gray;
+}
+.flexout{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.transaction{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.transaction span{
+    font-size: 13px;
+    color: rgb(176, 175, 175);
+}
+.transaction p{
+    font-size: 13px;
+    text-align: right;
+    color: #7E7E7E;
+}
+.limits{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.limits button{
+    background-color: #1B59F8;
+    height: 60px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.gridout{
+    display: grid;
+    padding: 4rem;
+    gap: 10%;
+    grid-template-columns: repeat(2,auto);
+}

@@ -1,0 +1,41 @@
+.dash1{
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+    height: 40px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 15rem;
+    padding: 10px;
+    color: #8791A3;
+}
+
+   
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+     width: 20rem;
+    padding-top: 7rem;
+}
+
+.exit{
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+.profile span{
+    color: gray;
+}
+
+
+@media screen and (max-width:1427px) {
+    .container{
+        display: none;
+    }
+}

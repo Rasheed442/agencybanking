@@ -1,0 +1,217 @@
+.header{
+    display: flex;
+    width: 100vw;
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+}
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.reminder div{
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 10px;
+    margin-left: -10px;
+}
+.reminder{
+    display: flex;
+}
+.name span{
+    color: gray;
+    font-size: 13px
+}
+.line{
+    width: 2px;
+    height: 50px;
+    background-color: gainsboro;
+}
+.search input{
+    border: none;  
+     width: 30rem;
+     outline: none;
+     font-size: 15px;
+}
+.search{
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 20px;
+    height: 100%;
+}
+.modal{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+/* gray background */
+.bg{
+    background-color: #EFF0F6;
+    border-radius: 10px;
+    padding: 30px;
+}
+.accounts{
+    background-color: white;
+    display: flex;
+    border-radius: 20px;
+    height: 200px;
+    width: 37rem;
+    padding: 20px;
+    justify-content: space-between;
+}
+.agents{
+    background-color: #E8EEFE;
+    display: flex;
+    border-radius: 20px;
+    height: 200px;
+    width: 50%;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.flexout{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.account{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.account p{
+    font-size: 13px;
+}
+.account button{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    font-size: 10px;
+    font-weight: 600;
+    background-color: #E8EEFE;
+    border: none;
+    color: #1B59F8;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.account span{
+    color: #909090;
+    font-size: 11px;
+}
+.account h5{
+    color: #909090;
+    font-weight: 500;
+    font-size: 17px;
+}
+.account1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.account1 p{
+    font-size: 35px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: right;
+}
+.account1 button{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #00B3FE;
+    border: none;
+    width: 10rem;
+    color: white;
+    margin-left: 4rem;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 5px;
+}
+.account1 h5{
+    color: #909090;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 7rem;
+
+}
+
+
+
+.agent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #1B59F8;
+}
+
+.agent button{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    background-color: #E8EEFE;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.agent span{
+    color: #909090;
+    font-size: 15px;
+}
+.agent h4{
+    color: #909090;
+    font-weight: 500;
+    font-size: 45px;
+    color: #1B59F8;
+}
+.agent h5{
+   font-weight: 510;
+   font-size: 17px;
+}
+.agent span{
+    color: #008000;
+}
+.agent1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.agent1 p{
+    font-size: 30px;
+}
+.agent1 button{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: #1B59F8;
+    cursor: pointer;
+    border: none;
+    color: white;
+    width: 10rem;
+    align-items: center;
+    border-radius: 5px;
+}
+.agent1 h5{
+    color: #909090;
+    font-size: 15px;
+    font-weight: 500;
+}
+.agent1 img{
+    margin-left: 120px;
+}
+

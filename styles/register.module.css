@@ -1,0 +1,50 @@
+.background{
+    background-color: ghostwhite;
+    height: 100vh;
+    padding-top: 4rem;
+    overflow-x: hidden;
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+.container{
+    background-color: white;
+    display: flex;
+    border-radius: 15px;
+    gap: 40px;
+    padding: 20px;
+    flex-direction: column;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.name input{
+    height: 50px;
+    font-size: 17px;
+    outline: none;
+    width: 20rem;
+    padding: 10px;
+}
+.grid{
+    display: grid;
+    grid-row-gap: 50px;
+    grid-template-columns: repeat(2,auto);
+}
+.grid button{
+    background-color: #1B59F8;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    width: 20rem;
+    height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.eclipse{
+    position: absolute;
+    right: 0;
+    margin-top: -15rem;
+    overflow-y: hidden;
+}

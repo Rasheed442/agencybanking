@@ -1,0 +1,225 @@
+.background{
+    display: flex;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+.profile{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.reminder div{
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 10px;
+    margin-left: -10px;
+}
+.reminder{
+    display: flex;
+}
+.name span{
+    color: gray;
+    font-size: 13px
+}
+.line{
+    width: 2px;
+    height: 50px;
+    /* background-color: gainsboro; */
+}
+.search input{
+    border: none;  
+    width: 25rem;
+     outline: none;
+     background-color: #F8FAFF;
+}
+.search::placeholder{
+    color: #999999;
+}
+.search{
+    border: 1px solid #00A4E4;
+    background-color: #F8FAFF;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    padding: 10px;
+    width: 30rem;
+}
+.main{
+    width: 100vw;
+    height: 100vh;
+    overflow: scroll;
+}
+.agent{
+    background-color: #E8EEFE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px;
+    color: #1B59F8;
+    border-radius: 10px;
+    width: 15%;
+    cursor: pointer;
+}
+.agent p{
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-weight: 500;
+    align-items: center;
+}
+.contain{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.bg{
+    /* background-color:#fbfbfb; */
+    border-radius: 10px;
+    background-color: #EFF0F6;
+    padding: 20px;
+}
+.white{
+    background-color: white;
+    height: 100%;
+    border-radius: 10px;
+}
+.head{
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+}
+.head p{
+    background-color: #1B59F8;
+    color: white;
+    height: 35px;
+    font-size: 12px;
+    width: 8rem;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+.head span{
+    color: gray;
+    cursor: pointer;
+    text-align: center;
+    width: 10rem;
+    font-size: 12px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.gridout{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 10px;
+
+}
+.status{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    cursor: pointer;
+}
+.status p{
+    font-size: 11px;
+}
+.status main{
+    color: gray;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.statu main{
+    color: gray;
+    font-size: 10px;
+}
+.statu{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    cursor: pointer;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.footer span{
+    color: #969494;
+    font-size: 13px;
+}
+
+
+
+/* csss for tables  */
+
+.table{
+    border-collapse: collapse;
+    font-size: 11.5px;
+    width: 100%;
+}
+.table th{
+    font-weight: 700;
+    text-align: left;
+    color: gray;
+    font-size: 10px;
+    padding: 10px;
+    background-color:#EFF0F6;
+}
+.table tr{
+    width: 100%;
+}
+.table tr:nth-child(odd) {
+    background-color:#EFF0F6;
+}
+.table td{
+    padding: 10px;
+}
+
+.btn{
+    display: flex;
+    gap: 15px;
+}
+.btn button{
+    height: 30px;
+    padding: 5px;
+    display: flex;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #969494;
+}
+.btn1{
+    display: flex;
+    gap: 10px;
+}
+.btn1 button{
+ border: 1px solid gainsboro; 
+ background-color: transparent;
+ width: 30px;
+ cursor: pointer;
+ display: flex;
+ border-radius: 5px;
+ justify-content: center;
+} 
+.odd{
+    background-color: red;
+}
+.datarow{
+    background-color: green;
+}
+/* csss for tables  */
