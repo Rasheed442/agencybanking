@@ -15,24 +15,30 @@ function Main() {
     const [commission, setCommission] = useState([])
     const [agent, setAgent] = useState([])
 
+    const [username, setUsername] = useState()
 
-    const username = typeof window !== 'undefined' ? localStorage.getItem("userName") : null
-    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+    // const username = typeof window !== 'undefined' ? window.localStorage.getItem('userName') : null
+    const token = typeof window !== 'undefined' ? window.localStorage.getItem('token') : null
 
+
+// local storage inputs
+    useEffect(()=>{
+      setUsername(localStorage.getItem("userName"))
+    },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
+  
 
 useEffect(() => {
-
   const config = {
     headers:{
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token && token}`
     }
   }
   Axios.get("http://89.38.135.41:9800/dashboard", config).then((response)=>{
     setData(response?.data)
-    console.log(data)
   })
-
 }, [])
+console.log(data)
+
 
    
 

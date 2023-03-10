@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Sidebar from '../component/Sidebar'
 import style from "../styles/reporting.module.css"
 import {AiTwotoneBell,AiOutlineDown,AiOutlineArrowRight} from "react-icons/ai"
@@ -6,22 +6,24 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { MdSearch } from 'react-icons/md'
 import { BsFilter,BsDownload } from 'react-icons/bs'
+import Table from "../component/Table"
 // import disputes from "./dispute.json"
-import Table from '../component/Table'
-import Caution from '../component/Caution'
-import disputes from "../pages/dispute.json"
+
 
 function dispute() {
+  
+  const [username, setUsername] = useState()
    const [counter, setCounter] = useState(1)
-   const [oneData, setOneData] = useState([])
-   const username = typeof window !== 'undefined' ? localStorage.getItem("userName")  : null
+  
 
-   const [show, setShow] = useState(false)
-   console.log(oneData)
-   console.log(show)
+
+
+   useEffect(()=>{
+    setUsername(localStorage.getItem("userName"))
+  },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
+  
   return (
     <div className={style.background}> 
-      {show ? <Caution data={oneData} check={setShow}/>:""}
         <Sidebar/>
         <div className={style.container}>
           <div className={style.main}>
@@ -69,12 +71,7 @@ function dispute() {
           </div>
 
 
-    <Table 
-    isClick={() => setShow(true) }
-    handleOne={(id) => {
-      setOneData(disputes?.find(d => d.id === id))
-    }}
-    />
+    <Table/>
         
         <div className={style.entries}>
           <p>Showing 1 to 50 of 100 entries</p>

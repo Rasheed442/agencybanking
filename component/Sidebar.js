@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import style from "../styles/sidebar.module.css"
 import {RxDashboard} from "react-icons/rx"
 import {MdSupervisorAccount,MdOutlineExitToApp,MdMiscellaneousServices,MdContentCopy,MdReportGmailerrorred} from "react-icons/md"
@@ -10,7 +10,11 @@ import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 function Sidebar({change}) {
 
-  const referralcode = typeof window !== "undefined" ? window.localStorage.getItem("referralcode") : false   
+  const [referralcode, setReferral] = useState()
+
+  useEffect(()=>{
+    setReferral(localStorage.getItem("referralcode"))
+  },[typeof window !== 'undefined' ? localStorage.getItem("referralcode"): null])
 
   return (
  <div className={style.container}>

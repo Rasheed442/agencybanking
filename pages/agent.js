@@ -13,9 +13,12 @@ import Axios from 'axios'
 import Term2 from '../component/Term2'
 function agent() {
    const [counter, setCounter] = useState(1)
+   const [username, setUsername] = useState()
   // counter
-  const username = typeof window !== 'undefined' ? (localStorage.getItem("userName"))  : null
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+  useEffect(()=>{
+    setUsername(localStorage.getItem("userName"))
+  },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
   
 // local storage
   

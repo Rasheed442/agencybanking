@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Sidebar from '../component/Sidebar'
 import style from "../styles/reporting.module.css"
 import {AiTwotoneBell,AiOutlineDown,AiOutlineArrowRight} from "react-icons/ai"
@@ -14,12 +14,15 @@ import {TiArrowUnsorted} from "react-icons/ti"
 function dispute() {
    const [counter, setCounter] = useState(1)
    const [oneData, setOneData] = useState([])
-   const username = typeof window !== 'undefined' ? localStorage.getItem("userName") : null
-
+   const [username, setUsername] = useState()
    const [show, setShow] = useState(false)
    console.log(oneData)
    console.log(show)
    
+   useEffect(()=>{
+    setUsername(localStorage.getItem("userName"))
+  },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
+
   return (
     <div className={style.background}> 
       {show ? <Caution data={oneData} check={setShow}/>:""}

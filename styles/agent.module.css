@@ -173,9 +173,8 @@
     width: 100%;
 }
 .table th{
-    font-weight: 700;
+    font-weight: 500;
     text-align: left;
-    color: gray;
     font-size: 10px;
     padding: 10px;
     background-color:#EFF0F6;

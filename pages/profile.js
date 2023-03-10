@@ -1,10 +1,15 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import Sidebar from '../component/Sidebar'
 import style from "../styles/profile.module.css"
 import {AiOutlineSearch,AiTwotoneBell,AiOutlineDown,AiTwotoneLock } from "react-icons/ai"
 import Image from 'next/image'
 function setting() {
-   const username = typeof window !== 'undefined' ? localStorage.getItem("userName") : null
+
+   const [username, setUsername] = useState()
+
+   useEffect(()=>{
+      setUsername(localStorage.getItem("userName"))
+    },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])   
 
   return (
     <div className={style.background}>

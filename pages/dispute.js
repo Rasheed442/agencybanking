@@ -1,23 +1,26 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Sidebar from '../component/Sidebar'
 import style from "../styles/dispute.module.css"
 import {AiTwotoneBell,AiOutlineDown,AiOutlineArrowRight} from "react-icons/ai"
 import Image from 'next/image'
 import Link from 'next/link'
 import { MdSearch } from 'react-icons/md'
-// import disputes from "./dispute.json"
 import Table from '../component/Table'
 import Caution from '../component/Caution'
 import disputes from "../pages/dispute.json"
-import {username} from "../pages/utilis"
 function dispute() {
    const [counter, setCounter] = useState(1)
    const [oneData, setOneData] = useState([])
-   const username = typeof window !== 'undefined' ? localStorage.getItem("userName") : null
+   const [username, setUsername] = useState()
    
    const [show, setShow] = useState(false)
    console.log(oneData)
    console.log(show)
+
+   useEffect(()=>{
+    setUsername(localStorage.getItem("userName"))
+  },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null]) 
+
   return (
     <div className={style.background}> 
       {show ? <Caution data={oneData} check={setShow}/>:""}

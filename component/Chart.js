@@ -87,7 +87,7 @@ function Chart() {
             </select>
         </div>
         <Bar data={data} barSize={30}/>
-        {/* <Bar/> */}
+            {/* <Bar/> */}
     </div>
 
 <div className={style.gridout}>

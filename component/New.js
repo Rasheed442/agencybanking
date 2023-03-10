@@ -35,6 +35,7 @@ function New({handle}) {
 
     }, [])
 
+ console.log(allstates)
 const sortState = allstates?.data?.statelcd?.map(d => {
     const state = Object.keys(d)
     return state
@@ -128,7 +129,6 @@ const getLcg = allstates?.data?.statelcd?.map(d => d[state] )
                 <div className={style.btn}>
               <button onClick={submithandler}> {loading ?<ClipLoader loading={loading} size={20} color={color}/>:"Submit"}</button>
                 </div>
-
             </div>
 
       </div>

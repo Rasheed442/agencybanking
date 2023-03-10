@@ -22,13 +22,17 @@ function account() {
   const [modal3, setModal3] = useState(false)
   const [counter, setCounter] = useState(1)
   const [see, setSee] = useState(false)
-  const [allagents, setAllagents] = useState([])
+  const [allagents, setAllagents] = useState([]) 
   const [data, setData] = useState()
   const [agentdata, setAgentdata] = useState([])
+  const [username, setUsername] = useState()
 
-  const username = typeof window !== 'undefined' ? localStorage.getItem("userName")  : null
+
+  useEffect(()=>{
+    setUsername(localStorage.getItem("userName"))
+  },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
+
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
-  // console.log('logo',logo)
 
   
  const config = {
@@ -41,7 +45,7 @@ function account() {
       setData(response?.data)
     })
   }, [])
-console.log(data)
+// console.log(data)
   
 useEffect(() => {
   Axios.get("http://89.38.135.41:9800/manager/agents/all", config).then((response)=>{
@@ -100,7 +104,7 @@ console.log(allagents)
           </div>
           <div className={style.account1}>
              <h5>Available Balance</h5>
-             {see ?<p onClick={()=>{setSee(false)}} type="password">&#8358; {data?.data?.balance?.commission}&nbsp;<AiFillEyeInvisible/></p>:""}
+             {see ?<p onClick={()=>{setSee(false)}} type="password">{data?.data?.currency?.symbol} {data?.data?.balance?.commission}&nbsp;<AiFillEyeInvisible/></p>:""}
              {see ? "":<p onClick={()=>{
                setSee(true)
                setTimeout(() => {

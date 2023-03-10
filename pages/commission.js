@@ -6,10 +6,15 @@ import  Image from 'next/image'
 import Axios from 'axios'
 import Link from 'next/link'
 import Setcommission from '../component/Setcommission'
+
 function setting() {
+    const [username, setUsername] = useState()
 
     const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
-
+    
+    useEffect(()=>{
+        setUsername(localStorage.getItem("userName"))
+      },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
 
     const config = {
         headers:{
@@ -47,7 +52,7 @@ function setting() {
                 <div className={style.line}></div>          
                     <Image src="/profile.png" width={40} height={40} priority/>
                 <div className={style.name}>
-                    <p>rash <AiOutlineDown size={10}/></p>
+                    <p>{username} <AiOutlineDown size={10}/></p>
                     <span>Agent Manager</span>
                 </div>
             </div>
