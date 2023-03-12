@@ -5,7 +5,7 @@ import {MdSupervisorAccount,MdOutlineExitToApp,MdMiscellaneousServices,MdContent
 import {AiOutlineUser} from "react-icons/ai"
 import Link from 'next/link'
 import {toast } from 'react-toastify'
-import Testing from '../component/Testing'
+import Utilis from '../component/Utilis'
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 function Sidebar({change}) {
@@ -20,7 +20,7 @@ function Sidebar({change}) {
  <div className={style.container}>
 
       <div className={style.header}>
-        <Testing/>
+      <Utilis/>
         </div>
     
   <div className={style.exit1} onClick={() => {navigator.clipboard.writeText(referralcode), toast.info("copied")}}>

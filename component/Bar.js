@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { BarChart, Bar, XAxis, YAxis,Tooltip} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis,Tooltip,ResponsiveContainer} from 'recharts';
 
 const data = [
   {
@@ -53,24 +53,17 @@ export default class Example extends PureComponent {
 
   render() {
     return (
+     <ResponsiveContainer    width={800}
+     height={300}>
         <BarChart
-          width={800}
-          height={700}
           data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
           barSize={20}
         >
-          <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
+          <XAxis dataKey="name" scale="point" padding={{ left: 50, right: 10 }} />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="pv" fill="orange" background={{ fill: '#eee' }} />
-        </BarChart>
-      
+          <Bar dataKey="pv" fill="orange" background={{ fill: '#eee',radius:[10, 10, 0, 0] }} radius={[10, 10, 0, 0]}/>
+        </BarChart></ResponsiveContainer>
     );
   }
 }

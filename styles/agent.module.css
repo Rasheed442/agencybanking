@@ -7,6 +7,9 @@
     padding: 20px;
     align-items: center;
 }
+.container h2{
+    font-weight: 500;
+}
 .profile{
     display: flex;
     gap: 20px;
@@ -29,11 +32,12 @@
 .line{
     width: 2px;
     height: 50px;
-    /* background-color: gainsboro; */
+    background-color: gainsboro;
 }
+
 .search input{
     border: none;  
-    width: 25rem;
+    width: 23rem;
      outline: none;
      background-color: #F8FAFF;
 }
@@ -45,34 +49,15 @@
     background-color: #F8FAFF;
     border-radius: 20px;
     display: flex;
-    gap: 10px;
     height: 100%;
-    padding: 10px;
+    padding: 5px;
     width: 30rem;
+    gap: 7px;
 }
 .main{
     width: 100vw;
     height: 100vh;
     overflow: scroll;
-}
-.agent{
-    background-color: #E8EEFE;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 13px;
-    color: #1B59F8;
-    border-radius: 10px;
-    width: 15%;
-    cursor: pointer;
-}
-.agent p{
-    font-size: 12px;
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    font-weight: 500;
-    align-items: center;
 }
 .contain{
     display: flex;
@@ -84,9 +69,10 @@
 }
 
 .bg{
-    /* background-color:#fbfbfb; */
+    background-color:#f6f6f6;
     border-radius: 10px;
-    background-color: #EFF0F6;
+    /* background-color: #f0efef; */
+    /* background-color: #efefef; */
     padding: 20px;
 }
 .white{
@@ -162,7 +148,30 @@
     color: #969494;
     font-size: 13px;
 }
-
+.corner{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.agent{
+    background-color: #E8EEFE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px;
+    color: #1B59F8;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+.agent p{
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    font-weight: 500;
+    align-items: center;
+}
 
 
 /* csss for tables  */
@@ -173,20 +182,27 @@
     width: 100%;
 }
 .table th{
-    font-weight: 500;
+    font-weight: 600;
     text-align: left;
-    font-size: 10px;
+    font-size: 11px;
     padding: 10px;
-    background-color:#EFF0F6;
+    color: rgb(104, 113, 130);
+    /* background-color:#EFF0F6; */
+    /* background-color: #f7f2f2; */
+    background-color:#f6f6f6;
 }
 .table tr{
     width: 100%;
 }
 .table tr:nth-child(odd) {
-    background-color:#EFF0F6;
+    /* background-color:#FAFAFA; */
+    background-color:#f6f6f6;
+    /* background-color: #f0efef; */
+
 }
 .table td{
     padding: 10px;
+    font-weight: 500;
 }
 
 .btn{

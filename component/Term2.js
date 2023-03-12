@@ -20,10 +20,10 @@ function Term2({check, data}) {
           <table className={styles.table}>
           <thead>
                 <tr>
-                   <th>AGENT NAME <TiArrowUnsorted size={12}/></th>
+                   <th>AGENT NAME <TiArrowUnsorted size={10}/></th>
                    <th>AGENT ID </th>
-                   <th>PHONE NUMBER <TiArrowUnsorted size={12}/></th>
-                   <th>AGENT BUSINESS NAME <TiArrowUnsorted size={12}/></th>
+                   <th>PHONE NUMBER <TiArrowUnsorted size={10}/></th>
+                   <th>BUSINESS NAME <TiArrowUnsorted size={12}/></th>
                    <th>EMAIL ADDRESS <TiArrowUnsorted size={12}/></th>
                    <th>ADDRESS <TiArrowUnsorted size={12}/></th>
                    <th>STATUS </th>
@@ -47,8 +47,8 @@ function Term2({check, data}) {
                         <td style={{textTransform:"uppercase"}}>{d?.address}</td>
                         <td>
                           <div>
-                            {toggle ?<MdToggleOff  size={25} onClick={()=> setToggle(false)}/> :
-                            <MdToggleOn style={{color:"green"}} size={25} onClick={()=> setToggle(true)}/>}
+                            {toggle ?<MdToggleOn style={{color:"green"}} size={25} onClick={()=> setToggle(false)}/> :
+                            <MdToggleOff  size={25} onClick={()=> setToggle(true)}/>}
                           </div>
                           </td>
                     </tr>

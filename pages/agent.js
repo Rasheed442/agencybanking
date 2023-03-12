@@ -12,13 +12,14 @@ import Assignterminal from '../component/Assignterminal'
 import Axios from 'axios'
 import Term2 from '../component/Term2'
 function agent() {
+  
    const [counter, setCounter] = useState(1)
    const [username, setUsername] = useState()
   // counter
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
   useEffect(()=>{
-    setUsername(localStorage.getItem("userName"))
-  },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
+      setUsername(localStorage.getItem("userName"))
+    },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
   
 // local storage
   
@@ -61,7 +62,6 @@ function agent() {
           <div className={style.profile}>
           <div className={style.reminder}>
          <AiTwotoneBell size={27} style={{backgroundColor:"gainsboro", color:"gray", borderRadius:"10px"}}/>
-          {/* <Image src="/dot.png" width={20} height={20} priority /> */}
           <div></div>
        </div>
              <div className={style.line}></div>          
@@ -76,8 +76,9 @@ function agent() {
       <div className={style.white}> 
       <div className={style.contain}>
         <p style={{fontSize:"15px"}}>{value}</p>
+        <div className={style.corner}>
         <div className={style.search}>
-             <AiOutlineSearch size={20} style={{marginBottom:"-6px", color:"gray"}}/>
+             <AiOutlineSearch size={20} style={{ color:"gray"}}/>
              <input type="text" placeholder='Search Terminals ID, Agent and Agent Managers'/>
         </div>
           {color?"":<div className={style.agent} onClick={()=> {setOpen(true)}}>
@@ -85,7 +86,8 @@ function agent() {
           </div>}       
           {color ?<div className={style.agent} onClick={()=> {setAssignterminal(true)}}>
                <p><AiOutlinePlus/> Assign New Terminal</p>
-          </div>:""}       
+          </div>:""}
+           </div>      
       </div>
       <div className={style.head}>
          <p onClick={(e)=>{setColor(false),setColor2(true), setValue(e.target.textContent)}} style={{backgroundColor: color ? "transparent":"#1B59F8", color:color ? "gray":""}}>Agents </p>

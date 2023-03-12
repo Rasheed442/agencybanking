@@ -2,8 +2,8 @@ import React from 'react'
 import style from "../styles/chart.module.css"
 import Image from 'next/image';
 import Chartjs from 'chart.js/auto';
-// import Bar from "../component/Bar"
-import {Bar,Pie, Line,Doughnut} from "react-chartjs-2"
+import Bar from "../component/Bar"
+import {Pie, Line,Doughnut} from "react-chartjs-2"
 import {AiOutlineArrowRight} from "react-icons/ai"
 import Transaction from './Transaction';
 function Chart() {  
@@ -86,8 +86,11 @@ function Chart() {
                 <option>DEC</option>
             </select>
         </div>
-        <Bar data={data} barSize={30}/>
-            {/* <Bar/> */}
+        {/* <Bar data={data} barSize={30}/> */}
+        <div className={style.bar}>
+               <Bar/>
+        </div>
+         
     </div>
 
 <div className={style.gridout}>
