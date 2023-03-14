@@ -42,13 +42,13 @@
 }
 .flex{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    /* grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); */
+    grid-template-columns: repeat(4,auto);
     grid-row-gap: 20px;
     grid-column-gap: 10px;
     justify-content: space-between;
     padding-left: 2rem;
     padding-right: 2rem;
-
 }
 .transaction{
     display: flex;
