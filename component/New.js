@@ -29,8 +29,8 @@ function New({handle}) {
   
 
    useEffect(() => {
-      Axios.get("http://89.38.135.41:9800/auth/states").then((response)=>{
-        setAllstate(response?.data) 
+      Axios.get("http://agencyuser.tm-dev.xyz/auth/states").then((response)=>{
+        setAllstate(responsse?.data) 
       })
 
     }, [])
