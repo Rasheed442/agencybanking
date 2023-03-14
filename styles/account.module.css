@@ -9,10 +9,9 @@
     align-items: center;
 }
 .container{
-    width: calc(100%-200px);
-    max-width: calc(100%-200px);  
+    width:100%;
+    max-width: calc(1440px - 280px);  
       height: 100vh;
-
     overflow: scroll;
 }
 .profile{
