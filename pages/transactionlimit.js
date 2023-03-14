@@ -31,7 +31,7 @@ function transactionlimit() {
         }
       }
       useEffect(() => {
-        Axios.get("http://89.38.135.41:9800/settings/transactioncap", config).then((response)=>{
+        Axios.get("https://agencyuser.tm-dev.xyz/settings/transactioncap", config).then((response)=>{
           setData(response?.data)
         })
       }, [])

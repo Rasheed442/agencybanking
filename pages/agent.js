@@ -38,7 +38,7 @@ function agent() {
       }
     }
     useEffect(() => {
-      Axios.get("http://89.38.135.41:9800/manager/agents/all", config).then((response)=>{
+      Axios.get("https://agencyuser.tm-dev.xyz/manager/agents/all", config).then((response)=>{
         console.log(response?.data)
         setAllagents(response?.data?.data?.getallagents)
       })

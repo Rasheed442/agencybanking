@@ -24,7 +24,7 @@ function setting() {
       }
       
       useEffect(() => {
-        Axios.get("http://89.38.135.41:9800/provider/airtime/networks", config).then((response)=>{
+        Axios.get("https://agencyuser.tm-dev.xyz/provider/airtime/networks", config).then((response)=>{
           console.log(response?.data)
         })
         

@@ -47,7 +47,7 @@ const getLcg = allstates?.data?.statelcd?.map(d => d[state] )
     async function submithandler(e){
       e.preventDefault();
       setLoading(true)
-        const response = await fetch ("http://89.38.135.41:9800/manager/create/agent",{
+        const response = await fetch ("https://agencyuser.tm-dev.xyz/manager/create/agent",{
           method:"POST",
           headers:{
             "Content-Type":"application/json",

@@ -33,7 +33,7 @@ useEffect(() => {
       Authorization: `Bearer ${token && token}`
     }
   }
-  Axios.get("http://89.38.135.41:9800/dashboard", config).then((response)=>{
+  Axios.get("https://agencyuser.tm-dev.xyz/dashboard", config).then((response)=>{
     setData(response?.data)
   })
 }, [])

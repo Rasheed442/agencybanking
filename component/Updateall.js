@@ -27,7 +27,7 @@ function Setcommission({cancelall}) {
 
    async function Updateall(e){
       e.preventDefault();
-      const response = await fetch ("http://89.38.135.41:9800/settings/transactioncap",{
+      const response = await fetch ("https://agencyuser.tm-dev.xyz/settings/transactioncap",{
         method:"POST",
         headers:{
           "Content-Type":"application/json",

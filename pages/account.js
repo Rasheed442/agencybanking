@@ -41,14 +41,14 @@ function account() {
     }
   }
   useEffect(() => {
-    Axios.get("http://89.38.135.41:9800/wallet/balance", config).then((response)=>{
+    Axios.get("https://agencyuser.tm-dev.xyz/wallet/balance", config).then((response)=>{
       setData(response?.data)
     })
   }, [])
 // console.log(data)
   
 useEffect(() => {
-  Axios.get("http://89.38.135.41:9800/manager/agents/all", config).then((response)=>{
+  Axios.get("https://agencyuser.tm-dev.xyz/manager/agents/all", config).then((response)=>{
     setAgentdata(response?.data?.getallagents)
   }) 
 }, [])
