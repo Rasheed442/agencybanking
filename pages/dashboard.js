@@ -132,7 +132,7 @@ console.log(data)
  <h4>{data?.data?.total_agent}</h4>
  <p><span style={{color:"green"}}><Image src="/Vector.png" width={15} height={10}/> 1.3%</span> up from last week</p>
 </div>
-<img src="/Frame2.png" width={50} height={50} priority/>
+<Image src="/Frame2.png" width={50} height={50} priority/>
 </div>
 
 <div className={style.gridout}>
