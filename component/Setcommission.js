@@ -15,7 +15,7 @@ function Setcommission({cancelCommission}) {
   }
 
   useEffect(() => {
-    Axios.get("http://89.38.135.41:9800/manager/provider/commission").then((response)=>{
+    Axios.get("https://agencyuser.tm-dev.xyz/manager/provider/commission").then((response)=>{
       // console.log(response.data)
       setServer(response?.data?.data?.providers)
     })
