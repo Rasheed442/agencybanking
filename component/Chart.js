@@ -91,7 +91,6 @@ function Chart() {
                 <option>DEC</option>
             </select>
         </div>
-        {/* <Bar data={data} barSize={30}/> */}
         <div className={style.bar}>
                <Bar/>
         </div>

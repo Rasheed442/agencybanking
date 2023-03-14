@@ -10,6 +10,7 @@ import {toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure()
+
 function New({handle}) {
       const [fullname, setFullname] = useState()
       const [phonenumber, setNumber] = useState()
