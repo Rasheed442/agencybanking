@@ -14,9 +14,15 @@
     align-items: center;
     gap: 20px;
 }
-.reminder img{
-    position: relative;
-    margin-left: -8px;
+.reminder div{
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 10px;
+    margin-left: -10px;
+}
+.reminder{
+    display: flex;
 }
 .name span{
     color: gray;

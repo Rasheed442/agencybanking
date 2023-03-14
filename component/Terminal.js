@@ -9,7 +9,6 @@ import Image from 'next/image'
 import Service from './Service'
 import Allservices from './Allservices'
 function Terminal({back,nav}) {
-   const [open, setOpen] = useState(false)
    const [allservice, setAllservice] = useState(false)
    const[clients, setClients] = useState()
 
@@ -33,7 +32,6 @@ function Terminal({back,nav}) {
   return (
     <div className={style.background}>
       {allservice ?<Allservices handle={setAllservice}/>:""}
-      {/* {open ?<Service handled={setOpen}/>:""} */}
        <Sidebar/> 
     <div className={style.main}> 
         <div className={style.container}>
@@ -45,10 +43,10 @@ function Terminal({back,nav}) {
         </div>
 
           <div className={style.profile}>
-              <div className={style.reminder}>
-                <AiTwotoneBell size={27} style={{backgroundColor:"gainsboro", color:"gray", borderRadius:"10px"}}/>
-                 <Image src="/dot.png" width={20} height={20} priority />
-              </div>
+          <div className={style.reminder}>
+         <AiTwotoneBell size={27} style={{backgroundColor:"gainsboro", color:"gray", borderRadius:"10px"}}/>
+          <div></div>
+       </div>
              <div className={style.line}></div>          
                    <Image src="/profile.png" width={40} height={40} priority/>
              <div className={style.name}>
@@ -116,30 +114,7 @@ function Terminal({back,nav}) {
             })
          }
           
-           {/* <div className={style.dstv}>
-              <h2>AirTime</h2>
-             <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
-           </div>
-           <div className={style.dstv}>
-              <h2>GOTV</h2>
-             <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
-           </div>
-           <div className={style.dstv}>
-              <h2>Electricity</h2>
-             <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
-           </div>
-           <div className={style.dstv}>
-              <h2>FIRS</h2>
-             <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
-           </div>
-           <div className={style.dstv}>
-              <h2>FRSC</h2>
-             <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
-           </div>
-           <div className={style.add} onClick={()=>{setOpen(true)}}>
-              <Image src='/add.png' width={50} height={50} priority/>
-              <p>Add New Services</p>
-           </div> */}
+          
 
         </div>
         <p style={{textAlign:"end", color:"blue", fontSize:"12px"}} onClick={()=>{setAllservice(true)}}>View All Services</p>
