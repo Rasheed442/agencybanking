@@ -55,6 +55,10 @@ function Modal2({cancelmodal2}) {
    <div className={style.proceed} onClick={()=>{
     // cancelmodal2(false)
      setFund(true)
+    setTimeout(() => {
+      cancelmodal2(false)
+    }, 2000);
+
    }}>
        <button>Proceed</button>
    </div>
@@ -67,65 +71,13 @@ function Modal2({cancelmodal2}) {
 
 
   {fund ?  <div className={styles.modal} >
-           {status ?"":<div className={styles.modal_content} data-aos='slide-down'>
-              
-                   <div className={styles.main}>
-                       <div className={styles.btn} onClick={()=>{
-                    cancelmodal2(false)
-                       }}>
-                                               <button>Close</button>
-                       </div>
-
-                          <div className={styles.card}>
-                               <label>Card number</label>
-                               <div className={styles.number}>
-                                  <input type='number' placeholder='1234 1234 1234 1234'/>
-                                  <Image src='/card.png' width={40} height={25} priority/>
-                               </div>
-                           </div>
-
-                   <div className={styles.flexout}>
-                          <div className={styles.expiry}>
-                               <label>Expiration</label>
-                               <input type='number' placeholder='MM / YY'/>
-                           </div>
-                          <div className={styles.expiry}>
-                               <label>CVC</label>
-                               <input type='number' placeholder='MM / YY'/>
-                           </div>
-                    </div>
-
-                    <div className={styles.card}>
-                               <label>Country</label>
-                               <div className={styles.number}>
-                                  <input type='text' placeholder='Nigeria'/>
-                                  <AiOutlineDown size={20}/>
-                               </div>
-                           </div>
-
-                     <div className={styles.end}>
-                        <p>By Providing Your Card Information, you allow<br/>agency banking to charge your card for future<br/>
-                        payments in accordance with their terms.
-                        </p>
-                        <button onClick={()=>{
-                           setStatus(true)
-                           setTimeout(() => {
-                            cancelmodal2(false)
-                           }, 3000);
-                        }}>Fund Account</button>
-                        </div>      
-
-    </div>
-
-    
-
- </div>}
+           
  
-   {status ?<div className={style.saved}>
+   <div className={style.saved}>
       <Image src='/saved.png' width={50} height={50} priority/>
       <h1>Transaction Successful</h1>
       <p>Your Account will be credited shortly</p>
-    </div>:""}
+    </div>
 
  </div>:""}
 

@@ -54,7 +54,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
     font-size: 20px;
     cursor: pointer;
@@ -183,7 +183,7 @@
     flex-direction: column;
     gap: 20px;
     padding-right: 10rem;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 .saved p{
     color: gray;

@@ -2,7 +2,7 @@ import React,{useState,useEffect, use} from 'react'
 import {AiOutlineSearch,AiTwotoneBell,AiOutlineDown} from "react-icons/ai"
 import {MdStackedLineChart} from "react-icons/md"
 import {BiLineChartDown} from "react-icons/bi"
-import {AiOutlineMenu} from "react-icons/ai"
+import {AiOutlineMenu,AiFillCaretDown} from "react-icons/ai"
 import Image from 'next/image'
 import Chart from '../component/Chart'
 import Link from 'next/link'
@@ -16,6 +16,11 @@ function Main() {
     const [agent, setAgent] = useState([])
 
     const [username, setUsername] = useState()
+
+    const [frame,setFrame] = useState("All-time")
+    const [roles,setRoles] = useState("All-time")
+    const [drop,setDrop] = useState(false)
+    const [drop1,setDrop1] = useState(false)
 
     // const username = typeof window !== 'undefined' ? window.localStorage.getItem('userName') : null
     const token = typeof window !== 'undefined' ? window.localStorage.getItem('token') : null
@@ -76,18 +81,56 @@ console.log(data)
 
 <div className={style.bg}>
 
-<div className={style.frame}>
- <select>
+<div className={style.options}>
+<div className={style.frame} >
+  <p onClick={()=>{setDrop(true)}}>Timeframe:{frame} <AiFillCaretDown style={{color:"black"}}/></p>
+  <div className={style.cor}>
+  {drop ?<span onClick={(e)=>{setFrame(e.target.textContent),setDrop(false)}}> This Year </span>:""}
+  {drop ?<span onClick={(e)=>{setFrame(e.target.textContent),setDrop(false)}}> Last 7 Days</span>:""}
+  {drop ?<span onClick={(e)=>{setFrame(e.target.textContent),setDrop(false)}}> This Month</span>:""}
+  {drop ?<span onClick={(e)=>{setFrame(e.target.textContent),setDrop(false)}}> This Year</span>:""}
+  {drop ?<span onClick={(e)=>{setFrame(e.target.textContent),setDrop(false)}}> All Time</span>:""}
+</div>
+</div>
+
+<div className={style.frame} >
+  <p onClick={()=>{setDrop1(true)}}> User Roles:{roles} <AiFillCaretDown style={{color:"black"}}/></p>
+  <div className={style.cor}>
+    {drop1 ?<div className={style.searching}>
+     <AiOutlineSearch/>
+     <input type="text" placeholder='Search'/>
+    </div>:""}
+    {drop1 ?<span>GROUPS</span>:""}
+  {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}><input  type="checkbox"/> All Users Roles </span>:""}
+  {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}><input type="checkbox"/> Agent Managers </span>:""}
+  {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}><input type="checkbox"/> Agents </span>:""}
+   {drop1?<hr/>:""}
+   {drop1 ?<span>Agent Managers</span>:""}
+   {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}><input type="checkbox"/> Jame Olayinka</span>:""}
+   {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}><input type="checkbox"/> Shola Adeniyi </span>:""}
+
+</div>
+</div>
+<div className={style.frame} >
+  <p > Region (location): All<AiFillCaretDown style={{color:"black"}}/></p>
+  <div className={style.cor}>
+  {/* {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> This Year </span>:""}
+  {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> Last 7 Days</span>:""}
+  {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> This Month</span>:""}
+  {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> This Year</span>:""}
+  {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> All Time</span>:""} */}
+</div>
+</div>
+</div>
+{/* flex */}
+ {/* <select>
    <option>Timeframe:All-time</option>
    <option>Timeframe:Last 7 Days</option>
    <option>Timeframe:This Month</option>
    <option>Timeframe:This Year</option>
    </select>
    <select><option>UserRoles:All</option></select>
-   <select><option>Region(Location):All-time</option></select>
-</div>
-{/* flex */}
-
+   <select><option>Region(Location):All-time</option></select> */}
 <div className={style.flex}>
 
 <div className={style.gridout}>
