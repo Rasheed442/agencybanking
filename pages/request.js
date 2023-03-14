@@ -93,11 +93,11 @@ function dispute() {
                    <th>AGENT NAME <TiArrowUnsorted size={11}/></th>
                    <th>AGENT ID </th>
                    <th>REQUEST MESSAGE<TiArrowUnsorted size={10}/></th>
-                   <th>REQUEST TYPE <TiArrowUnsorted size={12}/></th>
-                   <th>DURATION <TiArrowUnsorted size={12}/></th>
-                   <th>DATE <TiArrowUnsorted size={12}/></th>
+                   <th>REQUEST TYPE <TiArrowUnsorted size={11}/></th>
+                   <th>DURATION <TiArrowUnsorted size={11}/></th>
+                   <th>DATE <TiArrowUnsorted size={11}/></th>
                    <th>STATUS </th>
-                   <th>REQUEST REF.CODE <TiArrowUnsorted size={12}/></th>
+                   <th>REQUEST REF.CODE <TiArrowUnsorted size={11}/></th>
              </tr>   
             </thead>
             
