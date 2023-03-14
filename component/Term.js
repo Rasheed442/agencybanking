@@ -149,25 +149,25 @@ function Term({check}) {
        </div>
        <div className={style.statu}>
         <main>STATUS <TiArrowUnsorted size={12}/></main>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
-          <BsToggleOff size={25} style={{color:"#2DCA72"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
+          <BsToggleOn size={25} style={{color:"green"}}/>
        </div>
    </div>
 

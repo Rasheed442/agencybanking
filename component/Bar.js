@@ -59,10 +59,10 @@ export default class Example extends PureComponent {
           data={data}
           barSize={20}
         >
-          <XAxis dataKey="name" scale="point" padding={{ left: 50, right: 10 }} />
-          <YAxis />
+          <XAxis axisLine={false} tickLine={false} fontSize={10} dataKey="name" scale="point" padding={{ left: 30, right: 10 }} />
+          <YAxis axisLine={false} tickLine={false} fontSize={10}/>
           <Tooltip />
-          <Bar dataKey="pv" fill="orange" background={{ fill: '#eee',radius:[10, 10, 0, 0] }} radius={[10, 10, 0, 0]}/>
+          <Bar dataKey="pv" fill="orange" background={{ fill: '#eee',radius:[10, 10, 10, 10] }} radius={[10, 10, 10, 10]}/>
         </BarChart></ResponsiveContainer>
     );
   }

@@ -10,7 +10,7 @@
     display: none;
 }
 .bg{
-    background-color: #f0efef;
+    background-color:#f6f6f6;
     /* background-color: #efefef; */
     border-radius: 10px;
     display: flex;
@@ -42,7 +42,7 @@
 }
 .flex{
     display: grid;
-    grid-template-columns: repeat(4,auto);
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
     grid-row-gap: 20px;
     grid-column-gap: 10px;
     justify-content: space-between;
@@ -63,6 +63,21 @@
     display: flex;
     gap: 3rem;
     padding: 10px;
+}
+.transaction h5{
+    color: #909090;
+    font-size: 11.5px;
+    font-weight: 500;
+}
+.transaction h4{
+    font-size: 30px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.transaction p{
+    font-size: 12px;
+    color: #909090;
 }
 
 .profile{
@@ -119,24 +134,10 @@
 }
 
 
-.transaction h5{
-    color: #909090;
-    font-size: 10px;
-    font-weight: 100;
-}
-.transaction h4{
-    font-size: 30px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-}
-.transaction p{
-    font-size: 12px;
-    color: #909090;
-}
 
 
-@media screen and (max-width:1427px) {
+
+/* @media screen and (max-width:1427px) {
     .icon{
         display: block;
     }
@@ -179,4 +180,4 @@
     .gridout{
      width: 22rem;        
     }
-}
+} */

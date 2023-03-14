@@ -2,9 +2,8 @@
 .container{
     padding: 10px;
     display: flex;
-    padding-top: 7rem;
+    padding-top: 6rem;
     flex-direction: column;
-    gap: 5px;
     padding-left: 0;
     
 }
@@ -14,9 +13,13 @@
     padding-left: 20px;
     width: 13rem;
     padding-bottom: 10px;
-    padding-top: 10px;
+    padding-top: 15px;
     padding-right: 20px;
     color: gray;
+}
+.gap{
+    display: flex;
+  
 }
 .head p{
     font-size: 14px;
@@ -26,7 +29,7 @@
     padding: 20px;
     justify-content: space-between;
     border-top: 2px solid gainsboro;
-    margin-top: 5rem;
+    margin-top: 4rem;
     gap: 30px;
 }
 .exit1 h4{
@@ -59,9 +62,9 @@
     gap: 10px;
     padding-left: 20px;
     width: 13rem;
-    padding-bottom: 10px;
     padding-top: 10px;
     padding-right: 20px;
+    padding-bottom: 10px;
     color:blue;
     font-size: 14px;
     background-color: #E8EEFE;
@@ -76,8 +79,8 @@
 .top2{
     color: #1B59F8;
 }
-@media screen and (max-width:1427px) {
+/* @media screen and (max-width:1427px) {
     .container{
         display: none;
     }
-}
+} */

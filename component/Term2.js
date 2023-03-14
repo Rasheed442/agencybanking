@@ -23,9 +23,9 @@ function Term2({check, data}) {
                    <th>AGENT NAME <TiArrowUnsorted size={10}/></th>
                    <th>AGENT ID </th>
                    <th>PHONE NUMBER <TiArrowUnsorted size={10}/></th>
-                   <th>BUSINESS NAME <TiArrowUnsorted size={12}/></th>
-                   <th>EMAIL ADDRESS <TiArrowUnsorted size={12}/></th>
-                   <th>ADDRESS <TiArrowUnsorted size={12}/></th>
+                   <th>BUSINESS NAME <TiArrowUnsorted size={10}/></th>
+                   <th>EMAIL ADDRESS <TiArrowUnsorted size={10}/></th>
+                   <th>ADDRESS <TiArrowUnsorted size={10}/></th>
                    <th>STATUS </th>
              </tr>   
             </thead>
@@ -43,12 +43,12 @@ function Term2({check, data}) {
                         <td>{d?._id}</td>
                         <td>{d?.phonenumber}</td>
                         <td style={{textTransform:"uppercase"}}>{d?.business_name}</td>
-                        <td>{d?.email}</td>
+                        <td style={{textTransform:"uppercase"}}>{d?.email}</td>
                         <td style={{textTransform:"uppercase"}}>{d?.address}</td>
                         <td>
                           <div>
-                            {toggle ?<MdToggleOn style={{color:"green"}} size={25} onClick={()=> setToggle(false)}/> :
-                            <MdToggleOff  size={25} onClick={()=> setToggle(true)}/>}
+                            {toggle ?<BsToggleOn style={{color:"green"}} size={25} onClick={()=> setToggle(false)}/> :
+                            <BsToggleOff  size={25} onClick={()=> setToggle(true)}/>}
                           </div>
                           </td>
                     </tr>

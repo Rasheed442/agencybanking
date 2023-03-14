@@ -6,6 +6,7 @@ import  Image from 'next/image'
 import Axios from 'axios'
 import Link from 'next/link'
 import Setcommission from '../component/Setcommission'
+import Fundtransaction from '../component/Fundtransaction'
 
 function setting() {
     const [username, setUsername] = useState()
@@ -28,8 +29,9 @@ function setting() {
         })
         
       }, [])
-    const [airtime, setAirtime] = useState(true)
+    const [airtime, setAirtime] = useState(false)
     const [electricity, setElectricity] = useState(false)
+    const [fundtransaction, setFundtransaction] = useState(true)
     // modal commission toggle
     const [commission,setCommission] = useState(false)
   return (
@@ -42,7 +44,7 @@ function setting() {
             {/* <div className={style.icon} onClick={()=>{setShow(true)}}>
             <AiOutlineMenu size={25}/>
             </div> */}
-        <Link href='setting'>
+        <Link href='profile'>
             <div className={style.profile}>
                 <div className={style.reminder}>
                     <AiTwotoneBell size={27} style={{backgroundColor:"gainsboro", color:"gray", borderRadius:"10px"}}/>
@@ -72,6 +74,15 @@ function setting() {
          
          <div className={style.flexout}>
                     <div className={style.airtime} onClick={()=>{
+                        setFundtransaction(true)
+                        setAirtime(false)
+                        setElectricity(false)
+                    }} style={{color:fundtransaction ? "blue":""}}>
+                        <Image src="/data.png" width={25} height={25} priority/>
+                        <p>FUNDS TRANSACTION</p>
+                    </div>
+                    <div className={style.airtime} onClick={()=>{
+                        setFundtransaction(false)
                         setAirtime(true)
                         setElectricity(false)
                     }} style={{color:airtime ? "blue":""}}>
@@ -103,19 +114,23 @@ function setting() {
                     </div>
             </div>
         
-        <div className={style.biller}>
+   
+          
+          {fundtransaction?<Fundtransaction/>:""}
+       { airtime ?
+       <div>
+             <div className={style.biller}>
             <p>Select Biller:</p>
             <button onClick={()=>{
                 setCommission(true)
             }}>Set Commission</button>
         </div>
-
-       { airtime ?<div className={style.network}>
+       <div className={style.network}>
             <Image src="/mtn.png" width={100} height={100} priority/>
             <Image src="/glo.png" width={100} height={100} priority/>
             <Image src="/airtel.png" width={100} height={100} priority/>
             <Image src="/9mobile.png" width={100} height={100} priority/>
-        </div>:""}
+        </div></div>:""}
 
         {electricity ?<div className={style.electric}>
             <Image src="/ikeja.png" width={150} height={150} priority/>

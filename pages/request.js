@@ -2,7 +2,9 @@ import React,{useState,useEffect} from 'react'
 import Sidebar from '../component/Sidebar'
 import style from "../styles/reporting.module.css"
 import {AiTwotoneBell,AiOutlineDown,AiOutlineArrowRight} from "react-icons/ai"
+import {TiArrowUnsorted} from "react-icons/ti"
 import Image from 'next/image'
+import  Axios  from 'axios'
 import Link from 'next/link'
 import { MdSearch } from 'react-icons/md'
 import { BsFilter,BsDownload } from 'react-icons/bs'
@@ -14,14 +16,29 @@ function dispute() {
   
   const [username, setUsername] = useState()
    const [counter, setCounter] = useState(1)
+   const [server, setServer] = useState()
   
-
-
-
    useEffect(()=>{
     setUsername(localStorage.getItem("userName"))
   },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
-  
+
+
+  const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+
+
+  const config = {
+    headers:{
+      Authorization: `Bearer ${token}`
+    }
+  }
+  useEffect(() => {
+    Axios.get("http://89.38.135.41:9800/request", config).then((response)=>{
+      console.log(response?.data)
+      setServer(response?.data?.data?.requests)
+    })
+  }, [])
+        console.log(server)
+
   return (
     <div className={style.background}> 
         <Sidebar/>
@@ -46,7 +63,7 @@ function dispute() {
       <div className={style.gray}>
           <div className={style.white}>
              <div className={style.header}>
-              <p>Reporting</p>
+              <p>Request</p>
                <div className={style.search}>
                   <MdSearch size={20} style={{color:"gray"}}/>
                   <input placeholder='Search Agent name, Agent ID, Business name e.tc'/>
@@ -67,11 +84,51 @@ function dispute() {
                   <input type="date"/>
                 </div>
             </div>
-             {/* <button><BsDownload/> Download Report</button> */}
           </div>
 
 
-    <Table/>
+          <table className={style.table}>
+          <thead>
+                <tr>
+                   <th>AGENT NAME <TiArrowUnsorted size={11}/></th>
+                   <th>AGENT ID </th>
+                   <th>REQUEST MESSAGE<TiArrowUnsorted size={10}/></th>
+                   <th>REQUEST TYPE <TiArrowUnsorted size={12}/></th>
+                   <th>DURATION <TiArrowUnsorted size={12}/></th>
+                   <th>DATE <TiArrowUnsorted size={12}/></th>
+                   <th>STATUS </th>
+                   <th>REQUEST REF.CODE <TiArrowUnsorted size={12}/></th>
+             </tr>   
+            </thead>
+            
+             
+            {server?.map((d)=>{
+              return(
+                  <tr>
+                        <td style={{textTransform:"capitalize", cursor:"pointer"}}>{d?.name}</td>
+                        <td>{d?.user_id}</td>
+                        <td style={{textTransform:"capitalize"}}>{d.message}</td>
+                        <td style={{textTransform:"capitalize"}}>{d.type}</td>
+                        <td style={{textTransform:"capitalize"}}>{d.duration}</td>
+                        <td style={{textTransform:"uppercase"}}>{d.createdAt}</td>
+
+                        <td style={{margin:"3px",paddling:"0",lineHeight:"10px",display:"inline-flex",borderRadius:"5px",textTransform:"uppercase", 
+                        backgroundColor:`${d.status === "RESOLVED" ? "#00F4001A"
+                        : (d.status === "PENDING") ? "#E0191933"  :""
+                      }`, color:`${d.status === "RESOLVED" ? "green" : (d.status === "PENDING") ?"RED":""}`}}>
+                        {d.status}
+                        </td>
+
+                        <td style={{textTransform:"uppercase"}}>{d.reference}</td>
+                    </tr>
+                    )
+            })}
+                   
+                      
+                   
+             
+        </table>
+
         
         <div className={style.entries}>
           <p>Showing 1 to 50 of 100 entries</p>

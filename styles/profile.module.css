@@ -17,6 +17,17 @@
     display: flex;
     gap: 20px;
 }
+.accountdetails{
+    display: flex;
+    flex-direction: column;
+}
+.accountdetails span{
+    font-size: 20px;
+    font-weight: 500;
+}
+.accountdetails p{
+    font-weight: 500;
+}
 .prof{
     display: flex;
     justify-content: space-between;

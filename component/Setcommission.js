@@ -1,7 +1,27 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import style from "../styles/Setcommission.module.css"
+import Axios from 'axios'
 import {AiFillCaretDown,AiOutlineClose} from "react-icons/ai"
 function Setcommission({cancelCommission}) {
+
+ const [server, setServer] = useState()
+
+  const token = typeof window !== 'undefined' ? localStorage.getItem('token')  : null
+
+  const config = {
+    headers:{
+      Authorization: `Bearer ${token}`
+    }
+  }
+
+  useEffect(() => {
+    Axios.get("http://89.38.135.41:9800/manager/provider/commission").then((response)=>{
+      // console.log(response.data)
+      setServer(response?.data?.data?.providers)
+    })
+
+  }, [])
+  console.log(server)
   return (
     <div className={style.overlay}>
         <div className={style.white}>
@@ -13,15 +33,24 @@ function Setcommission({cancelCommission}) {
             </div>
      
         <div className={style.inputs}>   
+
+        <div className={style.name}>
+                <label>Service Name <span>*</span></label>
+                  <select>
+                   <option>jj</option>
+                    </select>
+            </div>
+
            <div className={style.billername}>
-             <label>Biller Name <span style={{color:"red"}}>*</span></label>
+             <label>Biller name<span style={{color:"red"}}>*</span></label>
              <div className={style.caret}>
-                <input type="text" placeholder="MTN-Nigeria"/>
-                <AiFillCaretDown/>
+                <input type="text" placeholder="32426272881"/>
+                
              </div>
            </div>
-           <div className={style.billername}>
-             <label>Biller Name <span style={{color:"red"}}>*</span></label>
+                 
+           <div style={{paddingTop:"20px"}} className={style.billername}>
+             <label>Payment mode<span style={{color:"red"}}>*</span></label>
              <div className={style.caret}>
                 <input type="text" placeholder="32426272881"/>
                 

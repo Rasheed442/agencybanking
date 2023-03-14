@@ -1,26 +1,19 @@
 .background{
     background-color: white;
     border-radius: 10px;
+    padding: 20px
 }
 .container{
     padding-top: 20px;
 }
 .transact{
     display: flex;
-    justify-content: space-between;
     border-bottom: 1px solid rgb(221, 217, 217);
-    padding: 30px;
+    padding: 15px;
     color: gray;
 }
-.transact p{
-    color: #1B59F8;
-    gap: 10px;
-    display: flex;
-    align-items: center;
-    font-size: 15px;
-}
 .transact h3{
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     color: black;
 }

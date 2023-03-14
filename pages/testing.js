@@ -1,17 +1,16 @@
 import React from 'react'
-import Utilis from '../component/Utilis'
-
-
+import Bar from "../component/Bar"
+import Radar from "../component/Radar"
+import Fundtransaction from "../component/Fundtransaction"
 function testing() {
-
-
   return (
-    <div >
-      <Utilis/>
- 
-  </div>
+    <div>
+      {/* <Bar/> */}
+      {/* <Radar/> */}
+      {/* <Pie/> */}
+      <Fundtransaction/>
+    </div>
   )
 }
 
 export default testing
-

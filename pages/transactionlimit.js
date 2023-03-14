@@ -8,13 +8,21 @@ import Link from 'next/link'
 import Updatetransactionlimit from '../component/Updatetransactionlimit'
 import Updateall from '../component/Updateall'
 function transactionlimit() {
+
+    const [username, setUsername] = useState()
+
      const [update, setUpdate] = useState(false)
      const [updateall, setUpdateall] = useState(false)
      const [data, setData] = useState([])
      const [daily, setDaily] = useState()
-
-     const username = typeof window !== 'undefined' ? localStorage.getItem("userName") : ""
+    
      const token = typeof window !== 'undefined' ? localStorage.getItem('token') : ""
+
+
+     useEffect(()=>{
+        setUsername(localStorage.getItem("userName"))
+      },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
+         
      const transactioncap = typeof window !== 'undefined' ? localStorage.getItem("allow_set_transactioncap") : ""
 
      const config = {
@@ -86,12 +94,10 @@ function transactionlimit() {
                         </div>
                     </div> 
 
-                    
+
                     <button onClick={()=>{
                         setUpdate(true)
                     }}>Update Transaction Limit</button>
-                    
-                    
                     </div>
 
                     <div className={style.limits}>

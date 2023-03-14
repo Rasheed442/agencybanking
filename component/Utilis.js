@@ -1,7 +1,7 @@
 import React from 'react'
 import style from "../styles/sidebar.module.css"
 import Link from 'next/link'
-import {MdOutlineSpaceDashboard,MdGroup} from "react-icons/md"
+import {MdDashboard,MdGroup} from "react-icons/md"
 import {AiOutlineStock,AiOutlineRight} from "react-icons/ai"
 import {RiFolderKeyholeLine} from "react-icons/ri"
 import {BsShieldExclamation} from "react-icons/bs"
@@ -10,7 +10,7 @@ import {useRouter} from 'next/router'
 
    const username = [
       {
-          "icon":<MdOutlineSpaceDashboard/>,
+          "icon":<MdDashboard/>,
           "name":"Dashboard",
           "path":"/dashboard",
           "background":"ghostwhite",
@@ -33,6 +33,14 @@ import {useRouter} from 'next/router'
           "color":"#1B59F8"
       },
       {
+        "icon":<AiOutlineStock/>,
+        "name":"Requests",
+        "path":"/request",
+        "background":"ghostwhite",
+        "color":"#1B59F8"
+
+    },
+      {
           "icon":<AiOutlineStock/>,
           "name":"Reporting",
           "path":"/reporting",
@@ -40,14 +48,7 @@ import {useRouter} from 'next/router'
           "color":"#1B59F8"
   
       },
-      {
-          "icon":<AiOutlineStock/>,
-          "name":"Requests",
-          "path":"/request",
-          "background":"ghostwhite",
-          "color":"#1B59F8"
-  
-      },
+   
       {
           "icon":<RiFolderKeyholeLine/>,
           "name":"Settings",

@@ -1,12 +1,17 @@
-import React from 'react' 
+import React,{useState,useEffect} from 'react' 
 import style from "../styles/chart.module.css"
 import Image from 'next/image';
 import Chartjs from 'chart.js/auto';
 import Bar from "../component/Bar"
 import {Pie, Line,Doughnut} from "react-chartjs-2"
-import {AiOutlineArrowRight} from "react-icons/ai"
+import {AiOutlineArrowRight,AiOutlineArrowLeft} from "react-icons/ai"
+import {TiArrowUnsorted } from "react-icons/ti"
 import Transaction from './Transaction';
+import Radar from "../component/Radar"
+import Link from 'next/link';
 function Chart() {  
+    const [counter, setCounter] = useState(1)
+
     const data = {
         labels:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
         datasets:[{
@@ -66,7 +71,7 @@ function Chart() {
     
 
   return (
-    <>
+    <div  className={style.top}>
       <div className={style.main}>
      <div className={style.chart}>
         <div className={style.statistic}>
@@ -110,7 +115,7 @@ function Chart() {
             </div>
         <div className={style.terminal}>
                 <span>Active Terminals</span>
-                <p>2,734<span>/1,324%</span></p>
+                <p>2,734<span>/1,324</span></p>
             </div>
         <div className={style.terminal}>
                 <span>Active Agents</span>
@@ -120,21 +125,7 @@ function Chart() {
                 <span>Acive Managers</span>
                 <p>90<span>/150</span></p>
             </div>
-        {/* <div className={style.terminal}>
-                <span>Active Transactions</span>
-                <p>501<span>/Min</span></p>
-                <Image src='/Graph.png' width={120} height={20} priority/>
-            </div> */}
-             {/* <div className={style.terminal}>
-                <span>Terminals</span>
-                <p>90<span>/150</span></p>
-                <Image src='/Graph.png' width={120} height={20} priority/>
-            </div>
-        <div className={style.terminal}>
-                <span>Active Locations</span>
-                <p>2m 34s</p>
-                <Image src='/Graph.png' width={120} height={20} priority/>
-            </div> */}
+      
        
 </div>
   </div>
@@ -175,8 +166,8 @@ function Chart() {
     <select><option>Lastweek</option></select>
   </div>
 
-<div className={style.chart1}>
-        <Doughnut data={doughnut}/>
+<div className={style.Radar}>
+        <Radar/>
     
     <div className={style.navigate}>
          <div className={style.manager}>
@@ -204,9 +195,223 @@ function Chart() {
     </div>
 
 </div>
-<Transaction/>
 
-    </>
+
+<div className={style.background}>
+<div className={style.transact}>
+            <h3>Agents</h3>
+            <Link href="/">View All Transaction</Link>
+        </div> 
+ <div className={style.gridoutside}>
+<div className={style.profile}>
+    <span>AGENT NAME<TiArrowUnsorted size={12}/></span>
+    <p>James Adekola</p>
+    <p>Shola Adeniyi</p>
+    <p>Shola Adeniyi</p>
+    <p>Tayo Temitope</p>
+    <p>Tayo Temitope</p>
+    <p>Shola Adeniyi</p>
+    <p>Shola Adeniyi</p>
+    <p>James Adekola</p>
+    <p>James Adekola</p>
+    <p>James Adekola</p>
+    <p>Shola Adeniyi</p>   
+    <p>Shola Adeniyi</p>   
+    <p>Shola Adeniyi</p>   
+    <p>Shola Adeniyi</p>   
+    <p>Shola Adeniyi</p>   
+</div>
+<div className={style.profile}>
+    <span>AGENT ID</span>
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+</div>
+<div className={style.profile}>
+    <span>RES MESSAGE <TiArrowUnsorted size={12}/></span>
+    <p>Transaction Approved</p>  
+    <p>Transaction Approved</p>  
+    <p>Transaction Approved</p>  
+    <p>Transaction Approved</p>  
+    <p>Insufficient Fund</p>  
+    <p>Transaction Approved</p>  
+    <p>Transaction Approved</p>  
+    <p>Transaction Approved</p>  
+    <p>Insufficient Fund</p>  
+    <p>Insufficient Fund</p>  
+    <p>Insufficient Fund</p>  
+    <p>Insufficient Fund</p>  
+    <p>Insufficient Fund</p>  
+    <p>Insufficient Fund</p>  
+    <p>Insufficient Fund</p>  
+</div>
+<div className={style.profile}>
+    <span>RESP CODE <TiArrowUnsorted size={12}/></span>
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+    <p>00</p> 
+</div>
+<div className={style.profile}>
+    <span>TRANS.TYPE &nbsp;<TiArrowUnsorted size={12}/></span>
+    <p style={{color:"green"}}>Withdrawal</p>
+    <p style={{color:"green"}}>Withdrawal</p>
+    <p style={{color:"green"}}>Withdrawal</p>
+    <p style={{color:"red"}}>Deposit</p>
+    <p style={{color:"green"}}>Withdrawal</p>
+    <p style={{color:"green"}}>Withdrawal</p>
+    <p style={{color:"green"}}>Withdrawal</p>
+    <p style={{color:"red"}}>Deposit</p>
+    <p style={{color:"green"}}>Withdrawal</p>
+    <p style={{color:"green"}}>Withdrawal</p>
+    <p style={{color:"green"}}>Withdrawal</p>
+    <p style={{color:"red"}}>Deposit</p>
+    <p style={{color:"red"}}>Deposit</p>
+    <p style={{color:"red"}}>Deposit</p>
+    <p style={{color:"red"}}>Deposit</p>
+
+</div>
+<div className={style.profile}>
+    <span>AMOUNT <TiArrowUnsorted size={12}/></span>
+    <p>&#8358;150,000</p>
+    <p>&#8358;250,000</p>
+    <p>&#8358;170,000</p>
+    <p>&#8358;80,000</p>
+    <p>&#8358;96,000</p>
+    <p>&#8358;10,000</p>
+    <p>&#8358;52,000</p>
+    <p>&#8358;80,000</p>
+    <p>&#8358;96,000</p>
+    <p>&#8358;42,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+</div>
+<div className={style.profile}>
+    <span>EARNING <TiArrowUnsorted size={12}/></span>
+    <p>&#8358;150,000</p>
+    <p>&#8358;250,000</p>
+    <p>&#8358;170,000</p>
+    <p>&#8358;80,000</p>
+    <p>&#8358;96,000</p>
+    <p>&#8358;10,000</p>
+    <p>&#8358;52,000</p>
+    <p>&#8358;80,000</p>
+    <p>&#8358;96,000</p>
+    <p>&#8358;42,000</p>
+    <p>&#8358;40,000</p> 
+    <p>&#8358;40,000</p> 
+    <p>&#8358;40,000</p> 
+    <p>&#8358;40,000</p> 
+    <p>&#8358;40,000</p> 
+</div>
+<div className={style.profile}>
+    <span>DATE <TiArrowUnsorted size={12}/></span>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+   <p>14th April 2022</p>
+</div>
+<div className={style.profile}>
+    <span>STATUS <  TiArrowUnsorted size={12}/></span>
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",borderRadius:"20px"}}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#FF3A441A",color:"red",width:"100%",textAlign:"center"}}>FAILED</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#FF3A441A",color:"red",width:"100%", textAlign:"center"}}>FAILED</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+</div>
+<div className={style.profile}>
+    <span>TRANS REF. <TiArrowUnsorted size={12}/></span>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+    <p>WTH/2021052980205747R...</p>
+</div>
+
+</div>
+<div className={style.footer}>
+        <span>Showing 1 to 5 of 100 entries</span>
+        <div className={style.btn}>
+          <button style={{border:"1px solid red", color:"red"}} onClick={()=>{
+            setCounter(counter-1)
+            if(counter === 1){
+              setCounter(1)
+              alert("it started from one")
+            }
+          }}><AiOutlineArrowLeft/>&nbsp;Previous</button>
+          <div className={style.btn1}>
+            <button>{counter}</button>
+            {/* <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>...</button>
+            <button>10</button> */}
+          </div>
+          <button  style={{border:"1px solid #1B59F8", color:"#1B59F8"}} onClick={()=>{
+            setCounter(counter+1)
+          }}>Next&nbsp;<AiOutlineArrowRight/></button>
+        </div>
+        </div>
+      </div>
+
+    </div>
   
   
    

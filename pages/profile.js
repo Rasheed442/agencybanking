@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import Sidebar from '../component/Sidebar'
 import style from "../styles/profile.module.css"
+import {RiFileCopyFill} from "react-icons/ri"
 import {AiOutlineSearch,AiTwotoneBell,AiOutlineDown,AiTwotoneLock } from "react-icons/ai"
 import Image from 'next/image'
 function setting() {
@@ -48,7 +49,10 @@ function setting() {
             <div className={style.person}>
                   <div className={style.person1}>
                     <Image src='/profile.png' width={60} height={60} priority/>
-                    <p>Segun peter</p>
+                    <div className={style.accountdetails}>
+                     <span>{username}</span>
+                    <p>Account Number: <span>9127805458 </span><RiFileCopyFill size={20}style={{color:"#1B59F8"}}/></p>
+                    </div>
                   </div>
             </div>
                  

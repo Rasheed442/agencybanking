@@ -28,12 +28,12 @@ function Terminal({back,nav}) {
    })
    
  }, [])
- console.log(clients?.data?.currency?.symbol)
+ console.log(clients)
 
   return (
     <div className={style.background}>
       {allservice ?<Allservices handle={setAllservice}/>:""}
-      {open ?<Service handled={setOpen}/>:""}
+      {/* {open ?<Service handled={setOpen}/>:""} */}
        <Sidebar/> 
     <div className={style.main}> 
         <div className={style.container}>
@@ -63,13 +63,13 @@ function Terminal({back,nav}) {
       <div className={style.balance}>
              <div className={style.wallet}>
                 <span>Wallet Balance</span>
-                <p>{clients?.data?.currency?.symbol} {clients?.data?.balance?.wallet}</p>
+                <p><span style={{fontSize:"25px",color:"black"}}>{clients?.data?.currency?.symbol}</span>{clients?.data?.balance?.wallet}</p>
                 <h5><MdShowChart/>5.5%<span> up from last week</span></h5>
              </div>
 
              <div className={style.wallet}>
                 <span>Commission</span>
-                <p>{clients?.data?.currency?.symbol} {clients?.data?.balance?.commission}</p>
+                <p><span style={{fontSize:"25px",color:"black"}}>{clients?.data?.currency?.symbol}</span>{clients?.data?.balance?.commission}</p>
                 <h5 style={{color:"red"}}><MdShowChart/>2.1%<span> up from last week</span></h5>
              </div>
 
@@ -87,7 +87,7 @@ function Terminal({back,nav}) {
        </div>
       
         <div className={style.transactionlimit}>
-         <button>Transaction Limit</button>
+         <button>Set Transaction Limit</button>
         </div>
       {/* transaction */}
       
@@ -105,11 +105,18 @@ function Terminal({back,nav}) {
 
         <div className={style.balance}>
 
-           <div className={style.dstv}>
-              <h2>DSTV</h2>
-             <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
+         {
+            clients?.data?.services?.selectedService?.services?.slice(0,7)?.map((s)=>{
+               return (
+                   <div className={style.dstv}>
+              <h2>{s.name}</h2>
+             {s.status === true ? <p>Active <BsToggleOn style={{color:" #1B59F8"}} size={25}/></p>: <p><BsToggleOff style={{color:" #1B59F8"}} size={20}/></p>}
            </div>
-           <div className={style.dstv}>
+               )
+            })
+         }
+          
+           {/* <div className={style.dstv}>
               <h2>AirTime</h2>
              <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
            </div>
@@ -132,7 +139,7 @@ function Terminal({back,nav}) {
            <div className={style.add} onClick={()=>{setOpen(true)}}>
               <Image src='/add.png' width={50} height={50} priority/>
               <p>Add New Services</p>
-           </div>
+           </div> */}
 
         </div>
         <p style={{textAlign:"end", color:"blue", fontSize:"12px"}} onClick={()=>{setAllservice(true)}}>View All Services</p>
