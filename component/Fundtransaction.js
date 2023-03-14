@@ -25,7 +25,7 @@ function Fundtransaction() {
 </div> 
 
 <button onClick={()=>{
-}}>Update Transaction Limit</button>
+}}>Set Commission</button>
 </div>
 
     <div className={style.limits}>
@@ -50,7 +50,7 @@ function Fundtransaction() {
 
 <button onClick={()=>{
     setUpdate(true)
-}}>Update Transaction Limit</button>
+}}>Set Commission</button>
 </div>
 </div>
   )
