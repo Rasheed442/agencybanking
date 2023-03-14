@@ -105,7 +105,7 @@ function setting() {
                         <p>ELECTRICITY</p>
                     </div>
                     <div className={style.airtime}>
-                        <Image src="/smarttv.png" width={25} height={25} priority/>
+                        <Image src="/Smarttv.png" width={25} height={25} priority/>
                         <p>INTERNET</p>
                     </div>
                     <div className={style.airtime}>

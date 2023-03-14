@@ -23,7 +23,6 @@ function Table({handleOne,isClick}) {
                          {
                           disputes.map((d)=>{
                              return(
-                              <tbody>
                                      <tr>
                                     <td>{d.name}</td>
                                     <td>{d.id}</td>
@@ -42,7 +41,6 @@ function Table({handleOne,isClick}) {
                                     ?  "orange" : 'green' }`, color: `${d.Resolved_Status === "RESOLVED"?"GREEN":
                                      (d.Resolved_Status === "OPENED")?"RED":(d.Resolved_Status === "ESCALATED")?"white":""}`}}>{d.Resolved_Status}</td>
                                 </tr>
-                               </tbody>
                              )
                           })
                          }
