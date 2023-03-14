@@ -12,7 +12,7 @@ function Allservices({handle}) {
    {add1 ?"": <div className={style.background}>
       
 
-     <div className={style.container}  data-aos="slide-down">
+     <div className={style.container}  >
            <div className={style.head}>
            <h2>All Services</h2>
            <AiOutlineClose size={25} style={{cursor:"pointer"}} onClick={()=>{handle(false)}}/>
