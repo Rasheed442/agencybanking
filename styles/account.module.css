@@ -10,7 +10,7 @@
 }
 .container{
     width:100%;
-    max-width: calc(1440px - 280px);  
+    /* max-width: calc(1440px - 280px);   */
       height: 100vh;
     overflow: scroll;
 }
@@ -67,7 +67,7 @@
     display: flex;
     border-radius: 20px;
     height: 200px;
-    width: 37rem;
+    width: 50%;
     padding: 20px;
     justify-content: space-between;
 }
