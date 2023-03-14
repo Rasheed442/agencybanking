@@ -73,7 +73,7 @@ function Chart() {
   return (
     <div  className={style.top}>
       <div className={style.main}>
-        
+
      <div className={style.chart}>
         <div className={style.statistic}>
             <p>Transactional Activities</p>
@@ -91,7 +91,7 @@ function Chart() {
                 <option>NOV</option>
                 <option>DEC</option>
             </select>
-        </div>
+        </div><br/><br/>
                <Bar/>
          
     </div>
@@ -100,12 +100,12 @@ function Chart() {
         <div className={style.terminal}>
                 <span>Terminals</span>
                 <p>64%</p>
-                <Image src='/Graph.png' width={120} height={40} priority/>
+                <Image  src='/Graph.png' width={120} height={40} priority/>
             </div>
         <div className={style.terminal}>
                 <span>Agents</span>
                 <p>86%</p>
-                <Image src='/Graph.png' width={120} height={40} priority/>
+                <Image src='/Graph.png' width={40} height={40} priority/>
             </div>
         <div className={style.terminal}>
                 <span>Agent Managers</span>

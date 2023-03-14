@@ -24,7 +24,13 @@
     padding: 10px;
     border-radius: 10px;
     gap: 10px;
+    position: relative;
     flex-direction: column;
+}
+.terminal img{
+    position: absolute;
+    width: 90%;
+    bottom: 0;
 }
 .terminal span{
     color: gray;

@@ -77,8 +77,8 @@ export default class Example extends PureComponent {
       >
         <XAxis axisLine={false} tickLine={false} dataKey="name" fontSize={9} fontWeight={500}/>
         <YAxis axisLine={false} tickLine={false}  fontSize={9} fontWeight={500}/>
-        <Bar dataKey="total" stackId="a" fill="#FCAC61" barSize={12} radius={10}/>
-        <Bar dataKey="available" stackId="a" fill="#DFE4EB" barSize={12}/>
+        <Bar dataKey="total" stackId="a" fill="#FCAC61" barSize={12} />
+        <Bar dataKey="available" stackId="a" fill="#DFE4EB" radius={[10,10,0,0]} barSize={12}/>
       </BarChart>
     </ResponsiveContainer>
     );
