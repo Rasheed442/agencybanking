@@ -132,7 +132,7 @@ console.log(data)
  <h4>{data?.data?.total_agent}</h4>
  <p><span style={{color:"green"}}><Image src="/Vector.png" width={15} height={10}/> 1.3%</span> up from last week</p>
 </div>
-<Image src="/frame2.png" width={50} height={50} priority/>
+<img src="/Frame2.png" width={50} height={50} priority/>
 </div>
 
 <div className={style.gridout}>
@@ -158,7 +158,7 @@ console.log(data)
  <h5>Total Referral Bonus</h5>
  <h4><span style={{fontSize:"25px", fontWeight:"800"}}>&#8358;&nbsp;</span>66,503</h4>
 </div>
-<Image src="/frame1.png" width={50} height={50} priority/>
+<Image src="/Frame1.png" width={50} height={50} priority/>
 </div>
 
 </div>
