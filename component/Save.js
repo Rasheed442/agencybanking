@@ -19,7 +19,6 @@ function Save({handle, handled}) {
         <div className={style.btn}>
            <button onClick={()=>{handle(false)}}>Cancel</button>
            <button style={{backgroundColor:"blue",color:"white"}} onClick={()=>{setConfirm(true),  setTimeout(()=>{
-            alert("It was successful")
             window.location='/agent'
     },2000)}}>Confirm</button>
         </div>

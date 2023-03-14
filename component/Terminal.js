@@ -114,10 +114,33 @@ function Terminal({back,nav}) {
             })
          }
           
-          
+           {/* <div className={style.dstv}>
+              <h2>AirTime</h2>
+             <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
+           </div>
+           <div className={style.dstv}>
+              <h2>GOTV</h2>
+             <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
+           </div>
+           <div className={style.dstv}>
+              <h2>Electricity</h2>
+             <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
+           </div>
+           <div className={style.dstv}>
+              <h2>FIRS</h2>
+             <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
+           </div>
+           <div className={style.dstv}>
+              <h2>FRSC</h2>
+             <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
+           </div> */}
+           <div className={style.add} onClick={()=>{setAllservice(true)}}>
+              <Image src='/add.png' width={50} height={50} priority/>
+              <p>Add New Services</p>
+           </div>
 
         </div>
-        <p style={{textAlign:"end", color:"blue", fontSize:"12px"}} onClick={()=>{setAllservice(true)}}>View All Services</p>
+        <p style={{textAlign:"end", color:"blue", fontSize:"12px"}} onClick={()=>{}}>View All Services</p>
       </div>
 
 
