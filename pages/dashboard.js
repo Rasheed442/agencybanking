@@ -96,7 +96,7 @@ console.log(data)
  <h4><span style={{fontSize:"20px", fontWeight:"800"}}>&#8358;&nbsp;</span>500,000,783</h4>
  <p><span style={{color:"green"}}><Image src="/Vector.png" width={15} height={10}/> 1.3%</span> up from last week</p>
 </div>
-<Image src="/card.svg"width={50} height={50} priority/>
+<Image className={style.svg} src="/card.svg"width={50} height={50} priority/>
 </div>
 
 <div className={style.gridout}>
@@ -105,7 +105,7 @@ console.log(data)
  <h4><span style={{fontSize:"20px", fontWeight:"800"}}>&#8358;&nbsp;</span>{data?.data?.balance?.commission}</h4>
  <p><span style={{color:"red"}}><Image src="/vecdown.png" width={15} height={10}/> 1.3%</span> up from last week</p>
 </div>
-<Image src="/card1.svg" width={50} height={50} priority/>
+<Image src="/card1.svg" className={style.svg} width={50} height={50} priority/>
 </div>
 
 <div className={style.gridout}>
@@ -114,7 +114,7 @@ console.log(data)
  <h4>16,483</h4>
  <p><span style={{color:"green"}}><Image src="/Vector.png" width={15} height={10}/> 1.3%</span> up from last week</p>
 </div>
-<Image src="/card2.svg" width={50} height={50} priority/>
+<Image src="/card2.svg" className={style.svg} width={50} height={50} priority/>
 </div>
 
 <div className={style.gridout}>
@@ -123,7 +123,7 @@ console.log(data)
  <h4>1,288</h4>
  <p><span style={{color:"green"}}><Image src="/Vector.png" width={15} height={10}/> 1.3%</span> up from last week</p>
 </div>
-<Image src="/card3.svg" width={50} height={50} priority/>
+<Image className={style.svg} src="/card3.svg" width={50} height={50} priority/>
 </div>
 
 <div className={style.gridout}>
@@ -132,7 +132,7 @@ console.log(data)
  <h4>{data?.data?.total_agent}</h4>
  <p><span style={{color:"green"}}><Image src="/Vector.png" width={15} height={10}/> 1.3%</span> up from last week</p>
 </div>
-<Image src="/Frame2.png" width={50} height={50} priority/>
+<Image className={style.svg} src="/Frame2.png" width={50} height={50} priority/>
 </div>
 
 <div className={style.gridout}>
@@ -141,7 +141,7 @@ console.log(data)
  <h4>4,231</h4>
  <p><span><Image src="/Vector.png" width={15} height={10}/> 1.3%</span> up from last week</p>
 </div>
-<Image src="/person3.png" width={50} height={50} priority/>
+<Image className={style.svg} src="/person3.png" width={50} height={50} priority/>
 </div>
 
 <div className={style.gridout}>
@@ -150,7 +150,7 @@ console.log(data)
  <h4>5,783</h4>
  <p><span style={{color:"green"}}><Image src="/Vector.png" width={15} height={10}/> 1.3%</span> up from last week</p>
 </div>
-<Image src="/person2.png" width={50} height={50} priority/>
+<Image className={style.svg} src="/person2.png" width={50} height={50} priority/>
 </div>
 
 <div className={style.gridout}>
@@ -158,7 +158,7 @@ console.log(data)
  <h5>Total Referral Bonus</h5>
  <h4><span style={{fontSize:"25px", fontWeight:"800"}}>&#8358;&nbsp;</span>66,503</h4>
 </div>
-<Image src="/Frame1.png" width={50} height={50} priority/>
+<Image className={style.svg} src="/Frame1.png" width={50} height={50} priority/>
 </div>
 
 </div>

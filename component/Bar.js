@@ -3,67 +3,84 @@ import { BarChart, Bar, XAxis, YAxis,Tooltip,ResponsiveContainer} from 'recharts
 
 const data = [
   {
-    name: 'JAN',
-    pv: 400,
+      name: 'JAN',
+      total: 100,
+      available: 300,
   },
   {
-    name: 'FEB',
-    pv: 300,
+      name: 'FEB',
+      total: 140,
+      available: 260,
+  }
+  ,
+  {
+      name: 'MAR',
+      total: 140,
+      available: 260,
   },
   {
-    name: 'MAR',
-    pv: 200,
+      name: 'APR',
+      total: 240,
+      available: 160,
   },
   {
-    name: 'APR',
-    pv: 300,
+      name: 'MAY',
+      total: 280,
+      available: 120,
   },
   {
-    name: 'MAY',
-    pv: 400,
+      name: 'JUN',
+      total: 200,
+      available: 200,
   },
   {
-    name: 'JUL',
-    pv: 300,
+      name: 'JUL',
+      total: 240,
+      available: 160,
   },
   {
-    name: 'AUG',
-    pv: 300,
+      name: 'AUG',
+      total: 100,
+      available: 300,
   },
   {
-    name: 'SEP',
-    pv: 100,
+      name: 'SEP',
+      total: 240,
+      available: 160,
   },
   {
-    name: 'OCT',
-    pv: 200,
-  },
-
-  {
-    name: 'NOV',
-    pv: 300,
+      name: 'OCT',
+      total: 340,
+      available: 60,
   },
   {
-    name: 'DEC',
-    pv: 200,
+      name: 'NOV',
+      total: 380,
+      available: 20,
   },
+  {
+      name: 'DEC',
+      total: 400,
+      available: 0
+  }
 ];
+
 
 export default class Example extends PureComponent {
 
   render() {
     return (
-     <ResponsiveContainer    width={800}
-     height={300}>
-        <BarChart
-          data={data}
-          barSize={20}
-        >
-          <XAxis axisLine={false} tickLine={false} fontSize={10} dataKey="name" scale="point" padding={{ left: 30, right: 10 }} />
-          <YAxis axisLine={false} tickLine={false} fontSize={10}/>
-          <Tooltip />
-          <Bar dataKey="pv" fill="orange" background={{ fill: '#eee',radius:[10, 10, 10, 10] }} radius={[10, 10, 10, 10]}/>
-        </BarChart></ResponsiveContainer>
+      <ResponsiveContainer width="100%"aspect={2}>
+      <BarChart
+        data={data}
+        
+      >
+        <XAxis axisLine={false} tickLine={false} dataKey="name" fontSize={9} fontWeight={500}/>
+        <YAxis axisLine={false} tickLine={false}  fontSize={9} fontWeight={500}/>
+        <Bar dataKey="total" stackId="a" fill="#FCAC61" barSize={12} radius={10}/>
+        <Bar dataKey="available" stackId="a" fill="#DFE4EB" barSize={12}/>
+      </BarChart>
+    </ResponsiveContainer>
     );
   }
 }

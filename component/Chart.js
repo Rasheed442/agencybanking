@@ -73,6 +73,7 @@ function Chart() {
   return (
     <div  className={style.top}>
       <div className={style.main}>
+        
      <div className={style.chart}>
         <div className={style.statistic}>
             <p>Transactional Activities</p>
@@ -91,9 +92,7 @@ function Chart() {
                 <option>DEC</option>
             </select>
         </div>
-        <div className={style.bar}>
                <Bar/>
-        </div>
          
     </div>
 

@@ -5,10 +5,10 @@ import Fundtransaction from "../component/Fundtransaction"
 function testing() {
   return (
     <div>
-      {/* <Bar/> */}
+      <Bar/>
       {/* <Radar/> */}
       {/* <Pie/> */}
-      <Fundtransaction/>
+      {/* <Fundtransaction/> */}
     </div>
   )
 }
