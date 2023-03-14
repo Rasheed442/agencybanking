@@ -28,10 +28,9 @@
 
 .frame{
      /* display: grid;
-     grid-template-columns: repeat(4,1fr); */
+     grid-template-columns: repeat(2,1fr); */
      margin: 30px;
      position: relative;
-     height: 100%;     
 }
 .frame p{
     justify-content: space-between;
@@ -45,8 +44,7 @@
 }
 .options{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 10px;
+    grid-template-columns: 28% 28% 28%;
 }
 .searching{
     display: flex;

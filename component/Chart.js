@@ -105,7 +105,8 @@ function Chart() {
         <div className={style.terminal}>
                 <span>Agents</span>
                 <p>86%</p>
-                <Image src='/Graph.png' width={40} height={40} priority/>
+                <Image  src='/Graph.png' width={120} height={40} priority/>
+
             </div>
         <div className={style.terminal}>
                 <span>Agent Managers</span>
