@@ -1,9 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 import style from "../styles/transactionlimit.module.css"
 import Image from 'next/image'
+import Cashtransaction from "../component/Cashtransaction"
 function Fundtransaction() {
+    const [show, setShow] = useState(false)
   return (
-    <div className={style.gridout}>
+    <>
+          {show ?<Cashtransaction/>:""}
+
+    <div className={style.gridout}>  
+
     <div className={style.limits}>
     <div className={style.timer}>
         <Image src="/timer.png" height={50} width={50} priority/>
@@ -25,6 +31,7 @@ function Fundtransaction() {
 </div> 
 
 <button onClick={()=>{
+    // setShow(true)
 }}>Set Commission</button>
 </div>
 
@@ -52,7 +59,7 @@ function Fundtransaction() {
     setUpdate(true)
 }}>Set Commission</button>
 </div>
-</div>
+</div></>
   )
 }
 

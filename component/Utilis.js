@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import style from "../styles/sidebar.module.css"
 import Link from 'next/link'
 import {MdDashboard,MdGroup} from "react-icons/md"
@@ -34,21 +34,20 @@ import {useRouter} from 'next/router'
       },
       {
         "icon":<AiOutlineStock/>,
-        "name":"Reporting",
-        "path":"/reporting",
-        "background":"ghostwhite",
-        "color":"#1B59F8"
-
-    },
-      {
-        "icon":<AiOutlineStock/>,
         "name":"Requests",
         "path":"/request",
         "background":"ghostwhite",
         "color":"#1B59F8"
 
     },
-    
+      {
+          "icon":<AiOutlineStock/>,
+          "name":"Reporting",
+          "path":"/reporting",
+          "background":"ghostwhite",
+          "color":"#1B59F8"
+  
+      },
    
       {
           "icon":<RiFolderKeyholeLine/>,
@@ -90,10 +89,18 @@ import {useRouter} from 'next/router'
       }
   ]
 
+  
+
 
 function utilis() {
    const router = useRouter()
-   const currLocation = typeof window !== 'undefined' ? localStorage.getItem('currL') : null
+   const [currlocation, setCurrlocation] = useState()
+
+  //  const currlocation = typeof window !== 'undefined' ? localStorage.getItem('currL') : null
+
+  useEffect(()=>{
+    setCurrlocation(localStorage.getItem("currL"))
+  },[typeof window !== 'undefined' ? localStorage.getItem("currL"): null])
   return (
     <div >
       
@@ -110,12 +117,14 @@ function utilis() {
      </Link> 
 
 
-{currLocation === s.path &&( <div style={{marginLeft:"20px", display:"flex", flexDirection:"column"}}>
+{currlocation === s.path &&( <div style={{marginLeft:"20px", display:"flex", flexDirection:"column"}}>
 {s?.minilinks?.map((m)=>{
    return (
      <>
         <Link href={m.path} >
- <div className={style.head} >
+ <div onClick={(e)=>{
+
+ }} className={style.head} >
  <p className={router.pathname === m.path ? style.top2 : ""}><AiOutlineRight size={10}/> &nbsp;{m.name}</p>   
  </div>
 </Link> 

@@ -9,14 +9,11 @@
 .white{
     background-color: white;
     height: 100%;
-    overflow: scroll;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 40px;
-    padding-right: 30px;
-    padding-top: 90px;
+  
 }
 .billername{
     display: flex;
@@ -73,7 +70,7 @@
     flex-direction: column;
     gap: 10px;
     padding-top: 40px;
-    padding-right: 5rem;
+    /* padding-right: 10rem; */
     padding-left: 3rem;
 
 }
@@ -93,6 +90,10 @@
 .heading{
     display: flex;
     justify-content: space-between;
+    padding-left: 40px;
+    padding-right: 70px;
+}
+.heading h1{
 }
 .percentage input{
     border: none;

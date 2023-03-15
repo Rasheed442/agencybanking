@@ -46,9 +46,9 @@ function Setcommission({cancelall}) {
         <div className={style.white}>
             <div className={style.heading}>
                  <h1>Update Daily Transaction Limit</h1>  
-                 <AiOutlineClose size={30} onClick={()=>{
+                 {/* <AiOutlineClose size={30} onClick={()=>{
                     cancelall(false)
-                 }}/>   
+                 }}/>    */}
             </div>
 
            <div className={style.inputs}>   

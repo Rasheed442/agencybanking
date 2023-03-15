@@ -9,10 +9,12 @@
 .white{
     background-color: white;
     height: 100%;
-    width: 100%;
     overflow: scroll;
     border-radius: 10px;
     padding: 3rem;
+}.heading{
+    display: flex;
+    justify-content: space-between;
 }
 .billername{
     display: flex;
@@ -77,10 +79,7 @@
     width: 93%;
 }
 
-.heading{
-    display: flex;
-    justify-content: space-between;
-}
+
 .percentage input{
     border: none;
     font-size: 15px;
