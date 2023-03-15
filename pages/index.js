@@ -45,7 +45,7 @@ function login() {
             window.location="/dashboard"
           }, 1000);
         }else{
-          toast.error("Wrong Email or Password!")
+          // toast.error("Wrong Email or Password!")
           toast.error(server.message)
           setLoading(false)
         }
