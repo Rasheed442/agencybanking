@@ -30,7 +30,7 @@ function New({handle}) {
   
 
    useEffect(() => {
-      Axios.get("http://agencyuser.tm-dev.xyz/auth/states").then((response)=>{
+      Axios.get("https://agencyuser.tm-dev.xyz/auth/states").then((response)=>{
         setAllstate(response?.data) 
       })
 

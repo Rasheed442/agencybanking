@@ -34,20 +34,21 @@ import {useRouter} from 'next/router'
       },
       {
         "icon":<AiOutlineStock/>,
+        "name":"Reporting",
+        "path":"/reporting",
+        "background":"ghostwhite",
+        "color":"#1B59F8"
+
+    },
+      {
+        "icon":<AiOutlineStock/>,
         "name":"Requests",
         "path":"/request",
         "background":"ghostwhite",
         "color":"#1B59F8"
 
     },
-      {
-          "icon":<AiOutlineStock/>,
-          "name":"Reporting",
-          "path":"/reporting",
-          "background":"ghostwhite",
-          "color":"#1B59F8"
-  
-      },
+    
    
       {
           "icon":<RiFolderKeyholeLine/>,
@@ -57,7 +58,7 @@ import {useRouter} from 'next/router'
           "color":"#1B59F8",
           "minilinks":[
               {
-                  "name":"commission",
+                  "name":"Commission",
                   "path":"/commission",
                   "background":"ghostwhite",
                   "color":"#1B59F8"
@@ -92,6 +93,7 @@ import {useRouter} from 'next/router'
 
 function utilis() {
    const router = useRouter()
+   const currLocation = typeof window !== 'undefined' ? localStorage.getItem('currL') : null
   return (
     <div >
       
@@ -99,26 +101,28 @@ function utilis() {
       return(
         <>
         <Link href={s.path} >
-        <div className={router.pathname === s.path ? style.top : style.head}>
+        <div onClick={() => {
+          localStorage.setItem('currL', s.path)
+        }} className={router.pathname === s.path ? style.top : style.head}>
           <div>{s.icon}</div>
     <p>{s.name}</p>   
      </div>
      </Link> 
 
 
-{router.pathname === s.path && <div style={{marginLeft:"20px", display:"flex", flexDirection:"column"}}>
+{currLocation === s.path &&( <div style={{marginLeft:"20px", display:"flex", flexDirection:"column"}}>
 {s?.minilinks?.map((m)=>{
    return (
      <>
         <Link href={m.path} >
  <div className={style.head} >
- <p><AiOutlineRight size={10}/> &nbsp;{m.name}</p>   
+ <p className={router.pathname === m.path ? style.top2 : ""}><AiOutlineRight size={10}/> &nbsp;{m.name}</p>   
  </div>
 </Link> 
      </>
    )
 })}
-</div> }
+</div> )}
 </>
       ) 
     })}
