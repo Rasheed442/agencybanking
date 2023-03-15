@@ -4,12 +4,15 @@
     width: 100%;
     height: 100%;
     padding: 3rem;
+    display: flex;
+    padding-top: 8rem;
+    flex-direction: column;
     
 }
 .white{
     background-color: white;
     border-radius: 10px;
-    padding-top: 30px;
+    padding-top: 70px;
     padding-bottom: 20px;
     display: flex;
     flex-direction: column;
