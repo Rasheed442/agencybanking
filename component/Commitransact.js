@@ -21,7 +21,7 @@ function Commitransact({canceltransact}) {
              <h1>Set Commission</h1>  
              <AiOutlineClose size={30} onClick={()=>{
           canceltransact(false)
-             }}/>   
+             }} style={{cursor:"pointer"}}/>   
         </div>
  
 
@@ -32,7 +32,6 @@ function Commitransact({canceltransact}) {
             <input className={style.percent} type="number" placeholder="1.5%"/>
             <p style={{color:"blue"}}>Edit Commission</p>
          </div>
-         <h2>Select Provider</h2>
        </div>
 
       

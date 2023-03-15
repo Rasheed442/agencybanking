@@ -24,7 +24,7 @@ function Setcommission({cancelUpdate}) {
 
            <div className={style.inputs}>   
            <div className={style.billername}>
-             <label>Presentation Transaction Limit <span style={{color:"red"}}>*</span></label>
+             <label>Present Transaction Limit <span style={{color:"red"}}>*</span></label>
              <div className={style.caret}>
                 <input type="number" className={style.percent} placeholder="1,000,000"/>
                 
