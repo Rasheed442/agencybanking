@@ -8,9 +8,11 @@ import {MdShowChart} from "react-icons/md"
 import Image from 'next/image'
 import Service from './Service'
 import Allservices from './Allservices'
+import Cashtransaction from "../component/Cashtransaction"
 function Terminal({back,nav}) {
    const [allservice, setAllservice] = useState(false)
    const[clients, setClients] = useState()
+   const [open, setOpen] = useState()
 
    const username = typeof window !== 'undefined' ? localStorage.getItem("userName")  : null
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
@@ -31,6 +33,7 @@ function Terminal({back,nav}) {
 
   return (
     <div className={style.background}>
+      {open ?<Cashtransaction Cancelcash={setOpen}/>:""}
       {allservice ?<Allservices handle={setAllservice}/>:""}
        <Sidebar/> 
     <div className={style.main}> 
@@ -84,7 +87,9 @@ function Terminal({back,nav}) {
              </div>
        </div>
       
-        <div className={style.transactionlimit}>
+        <div className={style.transactionlimit} onClick={()=>{
+         setOpen(true)
+        }}>
          <button>Set Transaction Limit</button>
         </div>
       {/* transaction */}

@@ -1,14 +1,15 @@
 import React from 'react'
 import style from "../styles/Setcommission.module.css"
 import {AiFillCaretDown,AiOutlineClose} from "react-icons/ai"
-function Setcommission({cancelUpdate}) {
+function Setcommission({cancelUpdate,Cancelcash}) {
   return (
     <div className={style.overlay}>
         <div className={style.white}>
             <div className={style.heading}>
-                 <h1>Update Daily Transaction Limit</h1>  
+                 <h1>Update Transaction Limit</h1>  
                  <AiOutlineClose size={30} onClick={()=>{
-                    cancelUpdate(false)
+                    // cancelUpdate(false)
+                    Cancelcash(false)
                  }} style={{cursor:"pointer"}}/>   
             </div>
      
@@ -16,7 +17,7 @@ function Setcommission({cancelUpdate}) {
         <div className={style.commissionpercentage}>
              <label>Select Transaction Limit Type <span style={{color:"red"}}>*</span></label>
              <div className={style.percentage}>
-                <input type="text" placeholder=" Sending (per Transaction)"/>
+                <input type="text" placeholder="Weekly Transaction Limit"/>
                 <AiFillCaretDown size={20}/>
              </div>
              <h2>Select Provider</h2>
@@ -41,7 +42,9 @@ function Setcommission({cancelUpdate}) {
 
         </div>   
 
-        <div className={style.submit}>
+        <div className={style.submit} onClick={()=>{
+          Cancelcash(false)
+        }}>
               <button>Update</button>   
         </div>
     
