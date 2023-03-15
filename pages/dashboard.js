@@ -83,7 +83,7 @@ console.log(data)
 
 <div className={style.options}>
 <div className={style.frame} >
-  <p onClick={()=>{setDrop(true)}}>Timeframe:{frame} <AiFillCaretDown style={{color:"black"}}/></p>
+  <p onClick={()=>{setDrop(true)}}>Timeframe:{frame} <AiFillCaretDown style={{color:"black"}} onClick={()=>{setDrop(false)}}/></p>
   <div className={style.cor}>
   {drop ?<span onClick={(e)=>{setFrame(e.target.textContent),setDrop(false)}}> This Year </span>:""}
   {drop ?<span onClick={(e)=>{setFrame(e.target.textContent),setDrop(false)}}> Last 7 Days</span>:""}

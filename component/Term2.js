@@ -47,8 +47,7 @@ function Term2({check, data}) {
                         <td style={{textTransform:"uppercase"}}>{d?.address}</td>
                         <td>
                           <div>
-                            {toggle ?<BsToggleOn style={{color:"green"}} size={25} onClick={()=> setToggle(false)}/> :
-                            <BsToggleOff  size={25} onClick={()=> setToggle(true)}/>}
+                            <BsToggleOn style={{color:"green"}} size={25} onClick={()=> setToggle(false)}/>
                           </div>
                           </td>
                     </tr>

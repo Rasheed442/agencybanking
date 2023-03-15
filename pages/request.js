@@ -92,7 +92,7 @@ function dispute() {
                 <tr>
                    <th>AGENT NAME <TiArrowUnsorted size={11}/></th>
                    <th>AGENT ID </th>
-                   <th>REQUEST MESSAGE<TiArrowUnsorted size={10}/></th>
+                   <th>REQUEST MESSAGE<TiArrowUnsorted size={11}/></th>
                    <th>REQUEST TYPE <TiArrowUnsorted size={11}/></th>
                    <th>DURATION <TiArrowUnsorted size={11}/></th>
                    <th>DATE <TiArrowUnsorted size={11}/></th>
@@ -108,11 +108,11 @@ function dispute() {
                         <td style={{textTransform:"capitalize", cursor:"pointer"}}>{d?.name}</td>
                         <td>{d?.user_id}</td>
                         <td style={{textTransform:"capitalize"}}>{d.message}</td>
-                        <td style={{textTransform:"capitalize"}}>{d.type}</td>
-                        <td style={{textTransform:"capitalize"}}>{d.duration}</td>
+                        <td style={{textTransform:"uppercase"}}>{d.type}</td>
+                        <td style={{textTransform:"uppercase"}}>{d.duration}</td>
                         <td style={{textTransform:"uppercase"}}>{d.createdAt}</td>
 
-                        <td style={{margin:"3px",paddling:"0",lineHeight:"10px",display:"inline-flex",borderRadius:"5px",textTransform:"uppercase", 
+                        <td style={{margin:"5px",paddling:"0",lineHeight:"10px",display:"inline-flex",borderRadius:"5px",textTransform:"uppercase", 
                         backgroundColor:`${d.status === "RESOLVED" ? "#00F4001A"
                         : (d.status === "PENDING") ? "#E0191933"  :""
                       }`, color:`${d.status === "RESOLVED" ? "green" : (d.status === "PENDING") ?"RED":""}`}}>

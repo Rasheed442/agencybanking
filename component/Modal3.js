@@ -46,7 +46,7 @@ function Modal3({cancelmodal3}) {
         <div className={style.naration}>
         <div className={style.amount}>
             <label>Amount</label>
-            <input type='text' onChange={(e)=>{setAmount(e.target.value)}} placeholder='Enter Amount'/>
+            <input type='number' onChange={(e)=>{setAmount(e.target.value)}} placeholder='Enter Amount'/>
         </div>
 
         <div className={style.amount}>
@@ -64,7 +64,7 @@ function Modal3({cancelmodal3}) {
 
    {multiple ? "":<div className={style.agentaccount_number}>
       <label>Agent Account Number</label>
-      <input type='input' placeholder="Enter Agent's Account Number"/>
+      <input type='number' placeholder="Enter Agent's Account Number"/>
    </div>}
    
    </div>

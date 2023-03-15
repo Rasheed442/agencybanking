@@ -61,9 +61,15 @@
     font-size: 20px;
     outline: none;
     width: 15rem;
+    
 }
 .number ::placeholder{
     color:rgb(164, 160, 160);
+}
+.number input::-webkit-outer-spin-button,.number input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+    
 }
 .expiry{
     display: flex;
@@ -76,6 +82,12 @@
     font-size: 15px;
     border: 1px solid gainsboro;
     border-radius: 9px;
+    outline: none;
+}
+.expiry input::-webkit-outer-spin-button,.expiry input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+    
 }
 .flexout{
     display: flex;

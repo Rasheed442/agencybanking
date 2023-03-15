@@ -94,6 +94,11 @@
     color: gray;
     outline: none;
 }
+.amount input::-webkit-outer-spin-button,.amount input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+    
+}
 .bulk{
     padding-left: 6rem;
     padding-top: 30px;
@@ -165,6 +170,11 @@
     border-radius: 10px;
     border: 1px solid gainsboro;
 
+}
+.agentaccount_number input::-webkit-outer-spin-button,.agentaccount_number input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+    
 }
 .savings{
     position: fixed;

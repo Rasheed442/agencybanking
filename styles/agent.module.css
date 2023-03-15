@@ -194,7 +194,6 @@
 
 }
 .table tr{
-    width: 100%;
 }
 .table tr:nth-child(odd) {
     /* background-color:#FAFAFA; */
@@ -205,7 +204,7 @@
 .table td{
     padding: 10px;
     font-weight: 500;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .btn{
