@@ -4,6 +4,7 @@ import style from "../styles/reporting.module.css"
 import {AiTwotoneBell,AiOutlineDown,AiOutlineArrowRight} from "react-icons/ai"
 import disputes from "../pages/dispute.json"
 import Image from 'next/image'
+import Transaction from '../component/Transaction';
 import Link from 'next/link'
 import { MdSearch } from 'react-icons/md'
 import { BsFilter,BsDownload } from 'react-icons/bs'
@@ -73,50 +74,213 @@ function dispute() {
           </div>
 
 
-    {/* <Table 
-    /> */}
+          <div className={style.gridout}>
+
+<div className={style.profil}>
+    <span>AGENT NAME<TiArrowUnsorted size={12}/></span>
+    <p>James Adekola</p>
+    <p>Shola Adeniyi</p>
+    <p>Shola Adeniyi</p>
+    <p>Tayo Temitope</p>
+    <p>Tayo Temitope</p>
+    <p>Shola Adeniyi</p>
+    <p>Shola Adeniyi</p>
+    <p>James Adekola</p>
+    <p>James Adekola</p>
+    <p>James Adekola</p>
+    <p>Shola Adeniyi</p>   
+    <p>Shola Adeniyi</p>   
+    <p>Shola Adeniyi</p>   
+    <p>Shola Adeniyi</p>   
+    <p>Shola Adeniyi</p>   
+</div>
+<div className={style.profil}>
+    <span>AGENT ID</span>
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+    <p>N1123SB3</p> 
+</div>
+
+<div className={style.profil}>
+    <span>RESPONSE MESSAGE <TiArrowUnsorted size={12}/></span>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+    <p>Transaction Approved</p>
+</div>
+<div className={style.profil}>
+    <span>BUSINESS NAME &nbsp;<TiArrowUnsorted size={12}/></span>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+<p>TM30 GLOBAL INTERNATIONAL</p>
+</div>
+<div className={style.profil}>
+    <span>RESP.CODE <TiArrowUnsorted size={12}/></span>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    <p>00</p>
+    
+</div>
+<div className={style.profil}>
+    <span>TRANS.TYPE <TiArrowUnsorted size={12}/></span>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+   <p style={{color:"green"}}>Withdrawal</p>
+</div>
+<div className={style.profil}>
+    <span>AMOUNT <TiArrowUnsorted size={12}/></span>
+    <p>&#8358;150,000</p>
+    <p>&#8358;250,000</p>
+    <p>&#8358;170,000</p>
+    <p>&#8358;80,000</p>
+    <p>&#8358;96,000</p>
+    <p>&#8358;10,000</p>
+    <p>&#8358;52,000</p>
+    <p>&#8358;80,000</p>
+    <p>&#8358;96,000</p>
+    <p>&#8358;42,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+</div>
+<div className={style.profil}>
+    <span>EARNINGS <TiArrowUnsorted size={12}/></span>
+    <p>&#8358;150,000</p>
+    <p>&#8358;250,000</p>
+    <p>&#8358;170,000</p>
+    <p>&#8358;80,000</p>
+    <p>&#8358;96,000</p>
+    <p>&#8358;10,000</p>
+    <p>&#8358;52,000</p>
+    <p>&#8358;80,000</p>
+    <p>&#8358;96,000</p>
+    <p>&#8358;42,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+    <p>&#8358;40,000</p>
+</div>
+<div className={style.profil}>
+    <span>DATE <TiArrowUnsorted size={12}/></span>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+    <p>14 April 2022</p>
+</div>
+<div className={style.profil}>
+    <span>STATUS <  TiArrowUnsorted size={12}/></span>
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",borderRadius:"20px"}}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#FF3A441A",color:"red",width:"100%",textAlign:"center"}}>FAILED</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#FF3A441A",color:"red",width:"100%", textAlign:"center"}}>FAILED</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+     <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
+</div>
+<div className={style.profil}>
+    <span>TRANSACTION REF <TiArrowUnsorted size={12}/></span>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+    <p>WTH/23434663356866..</p>
+  
+</div>
+</div>
 
 
-<table className={style.table}>
-                      <thead>
-                            <tr>
-                               <th>AGENT NAME <TiArrowUnsorted size={12}/></th>
-                               <th>AGENT ID  <TiArrowUnsorted size={12}/></th>
-                               <th>PHONE NUMBER  <TiArrowUnsorted size={12}/></th>
-                               <th>AGENT BUSINESS NAME  <TiArrowUnsorted size={12}/></th>
-                               <th>AGENT EMAIL ADDRESS  <TiArrowUnsorted size={12}/></th>
-                               <th>TRANSACTION DISPUTES CONTENT  <TiArrowUnsorted size={12}/></th>
-                               <th>ACTION  <TiArrowUnsorted size={12}/></th>
-                               <th>RESOLVED STATUS  <TiArrowUnsorted size={12}/></th>
-                         </tr>   
-                        </thead>
-                      
-                         {
-                          disputes.map((d)=>{
-                             return(
-                                <tbody>
-                                     <tr>
-                                    <td>{d.name}</td>
-                                    <td>{d.id}</td>
-                                    <td>{d.number}</td>
-                                    <td>{d.business_name}</td>
-                                    <td>{d.agent_email}</td>
-                                    <td>{d.transaction_dispute}</td>
-                                    <td style={{color:"blue",cursor:"pointer"}}>{d.action}</td>
-
-                                    <td style={{width:"100%",margin:"5px",display:"inline-flex",borderRadius:"5px",
-                                    justifyContent:"center",alignItems:"center",backgroundColor:`${d.Resolved_Status === "RESOLVED" ? 
-                                    "#00F4001A" : (d.Resolved_Status === "OPENED") ? "#E0191933" : (d.Resolved_Status === "ESCALATED") 
-                                    ?  "orange" : 'green' }`, color: `${d.Resolved_Status === "RESOLVED"?"GREEN":
-                                     (d.Resolved_Status === "OPENED")?"RED":(d.Resolved_Status === "ESCALATED")?"white":""}`}}>{d.Resolved_Status}</td>
-
-                                </tr>
-                                </tbody>
-                               
-                             )
-                          })
-                         }
-                    </table>
 
 
         

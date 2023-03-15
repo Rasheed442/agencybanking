@@ -47,7 +47,6 @@
 }
 .gray{
     background-color:#f6f6f6;
-    height: 100vh;
     padding: 20px;
 }
 .white{
@@ -163,4 +162,28 @@
     display: flex;
     flex-direction: column;
     gap: 7px;
+}
+.profil{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.profil p{
+   font-size: 11px;
+   padding: 5PX;
+   border-radius: 2px;
+}
+.profil span{
+    font-size: 10px;
+    color: gray;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.gridout{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
