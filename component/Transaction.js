@@ -53,63 +53,83 @@ function Transaction() {
             <p>N1123SB3</p> 
             <p>N1123SB3</p> 
         </div>
+    
         <div className={style.profile}>
-            <span>RES MESSAGE <TiArrowUnsorted size={12}/></span>
-            <p>Transaction Approved</p>  
-            <p>Transaction Approved</p>  
-            <p>Transaction Approved</p>  
-            <p>Transaction Approved</p>  
-            <p>Insufficient Fund</p>  
-            <p>Transaction Approved</p>  
-            <p>Transaction Approved</p>  
-            <p>Transaction Approved</p>  
-            <p>Insufficient Fund</p>  
-            <p>Insufficient Fund</p>  
-            <p>Insufficient Fund</p>  
-            <p>Insufficient Fund</p>  
-            <p>Insufficient Fund</p>  
-            <p>Insufficient Fund</p>  
-            <p>Insufficient Fund</p>  
+            <span>AGENT ACC NO <TiArrowUnsorted size={12}/></span>
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+            <p>7383939939800</p> 
+         
         </div>
         <div className={style.profile}>
-            <span>RESP CODE <TiArrowUnsorted size={12}/></span>
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
-            <p>00</p> 
+            <span>BUSINESS NAME &nbsp;<TiArrowUnsorted size={12}/></span>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
+        <p>TM30 GLOBAL INTERNATIONAL</p>
         </div>
         <div className={style.profile}>
-            <span>TRANS.TYPE &nbsp;<TiArrowUnsorted size={12}/></span>
-            <p style={{color:"green"}}>Withdrawal</p>
-            <p style={{color:"green"}}>Withdrawal</p>
-            <p style={{color:"green"}}>Withdrawal</p>
-            <p style={{color:"red"}}>Deposit</p>
-            <p style={{color:"green"}}>Withdrawal</p>
-            <p style={{color:"green"}}>Withdrawal</p>
-            <p style={{color:"green"}}>Withdrawal</p>
-            <p style={{color:"red"}}>Deposit</p>
-            <p style={{color:"green"}}>Withdrawal</p>
-            <p style={{color:"green"}}>Withdrawal</p>
-            <p style={{color:"green"}}>Withdrawal</p>
-            <p style={{color:"red"}}>Deposit</p>
-            <p style={{color:"red"}}>Deposit</p>
-            <p style={{color:"red"}}>Deposit</p>
-            <p style={{color:"red"}}>Deposit</p>
-
+            <span>EMAIL ADDRESS <TiArrowUnsorted size={12}/></span>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            <p>CUSTOMER@TM30.NG</p>
+            
         </div>
         <div className={style.profile}>
-            <span>AMOUNT <TiArrowUnsorted size={12}/></span>
+            <span>STATE <TiArrowUnsorted size={12}/></span>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+           <p>LAGOS STATE</p>
+        </div>
+        <div className={style.profile}>
+            <span>AMOUNT FUNDED<TiArrowUnsorted size={12}/></span>
             <p>&#8358;150,000</p>
             <p>&#8358;250,000</p>
             <p>&#8358;170,000</p>
@@ -125,42 +145,6 @@ function Transaction() {
             <p>&#8358;40,000</p>
             <p>&#8358;40,000</p>
             <p>&#8358;40,000</p>
-        </div>
-        <div className={style.profile}>
-            <span>EARNING <TiArrowUnsorted size={12}/></span>
-            <p>&#8358;150,000</p>
-            <p>&#8358;250,000</p>
-            <p>&#8358;170,000</p>
-            <p>&#8358;80,000</p>
-            <p>&#8358;96,000</p>
-            <p>&#8358;10,000</p>
-            <p>&#8358;52,000</p>
-            <p>&#8358;80,000</p>
-            <p>&#8358;96,000</p>
-            <p>&#8358;42,000</p>
-            <p>&#8358;40,000</p> 
-            <p>&#8358;40,000</p> 
-            <p>&#8358;40,000</p> 
-            <p>&#8358;40,000</p> 
-            <p>&#8358;40,000</p> 
-        </div>
-        <div className={style.profile}>
-            <span>DATE <TiArrowUnsorted size={12}/></span>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
-           <p>14th April 2022</p>
         </div>
         <div className={style.profile}>
             <span>STATUS <  TiArrowUnsorted size={12}/></span>
@@ -180,25 +164,6 @@ function Transaction() {
              <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
              <p style={{backgroundColor:"#00F4001A",color:"#008000",width:"100%", }}>SUCCESSFUL</p> 
         </div>
-        <div className={style.profile}>
-            <span>TRANS REF. <TiArrowUnsorted size={12}/></span>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-            <p>WTH/2021052980205747R...</p>
-        </div>
-
 </div>
 
 

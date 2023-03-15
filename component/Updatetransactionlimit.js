@@ -41,7 +41,9 @@ function Setcommission({cancelUpdate}) {
 
         </div>   
 
-        <div className={style.submit}>
+        <div className={style.submit} onClick={()=>{
+          cancelUpdate(false)
+        }}>
               <button>Update</button>   
         </div>
     

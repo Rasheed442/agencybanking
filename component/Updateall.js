@@ -22,7 +22,7 @@ function Setcommission({cancelall}) {
        yearly_limit,yearly_limit_receiving,yearly_limit_sending
     }
 
-    const token = JSON.parse(localStorage.getItem('token'))
+    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
 
 
    async function Updateall(e){
@@ -46,9 +46,9 @@ function Setcommission({cancelall}) {
         <div className={style.white}>
             <div className={style.heading}>
                  <h1>Update Daily Transaction Limit</h1>  
-                 {/* <AiOutlineClose size={30} onClick={()=>{
+                 <AiOutlineClose size={30} onClick={()=>{
                     cancelall(false)
-                 }}/>    */}
+                 }}/>   
             </div>
 
            <div className={style.inputs}>   

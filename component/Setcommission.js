@@ -15,7 +15,7 @@ function Setcommission({cancelCommission}) {
   }
 
   useEffect(() => {
-    Axios.get("https://agencyuser.tm-dev.xyz/manager/provider/commission").then((response)=>{
+    Axios.get("https://agencyuser.tm-dev.xyz/manager/provider/commission",config).then((response)=>{
       // console.log(response.data)
       setServer(response?.data?.data?.providers)
     })
@@ -37,7 +37,7 @@ function Setcommission({cancelCommission}) {
         <div className={style.name}>
                 <label>Service Name <span>*</span></label>
                   <select>
-                   <option>jj</option>
+                   <option>MTN</option>
                     </select>
             </div>
 

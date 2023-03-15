@@ -24,7 +24,7 @@
 .inputs{
     padding-top:2rem ;
     display: grid;
-    grid-template-columns: repeat(2,auto);
+    grid-template-columns: repeat(3,1fr);
     gap: 7%;
     margin-bottom: 20rem;;
 }

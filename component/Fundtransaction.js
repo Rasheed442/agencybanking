@@ -1,12 +1,11 @@
 import React,{useState} from 'react'
-import style from "../styles/transactionlimit.module.css"
+import styles from "../styles/transactionlimit.module.css"
 import Image from 'next/image'
 import Cashtransaction from "../component/Cashtransaction"
 function Fundtransaction() {
     const [show, setShow] = useState(false)
   return (
     <>
-          {show ?<Cashtransaction/>:""}
 
     <div className={style.gridout}>  
 

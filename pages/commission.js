@@ -1,11 +1,13 @@
 import React,{useState,useEffect} from 'react'
 import Sidebar from '../component/Sidebar'
 import style from "../styles/commission.module.css"
+import styles from "../styles/transactionlimit.module.css"
 import {AiOutlineSearch,AiOutlineDown,AiTwotoneBell,AiOutlineMenu} from "react-icons/ai"
 import  Image from 'next/image'
 import Axios from 'axios'
 import Link from 'next/link'
 import Setcommission from '../component/Setcommission'
+import Commitransact from '../component/Commitransact'
 import Fundtransaction from '../component/Fundtransaction'
 
 function setting() {
@@ -32,23 +34,22 @@ function setting() {
     const [airtime, setAirtime] = useState(false)
     const [electricity, setElectricity] = useState(false)
     const [fundtransaction, setFundtransaction] = useState(true)
+    const [show, setShow] = useState(false)
     // modal commission toggle
     const [commission,setCommission] = useState(false)
   return (
     <div className={style.header}>
         {commission ?<Setcommission cancelCommission={setCommission}/>:""}
+        {show ?<Commitransact canceltransact={setShow}/>:""}
         <Sidebar/>
 <div className={style.main}>
      <div className={style.container}>
             <h1>Settings</h1>
-            {/* <div className={style.icon} onClick={()=>{setShow(true)}}>
-            <AiOutlineMenu size={25}/>
-            </div> */}
+         
         <Link href='profile'>
             <div className={style.profile}>
                 <div className={style.reminder}>
                     <AiTwotoneBell size={27} style={{backgroundColor:"gainsboro", color:"gray", borderRadius:"10px"}}/>
-                    {/* <Image src="/dot.png" width={20} height={20} priority /> */}
                     <div></div>
                 </div>
                 <div className={style.line}></div>          
@@ -116,7 +117,68 @@ function setting() {
         
    
           
-          {fundtransaction?<Fundtransaction/>:""}
+          {/* {fundtransaction?<Fundtransaction/>:""} */}
+
+      
+
+
+    {fundtransaction ?<div className={styles.gridout}>  
+
+<div className={styles.limits}>
+<div className={styles.timer}>
+    <Image src="/timer.png" height={50} width={50} priority/>
+    <div>
+        <p>Cash -in Transaction</p>
+    </div>
+</div>
+<div className={styles.flexout} >
+<div className={styles.transaction}>
+<span>card payment (Per Transaction)</span>
+    <span>cash payment(Per Transaction)</span>
+    <span>others (Per Transaction)</span>
+</div>
+<div className={styles.transaction}>
+    <p>1.5%</p>
+    <p>1.5%</p>
+    <p>1.5%</p>
+</div>
+</div> 
+
+<button onClick={()=>{
+setShow(true)
+}}>Set Commission</button>
+</div>
+
+<div className={styles.limits}>
+<div className={styles.timer}>
+    <Image src="/timer.png" height={50} width={50} priority/>
+    <div>
+    <p>Cash -out Transaction</p>
+    </div>
+</div>
+<div className={styles.flexout} >
+<div className={styles.transaction}>
+    <span>card payment (Per Transaction)</span>
+    <span>cash payment(Per Transaction)</span>
+    <span>others (Per Transaction)</span>
+</div>
+<div className={styles.transaction}>
+    <p>2.5%</p>
+    <p>2.5%</p>
+    <p>2.5%</p>
+</div>
+</div> 
+
+<button onClick={()=>{
+setShow(true)
+}}>Set Commission</button>
+</div>
+</div>:""}
+
+
+
+
+
        { airtime ?
        <div>
              <div className={style.biller}>
