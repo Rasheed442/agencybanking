@@ -83,7 +83,7 @@ console.log(data)
 
 <div className={style.options}>
 <div className={style.frame} >
-  <p onClick={()=>{setDrop(true)}}>Timeframe:{frame} <AiFillCaretDown style={{color:"black"}} onClick={()=>{setDrop(false)}}/></p>
+  <p onClick={()=>{setDrop(!drop)}}>Timeframe:{frame} <AiFillCaretDown style={{color:"black"}} onClick={()=>{setDrop(false)}}/></p>
   <div className={style.cor}>
   {drop ?<span onClick={(e)=>{setFrame(e.target.textContent),setDrop(false)}}> This Year </span>:""}
   {drop ?<span onClick={(e)=>{setFrame(e.target.textContent),setDrop(false)}}> Last 7 Days</span>:""}
@@ -94,7 +94,7 @@ console.log(data)
 </div>
 
 <div className={style.frame} >
-  <p onClick={()=>{setDrop1(true)}}> User Roles:{roles} <AiFillCaretDown style={{color:"black"}}/></p>
+  <p onClick={()=>{setDrop1(!drop1)}}> User Roles:{roles} <AiFillCaretDown style={{color:"black"}}/></p>
   <div className={style.cor}>
     {drop1 ?<div className={style.searching}>
      <AiOutlineSearch/>

@@ -108,18 +108,18 @@ function Terminal({back,nav}) {
 
         <div className={style.balance}>
 
-         {
+         {/* {
             clients?.data?.services?.selectedService?.services?.slice(0,7)?.map((s)=>{
                return (
                    <div className={style.dstv}>
-              <h2>{s.name}</h2>
-             {s.status === true ? <p>Active <BsToggleOn style={{color:" #1B59F8"}} size={25}/></p>: <p><BsToggleOff style={{color:" #1B59F8"}} size={20}/></p>}
+              <h2>{s?.name}</h2>
+             {s?.status === true ? <p>Active <BsToggleOn style={{color:" #1B59F8"}} size={25}/></p>: <p><BsToggleOff style={{color:" #1B59F8"}} size={20}/></p>}
            </div>
                )
             })
-         }
+         } */}
           
-           {/* <div className={style.dstv}>
+           <div className={style.dstv}>
               <h2>AirTime</h2>
              <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
            </div>
@@ -138,7 +138,7 @@ function Terminal({back,nav}) {
            <div className={style.dstv}>
               <h2>FRSC</h2>
              <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
-           </div> */}
+           </div>
            <div className={style.add} onClick={()=>{setAllservice(true)}}>
               <Image src='/add.png' width={50} height={50} priority/>
               <p>Add New Services</p>

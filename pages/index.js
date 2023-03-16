@@ -69,7 +69,6 @@ function login() {
            <div className={style.main}>
               <div>
                 <h2>Login</h2><br/>
-               <p>name of company.logo</p>
               </div>
                <div className={style.user}>
                   <label>Username or Email</label>
