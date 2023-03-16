@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Chartjs from 'chart.js/auto';
 import Bar from "../component/Bar"
 import {Pie, Line,Doughnut} from "react-chartjs-2"
-import {AiOutlineArrowRight,AiOutlineArrowLeft} from "react-icons/ai"
+import {AiOutlineArrowRight,AiOutlineRight,AiOutlineArrowLeft} from "react-icons/ai"
 import {TiArrowUnsorted } from "react-icons/ti"
 import Transaction from './Transaction';
 import Radar from "../component/Radar"
@@ -199,7 +199,7 @@ function Chart() {
 <div className={style.background}>
 <div className={style.transact}>
             <h3>Transactions</h3>
-            <Link href="/">View All Transaction</Link>
+            <Link href="/reporting">View All Transaction <AiOutlineRight size={11}/></Link>
         </div> 
  <div className={style.gridoutside}>
 <div className={style.profile}>

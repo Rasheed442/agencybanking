@@ -5,6 +5,7 @@ import {AiFillEyeInvisible,AiFillEye} from "react-icons/ai"
 import ClipLoader from "react-spinners/ClipLoader";
 import Link from 'next/link'
 import {toast } from 'react-toastify'
+import Updatecommission from '../component/Updatecommission'
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 function login() {
@@ -41,12 +42,10 @@ function login() {
         if(server.status){
           // toast.success(`Welcome! ${server?.data?.name}`)
           setLoading(false)
-          setTimeout(() => {
             window.location="/dashboard"
-          }, 1000);
         }else{
           // toast.error("Wrong Email or Password!")
-          // toast.error(server.message)
+          toast.error(server.message)
           setLoading(false)
         }
        

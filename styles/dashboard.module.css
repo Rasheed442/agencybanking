@@ -44,7 +44,7 @@
 }
 .options{
     display: grid;
-    grid-template-columns: 28% 28% 28%;
+    grid-template-columns: 28% 28% 28% 20%;
 }
 .searching{
     display: flex;
@@ -78,7 +78,7 @@
 .flex{
     /* grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); */
     display: grid;
-    gap: 10px;
+    gap: 20px;
     grid-template-columns: repeat(4,1fr);    
     padding-left: 25px; 
     padding-right: 20px; 

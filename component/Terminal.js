@@ -8,11 +8,13 @@ import {MdShowChart} from "react-icons/md"
 import Image from 'next/image'
 import Service from './Service'
 import Allservices from './Allservices'
-import Cashtransaction from "../component/Cashtransaction"
+import Updatecommission from '../component/Updatecommission'
+import Cashtransaction from "./Transactionlimit"
 function Terminal({back,nav}) {
    const [allservice, setAllservice] = useState(false)
    const[clients, setClients] = useState()
    const [open, setOpen] = useState()
+   const [update, setUpdate] = useState()
 
    const username = typeof window !== 'undefined' ? localStorage.getItem("userName")  : null
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
@@ -35,6 +37,8 @@ function Terminal({back,nav}) {
     <div className={style.background}>
       {open ?<Cashtransaction Cancelcash={setOpen}/>:""}
       {allservice ?<Allservices handle={setAllservice}/>:""}
+      {update &&<Updatecommission Cancelupdate={setUpdate}/>}
+
        <Sidebar/> 
     <div className={style.main}> 
         <div className={style.container}>
@@ -119,23 +123,33 @@ function Terminal({back,nav}) {
             })
          } */}
           
-           <div className={style.dstv}>
+           <div className={style.dstv} onClick={()=>{
+            setUpdate(true)
+           }}>
               <h2>AirTime</h2>
              <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
            </div>
-           <div className={style.dstv}>
+           <div className={style.dstv} onClick={()=>{
+            setUpdate(true)
+           }}>
               <h2>GOTV</h2>
              <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
            </div>
-           <div className={style.dstv}>
+           <div className={style.dstv} onClick={()=>{
+            setUpdate(true)
+           }}>
               <h2>Electricity</h2>
              <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
            </div>
-           <div className={style.dstv}>
+           <div className={style.dstv} onClick={()=>{
+            setUpdate(true)
+           }}>
               <h2>FIRS</h2>
              <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
            </div>
-           <div className={style.dstv}>
+           <div className={style.dstv} onClick={()=>{
+            setUpdate(true)
+           }}>
               <h2>FRSC</h2>
              <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
            </div>

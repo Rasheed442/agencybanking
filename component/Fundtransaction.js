@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import styles from "../styles/transactionlimit.module.css"
 import Image from 'next/image'
-import Cashtransaction from "../component/Cashtransaction"
+import Cashtransaction from "./Transactionlimit"
 function Fundtransaction() {
     const [show, setShow] = useState(false)
   return (

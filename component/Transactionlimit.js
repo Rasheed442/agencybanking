@@ -1,7 +1,7 @@
 import React from 'react'
 import style from "../styles/Setcommission.module.css"
 import {AiFillCaretDown,AiOutlineClose} from "react-icons/ai"
-function Setcommission({cancelUpdate,Cancelcash}) {
+function Transactionlimit({cancelUpdate,Cancelcash}) {
   return (
     <div className={style.overlay}>
         <div className={style.white}>
@@ -55,4 +55,4 @@ function Setcommission({cancelUpdate,Cancelcash}) {
   )
 }
 
-export default Setcommission
+export default Transactionlimit
