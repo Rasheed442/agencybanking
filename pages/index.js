@@ -39,14 +39,14 @@ function login() {
          typeof window !== 'undefined' ? localStorage.setItem('referralcode', server?.data?.my_referral_code) : null
 
         if(server.status){
-          toast.success(`Welcome! ${server?.data?.name}`)
+          // toast.success(`Welcome! ${server?.data?.name}`)
           setLoading(false)
           setTimeout(() => {
             window.location="/dashboard"
           }, 1000);
         }else{
           // toast.error("Wrong Email or Password!")
-          toast.error(server.message)
+          // toast.error(server.message)
           setLoading(false)
         }
        

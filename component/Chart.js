@@ -198,7 +198,7 @@ function Chart() {
 
 <div className={style.background}>
 <div className={style.transact}>
-            <h3>Agents</h3>
+            <h3>Transactions</h3>
             <Link href="/">View All Transaction</Link>
         </div> 
  <div className={style.gridoutside}>
