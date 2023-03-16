@@ -95,7 +95,6 @@
 .person{
     background-image: url("/cover.png");
     height: 10rem;
-    width: 90%;
     margin: 30px;
     border-radius: 20px;
 }
@@ -108,25 +107,40 @@
 .top{
     display: flex;
     justify-content: space-between;
-    padding-left: 2.5rem;
-    padding-right: 5rem;
-    gap: 10rem;
-}
-
-.middle{
-    display: flex;
-    padding-right: 5rem;
-    padding-left: 2.5rem;
-    justify-content: space-between;
-    margin-top: 30px;
-    margin-bottom: 30px;
-
+    
 }
 .name{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding-left: 2.5rem;
+
+
 }
+.middle{
+    display: flex;
+    padding-left: 0rem;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.email input{
+    height: 40px;
+    width: 40rem;
+    background-color: #E8EEFE;
+    border: 1px solid blue;
+    border-radius: 5px;
+    color: #212121;
+    outline: none;
+    font-size: 13px;
+    padding-left: 20px;
+}
+.email{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .name input{
     height: 40px;
     width: 25rem;

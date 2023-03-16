@@ -3,6 +3,7 @@ import Bar from "../component/Bar"
 import Radar from "../component/Radar"
 import Fundtransaction from "../component/Fundtransaction"
 import Updatecommission from '../component/Updatecommission'
+import Changepassword from '../component/Changepassword'
 function testing() {
   return (
     <div>
@@ -10,7 +11,8 @@ function testing() {
       {/* <Radar/> */}
       {/* <Pie/> */}
       {/* <Fundtransaction/> */}
-      <Updatecommission/>
+      {/* <Updatecommission/> */}
+      <Changepassword/>
     </div>
   )
 }

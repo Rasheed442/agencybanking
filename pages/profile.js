@@ -4,9 +4,12 @@ import style from "../styles/profile.module.css"
 import {RiFileCopyFill} from "react-icons/ri"
 import {AiOutlineSearch,AiTwotoneBell,AiOutlineDown,AiTwotoneLock } from "react-icons/ai"
 import Image from 'next/image'
+import Changepassword from '../component/Changepassword'
+
 function setting() {
 
    const [username, setUsername] = useState()
+   const [changepassword, setChangepassword] = useState(false)
 
    useEffect(()=>{
       setUsername(localStorage.getItem("userName"))
@@ -15,6 +18,7 @@ function setting() {
   return (
     <div className={style.background}>
     <Sidebar/>
+   {changepassword ?<Changepassword Close={setChangepassword}/>:""}
    <div className={style.header}>
     <div className={style.container}>
     <h2>Profile Management</h2>
@@ -43,7 +47,9 @@ function setting() {
             <div className={style.bg1}>
               <div className={style.prof}>
                  <p>My Profile</p>
-                <span><AiTwotoneLock size={15}/> Change Password</span>
+                <span onClick={()=>{
+                  setChangepassword(true)
+                }}><AiTwotoneLock size={15}/> Change Password</span>
               </div>
 
             <div className={style.person}>
@@ -61,7 +67,7 @@ function setting() {
                     <label>First Name</label>
                     <input type='text' placeholder='Segun Peters'/>
                  </div>
-                 <div className={style.name}>
+                 <div className={style.email}>
                     <label>Email Address</label>
                     <input type='email' placeholder='sakini@gmail.com'/>
                  </div>
@@ -83,7 +89,7 @@ function setting() {
             </div>
 
               <div className={style.add}>
-                  <label>Address</label>
+                  <label>Business Address</label>
                   <input type='text' placeholder="Enter Your Business Address"/>
               </div>
 
