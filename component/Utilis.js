@@ -34,20 +34,20 @@ import {useRouter} from 'next/router'
       },
       {
         "icon":<AiOutlineStock/>,
+        "name":"Reporting",
+        "path":"/reporting",
+        "background":"ghostwhite",
+        "color":"#1B59F8"
+
+    },
+      {
+        "icon":<AiOutlineStock/>,
         "name":"Requests",
         "path":"/request",
         "background":"ghostwhite",
         "color":"#1B59F8"
 
     },
-      {
-          "icon":<AiOutlineStock/>,
-          "name":"Reporting",
-          "path":"/reporting",
-          "background":"ghostwhite",
-          "color":"#1B59F8"
-  
-      },
    
       {
           "icon":<RiFolderKeyholeLine/>,

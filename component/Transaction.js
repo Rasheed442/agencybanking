@@ -55,7 +55,7 @@ function Transaction() {
         </div>
     
         <div className={style.profile}>
-            <span>AGENT ACC NO <TiArrowUnsorted size={12}/></span>
+            <span>AGENT ACCOUNT NO <TiArrowUnsorted size={12}/></span>
             <p>7383939939800</p> 
             <p>7383939939800</p> 
             <p>7383939939800</p> 

@@ -107,16 +107,16 @@ function dispute() {
                   <tr>
                         <td style={{textTransform:"capitalize", cursor:"pointer"}}>{d?.name}</td>
                         <td>{d?.user_id}</td>
-                        <td style={{textTransform:"capitalize"}}>{d.message}</td>
-                        <td style={{textTransform:"uppercase"}}>{d.type}</td>
-                        <td style={{textTransform:"uppercase"}}>{d.duration}</td>
-                        <td style={{textTransform:"uppercase"}}>{d.createdAt}</td>
+                        <td style={{textTransform:"capitalize"}}>{d?.message}</td>
+                        <td style={{textTransform:"uppercase"}}>{d?.type}</td>
+                        <td style={{textTransform:"uppercase"}}>{d?.duration}</td>
+                        <td style={{textTransform:"uppercase"}}>{d?.createdAt}</td>
 
                         <td style={{margin:"5px",paddling:"0",lineHeight:"10px",display:"inline-flex",borderRadius:"5px",textTransform:"uppercase", 
                         backgroundColor:`${d.status === "RESOLVED" ? "#00F4001A"
-                        : (d.status === "PENDING") ? "#E0191933"  :""
-                      }`, color:`${d.status === "RESOLVED" ? "green" : (d.status === "PENDING") ?"RED":""}`}}>
-                        {d.status}
+                        : (d?.status === "PENDING") ? "#E0191933"  :""
+                      }`, color:`${d?.status === "RESOLVED" ? "green" : (d.status === "PENDING") ?"RED":""}`}}>
+                        {d?.status}
                         </td>
 
                         <td style={{textTransform:"uppercase"}}>{d.reference}</td>
