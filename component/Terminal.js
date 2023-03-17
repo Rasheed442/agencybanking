@@ -17,8 +17,9 @@ function Terminal({back,nav}) {
    const [update, setUpdate] = useState()
 
    const username = typeof window !== 'undefined' ? localStorage.getItem("userName")  : null
-  const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
   const clientId = typeof window !== 'undefined' ? localStorage.getItem('d.id') : null
+
+  const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
 
   const config = {
    headers:{
@@ -31,7 +32,7 @@ function Terminal({back,nav}) {
    })
    
  }, [])
- console.log(clients)
+//  console.log(clients)
 
   return (
     <div className={style.background}>
@@ -112,8 +113,8 @@ function Terminal({back,nav}) {
 
         <div className={style.balance}>
 
-         {/* {
-            clients?.data?.services?.selectedService?.services?.slice(0,7)?.map((s)=>{
+         {
+            clients?.data?.services?.selectedservice?.services?.slice(0,6)?.map((s)=>{
                return (
                    <div className={style.dstv}>
               <h2>{s?.name}</h2>
@@ -121,9 +122,9 @@ function Terminal({back,nav}) {
            </div>
                )
             })
-         } */}
+         }
           
-           <div className={style.dstv} onClick={()=>{
+           {/* <div className={style.dstv} onClick={()=>{
             setUpdate(true)
            }}>
               <h2>AirTime</h2>
@@ -152,7 +153,7 @@ function Terminal({back,nav}) {
            }}>
               <h2>FRSC</h2>
              <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
-           </div>
+           </div> */}
            <div className={style.add} onClick={()=>{setAllservice(true)}}>
               <Image src='/add.png' width={50} height={50} priority/>
               <p>Add New Services</p>

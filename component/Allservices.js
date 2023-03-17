@@ -4,12 +4,32 @@ import {AiOutlineClose} from "react-icons/ai"
 import Service2 from '../component/Service2'
 import Link from 'next/link'
 import Save from '../component/Save';
+import Axios  from 'axios'
 
 function Allservices({handle}) {
       const [add, setAdd] = useState(false)
       const [open,setOpen] = useState(false)
       const [add1, setAdd1] = useState(false)
+
+      const [server, setServer] = useState()
+
+      const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+      const clientId = typeof window !== 'undefined' ? localStorage.getItem('d.id') : null
+
+      const config = {
+       headers:{
+         Authorization: `Bearer ${token}`
+       }
+     }
+     useEffect(() => {
+       Axios.get(`https://agencyuser.tm-dev.xyz/user/agents/details?id=53a6bf6f-2efd-443c-a795-c069eed3e66f`, config).then((response)=>{
+         setServer(response?.data)
+       })
+       
+     }, [])
+     console.log(server)
   return (
+   
     <> 
           {open ?<Save handle={setOpen}/>:""}
 
@@ -20,38 +40,18 @@ function Allservices({handle}) {
            <h2>All Services</h2>
            <AiOutlineClose size={25} style={{cursor:"pointer"}} onClick={()=>{handle(false)}}/>
            </div>
-           <div className={style.check}>
+
+           {server?.data?.services?.selectedservice?.services?.map((d)=>{
+            return (
+                 <div className={style.check}>
               <input className={style.check} type='checkbox' checked/>
-              <p>DSTV</p>
+              <p>{d.name}</p>
            </div>
-           <div className={style.check}>
-              <input className={style.check} type='checkbox' checked/>
-              <p>Airtime</p>
-           </div>
-           <div className={style.check}>
-              <input className={style.check} type='checkbox' checked/>
-              <p>GOTV</p>
-           </div>
-           <div className={style.check}>
-              <input className={style.check} type='checkbox' checked/>
-              <p>Electricity</p>
-           </div>
-           <div className={style.check}>
-              <input className={style.check} type='checkbox' checked/>
-              <p>FIRS</p>
-           </div>
-           <div className={style.check}>
-              <input className={style.check} type='checkbox' checked/>
-              <p>FRSC</p>
-           </div>
-           <div className={style.check}>
-              <input className={style.check} type='checkbox' checked/>
-              <p>DSTV</p>
-           </div>
-           <div className={style.check}>
-              <input className={style.check} type='checkbox' checked/>
-              <p>DATA SERVICES</p>
-           </div>
+            )
+          
+           })}
+           
+        
 
   
           

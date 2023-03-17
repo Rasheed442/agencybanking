@@ -100,7 +100,7 @@ console.log(allagents)
            <div className={style.account}>
              <h5>Main Account</h5>
              <p>My Card Details<br/><span>532 *** *** 4567</span></p>
-             <button onClick={()=> setModal1(true)}><AiOutlinePlus size={13} style={{color:"#1B59F8"}}/>&nbsp; Add New Card</button>
+             <button onClick={()=> setModal1(true)}><AiOutlinePlus size={13} style={{color:"#1B59F8"}}/>&nbsp; New Card</button>
           </div>
           <div className={style.account1}>
              <h5>Available Balance</h5>
