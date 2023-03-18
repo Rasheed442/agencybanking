@@ -31,7 +31,7 @@ function transactionlimit() {
         }
       }
       useEffect(() => {
-        Axios.get("https://agencyuser.tm-dev.xyz/settings/transactioncap", config).then((response)=>{
+        Axios.get(`${process.env.NEXT_PUBLIC_API}settings/transactioncap`, config).then((response)=>{
           setData(response?.data)
         })
       }, [])

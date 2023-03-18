@@ -41,14 +41,14 @@ function account() {
     }
   }
   useEffect(() => {
-    Axios.get("https://agencyuser.tm-dev.xyz/wallet/balance", config).then((response)=>{
+    Axios.get(`${process.env.NEXT_PUBLIC_API}wallet/balance`, config).then((response)=>{
       setData(response?.data)
     })
   }, [])
 // console.log(data)
   
 useEffect(() => {
-  Axios.get("https://agencyuser.tm-dev.xyz/manager/agents/all", config).then((response)=>{
+  Axios.get(`${process.env.NEXT_PUBLIC_API}manager/agents/all`, config).then((response)=>{
     setAgentdata(response?.data?.getallagents)
   }) 
 }, [])

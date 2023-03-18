@@ -6,7 +6,7 @@ import {MdToggleOn,MdToggleOff} from "react-icons/md"
 import Terminal from './Terminal'
 import {TiArrowUnsorted} from "react-icons/ti"
 import { icons } from 'react-icons/lib'
-function Term2({check, data}) {
+function Term2({check, data,number}) {
   console.log(data)
     const [counter, setCounter] = useState(1)
     const [isAgent, setisAgent] = useState()
@@ -61,16 +61,12 @@ function Term2({check, data}) {
                  <span>Showing 1 to 5 of 100 entries</span>
              <div className={styles.btn}>
                  <button style={{border:"1px solid red", color:"red"}} onClick={()=>{
-                  if(counter === 1){
-                    setCounter(1)
-                  }
-                setCounter(counter-1)
+             
               }}><AiOutlineArrowLeft/>&nbsp;Previous</button>
               <div className={styles.btn1}>
-                <button>{counter}</button>
+                <button>{number}</button>
               </div>
               <button  style={{border:"1px solid #1B59F8", color:"#1B59F8"}} onClick={()=>{
-                setCounter(counter+1)
               }}>Next&nbsp;<AiOutlineArrowRight/></button>
             </div>
           </div> 

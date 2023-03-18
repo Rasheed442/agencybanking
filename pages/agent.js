@@ -31,6 +31,7 @@ function agent() {
     const [allagents, setAllagents] = useState([])
     const [value, setValue] = useState("Agents")
     const [search, setSearch] = useState()
+    const [pagination, setPagination] = useState(1)
 
     const config = {
       headers:{
@@ -38,12 +39,12 @@ function agent() {
       }
     }
     useEffect(() => {
-      Axios.get("https://agencyuser.tm-dev.xyz/manager/agents/all", config).then((response)=>{
+      Axios.get(`${process.env.NEXT_PUBLIC_API}manager/agents/all/?page=${pagination}`, config).then((response)=>{
         console.log(response?.data)
         setAllagents(response?.data?.data?.getallagents)
       })
       
-    }, [])
+    }, [pagination])
 
     
   return (
@@ -93,7 +94,7 @@ function agent() {
          <p onClick={(e)=>{setColor(false),setColor2(true), setValue(e.target.textContent)}} style={{backgroundColor: color ? "transparent":"#1B59F8", color:color ? "gray":""}}>Agents </p>
          <span onClick={(e)=>{setColor(true),setColor2(false),setValue(e.target.textContent)}} style={{backgroundColor: color ?"#1B59F8":"", color:color ?"white":""}}>Terminals</span>
     </div>
-    {color2 ?<Term2 data={allagents} check={setTerminal} />:""} 
+    {color2 ?<Term2 data={allagents} check={setTerminal} number={setPagination}/>:""} 
        {color ?<Term check={setTerminal}/>:""}
        </div>
        </div>

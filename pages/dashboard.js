@@ -38,7 +38,7 @@ useEffect(() => {
       Authorization: `Bearer ${token && token}`
     }
   }
-  Axios.get("https://agencyuser.tm-dev.xyz/dashboard", config).then((response)=>{
+  Axios.get(`${process.env.NEXT_PUBLIC_API}dashboard`, config).then((response)=>{
     setData(response?.data)
   })
 }, [])

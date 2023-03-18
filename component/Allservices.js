@@ -22,7 +22,7 @@ function Allservices({handle}) {
        }
      }
      useEffect(() => {
-       Axios.get(`https://agencyuser.tm-dev.xyz/user/agents/details?id=53a6bf6f-2efd-443c-a795-c069eed3e66f`, config).then((response)=>{
+       Axios.get(`${process.env.NEXT_PUBLIC_API}user/agents/details?id=53a6bf6f-2efd-443c-a795-c069eed3e66f`, config).then((response)=>{
          setServer(response?.data)
        })
        

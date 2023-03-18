@@ -32,7 +32,7 @@ function dispute() {
     }
   }
   useEffect(() => {
-    Axios.get("https://agencyuser.tm-dev.xyz/request", config).then((response)=>{
+    Axios.get(`${process.env.NEXT_PUBLIC_API}request`, config).then((response)=>{
       console.log(response?.data)
       setServer(response?.data?.data?.requests)
     })

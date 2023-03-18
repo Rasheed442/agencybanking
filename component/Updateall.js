@@ -27,7 +27,7 @@ function Setcommission({cancelall}) {
 
    async function Updateall(e){
       e.preventDefault();
-      const response = await fetch ("https://agencyuser.tm-dev.xyz/settings/transactioncap",{
+      const response = await fetch (`${process.env.NEXT_PUBLIC_API}settings/transactioncap`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json",

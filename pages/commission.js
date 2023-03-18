@@ -26,7 +26,7 @@ function setting() {
       }
       
       useEffect(() => {
-        Axios.get("https://agencyuser.tm-dev.xyz/provider/airtime/networks", config).then((response)=>{
+        Axios.get(`${process.env.NEXT_PUBLIC_API}provider/airtime/networks`, config).then((response)=>{
           console.log(response?.data)
         })
         

@@ -15,7 +15,7 @@ function Setcommission({cancelCommission}) {
   }
 
   useEffect(() => {
-    Axios.get("https://agencyuser.tm-dev.xyz/manager/provider/commission",config).then((response)=>{
+    Axios.get(`${process.env.NEXT_PUBLIC_API}manager/provider/commission`,config).then((response)=>{
       // console.log(response.data)
       setServer(response?.data?.data?.providers)
     })

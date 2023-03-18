@@ -15,10 +15,10 @@ function Terminal({back,nav}) {
    const[clients, setClients] = useState()
    const [open, setOpen] = useState()
    const [update, setUpdate] = useState()
+   const [click,setClick] = useState(false)
 
-   const username = typeof window !== 'undefined' ? localStorage.getItem("userName")  : null
+  const username = typeof window !== 'undefined' ? localStorage.getItem("userName")  : null
   const clientId = typeof window !== 'undefined' ? localStorage.getItem('d.id') : null
-
   const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
 
   const config = {
@@ -27,7 +27,7 @@ function Terminal({back,nav}) {
    }
  }
  useEffect(() => {
-   Axios.get(`https://agencyuser.tm-dev.xyz/user/agents/details?id=${clientId}`, config).then((response)=>{
+   Axios.get(`${process.env.NEXT_PUBLIC_API}user/agents/details?id=${clientId}`, config).then((response)=>{
      setClients(response?.data)
    })
    
@@ -66,7 +66,7 @@ function Terminal({back,nav}) {
         
 <div className={style.bg}>
             <button onClick={()=>{back(false)}}><AiOutlineArrowLeft size={20}/> Back</button>
-      <div className={style.balance}>
+      <div className={style.walletbalance}>
              <div className={style.wallet}>
                 <span>Wallet Balance</span>
                 <p><span style={{fontSize:"25px",color:"black"}}>{clients?.data?.currency?.symbol}</span>{clients?.data?.balance?.wallet}</p>
@@ -92,11 +92,19 @@ function Terminal({back,nav}) {
              </div>
        </div>
       
-        <div className={style.transactionlimit} onClick={()=>{
+      <div style={{display:"flex"}}>
+          <div className={style.transactionlimit} onClick={()=>{
          setOpen(true)
         }}>
          <button>Set Transaction Limit</button>
         </div>
+        <div  className={style.transactionlimit} onClick={()=>{
+         // setOpen(true)
+        }}>
+         <button style={{backgroundColor:"#DDE7FF"}}>Update Service Commission</button>
+        </div>
+      </div>
+       
       {/* transaction */}
       
       <div className={style.service}>
@@ -116,9 +124,15 @@ function Terminal({back,nav}) {
          {
             clients?.data?.services?.selectedservice?.services?.slice(0,6)?.map((s)=>{
                return (
-                   <div className={style.dstv}>
-              <h2>{s?.name}</h2>
-             {s?.status === true ? <p>Active <BsToggleOn style={{color:" #1B59F8"}} size={25}/></p>: <p><BsToggleOff style={{color:" #1B59F8"}} size={20}/></p>}
+                   <div className={style.dstv} >
+              <h2 onClick={()=>{
+                     setUpdate(true)
+                   }}>{s?.name}</h2>
+            
+               <div onClick={()=>{}}>
+              {s?.status === true ? <p onClick={()=>{setClick(true)}}>Active <BsToggleOn style={{color:" #1B59F8"}} size={25}/></p>: <p><BsToggleOff style={{color:" #1B59F8"}} size={20}/></p>}
+             </div>
+             
            </div>
                )
             })
@@ -156,7 +170,7 @@ function Terminal({back,nav}) {
            </div> */}
            <div className={style.add} onClick={()=>{setAllservice(true)}}>
               <Image src='/add.png' width={50} height={50} priority/>
-              <p>Add New Services</p>
+              <p>Add New<br/> Services</p>
            </div>
 
         </div>
