@@ -13,7 +13,7 @@
     width: 85%;
     flex-direction: column;
     justify-content: center;
-    padding: 60px;
+    padding: 30px;
     /* padding-bottom: 20px; */
     border-radius: 10px;
 }
@@ -95,7 +95,6 @@
     border-radius: 10px;
     padding: 20px;
     font-size: 20px;
-    width: 80%;
     cursor: pointer;
     color: gray;
     outline: none;
@@ -140,6 +139,7 @@
 .naration{
     display: grid;
     grid-template-columns: auto auto;
+    padding-right: 6rem;
 }
 .proceed{
     padding-left: 6rem;
