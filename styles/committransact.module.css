@@ -1,0 +1,74 @@
+.overlay{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.459);
+}
+.white{
+    background-color: white;
+    height: 50%;
+    width: 70%;
+    border-radius: 10px;
+    padding: 20px;
+}
+.heading{
+    display: flex;
+    justify-content: space-between;
+}
+.servicetype{
+   display: flex;
+   padding-top: 30px;
+   flex-direction: column;
+   gap: 10px;
+}
+.servicetype label{
+    font-size: 20px;
+}
+.servicetype select{
+    padding: 15px;
+    font-size: 15px;
+    outline: none;
+    border-radius: 5px;
+}
+.servicetype span{color: red;}
+.flexout{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
+    padding-top: 25px;
+}
+.flexout button{
+    margin-top: 30px;
+    height: 60px;
+    background-color: #1B59F8;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.percentage {
+    display: flex;
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 5px;
+    justify-content: space-between;
+}
+.percentage p{
+    color: blue;
+}
+.percentage input{
+    width: 15rem;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}

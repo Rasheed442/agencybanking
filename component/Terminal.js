@@ -191,44 +191,39 @@ function Terminal({ back, nav }) {
             </div>
 
             <div className={style.balance}>
-              {clients?.data?.services?.selectedservice?.services
-                ?.slice(0, 6)
-                ?.map((s) => {
-                  return (
-                    <div className={style.dstv}>
-                      <h2
-                        onClick={() => {
-                          setUpdate(true);
-                        }}
-                      >
-                        {s?.name}
-                      </h2>
+              {clients?.data?.services?.slice(0, 6)?.map((s) => {
+                return (
+                  <div className={style.dstv}>
+                    <h2
+                      onClick={() => {
+                        setUpdate(true);
+                      }}
+                    >
+                      {s?.name}
+                    </h2>
 
-                      <div onClick={() => {}}>
-                        {s?.status === true ? (
-                          <p
-                            onClick={() => {
-                              setClick(true);
-                            }}
-                          >
-                            Active{" "}
-                            <BsToggleOn
-                              style={{ color: " #1B59F8" }}
-                              size={25}
-                            />
-                          </p>
-                        ) : (
-                          <p>
-                            <BsToggleOff
-                              style={{ color: " #1B59F8" }}
-                              size={20}
-                            />
-                          </p>
-                        )}
-                      </div>
+                    <div onClick={() => {}}>
+                      {s?.status === true ? (
+                        <p
+                          onClick={() => {
+                            setClick(true);
+                          }}
+                        >
+                          Active{" "}
+                          <BsToggleOn style={{ color: " #1B59F8" }} size={25} />
+                        </p>
+                      ) : (
+                        <p>
+                          <BsToggleOff
+                            style={{ color: " #1B59F8" }}
+                            size={20}
+                          />
+                        </p>
+                      )}
                     </div>
-                  );
-                })}
+                  </div>
+                );
+              })}
 
               {/* <div className={style.dstv} onClick={()=>{
             setUpdate(true)

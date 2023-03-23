@@ -6,22 +6,17 @@ import { AiFillCaretDown, AiOutlineClose } from "react-icons/ai";
 const token =
   typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
-// const config = {
-//   headers: {
-//     Authorization: `Bearer ${token}`,
-//   },
-// };
+const config = {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+};
 
-function Commitransact({ canceltransact }) {
-  const [commission, setCommission] = useState("");
-  const [service_type, setService_type] = useState("withdrawal");
-  const [payment_mode, setPayment_mode] = useState("card");
-
-  const details = { commission, service_type, payment_mode };
+function Commitransact({ canceltransact2 }) {
+  const [percentage, setPercentage] = useState("");
 
   async function Handler(e) {
     e.preventDefault();
-    console.log(details);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API}manager/commission/funds`,
       {
@@ -30,7 +25,7 @@ function Commitransact({ canceltransact }) {
           "Content-type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(details),
+        body: JSON.stringify({ percentage }),
       }
     );
     const server = await response.json();
@@ -41,11 +36,11 @@ function Commitransact({ canceltransact }) {
     <div className={style.overlay}>
       <div className={style.white}>
         <div className={style.heading}>
-          <h1>Set Commission for cash In Transactions</h1>
+          <h1>Set Commission for cash out Transactions</h1>
           <AiOutlineClose
             size={30}
             onClick={() => {
-              canceltransact(false);
+              canceltransact2(false);
             }}
             style={{ cursor: "pointer" }}
           />
@@ -56,13 +51,9 @@ function Commitransact({ canceltransact }) {
             <label>
               Service type<span>*</span>
             </label>
-            <select
-              onChange={(e) => {
-                setService_type(e.target.value);
-              }}
-            >
-              <option>withdrawal</option>
-              <option>deposit</option>
+            <select>
+              <option>Withdrawal</option>
+              <option>Deposit</option>
             </select>
           </div>
 
@@ -70,26 +61,16 @@ function Commitransact({ canceltransact }) {
             <label>
               Payment mode<span>*</span>
             </label>
-            <select
-              onChange={(e) => {
-                setPayment_mode(e.target.value);
-              }}
-            >
-              <option>card</option>
-              <option>cash</option>
+            <select>
+              <option>Card</option>
+              <option>Cash</option>
             </select>
           </div>
 
           <div className={style.input}>
             <label>Commission Percentage</label>
             <div className={style.percentage}>
-              <input
-                type="text"
-                placeholder="1.5%"
-                onChange={(e) => {
-                  setCommission(e.target.value);
-                }}
-              />
+              <input type="text" placeholder="1.5%" />
               <p>Edit Commission</p>
             </div>
           </div>

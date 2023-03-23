@@ -52,7 +52,7 @@ function Allservices({ handle }) {
               />
             </div>
 
-            {server?.data?.services?.selectedservice?.services?.map((d) => {
+            {server?.data?.services?.map((d) => {
               return (
                 <div className={style.check}>
                   <input className={style.check} type="checkbox" checked />
