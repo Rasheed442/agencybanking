@@ -1,7 +1,6 @@
 .background{
     background-color: white;
     border-radius: 10px;
-    padding: 20px
 }
 .container{
     padding-top: 20px;
@@ -9,7 +8,7 @@
 .transact{
     display: flex;
     border-bottom: 1px solid rgb(221, 217, 217);
-    padding: 15px;
+    padding: 25px;
     color: gray;
 }
 .transact h3{
@@ -25,34 +24,40 @@
 }
 
 .profile p{
-   font-size: 11px;
+   font-size: 12px;
+   font-weight: 500;
    padding: 5PX;
    border-radius: 2px;
 }
 .profile span{
-    font-size: 10px;
+    font-size: 13px;
+    font-weight: 500;
     color: gray;
     display: flex;
     align-items: center;
     gap: 5px;
 }
 .gridout{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(8,auto);
     justify-content: space-between;
     padding: 20px;
+    padding-top: 0;
 }
 .footer{
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
+    padding: 20px;
 }
 .footer span{
     color: #969494;
     font-size: 13px;
+    font-weight: 500;
 }
 .btn{
     display: flex;
     gap: 15px;
+ padding: 20px;
 }
 .btn button{
     height: 30px;

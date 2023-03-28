@@ -1,4 +1,4 @@
-.overlay{
+.overlay {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.553);
     width: 100%;
@@ -7,9 +7,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
 }
-.white{
+
+.white {
     background-color: white;
     border-radius: 10px;
     /* padding-top: 70px; */
@@ -20,29 +21,34 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-  
-}.inputs{
-    padding-top:2rem ;
+
+}
+
+.inputs {
+    padding-top: 2rem;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
     /* padding-right: 10rem; */
 }
-.billername{
+
+.billername {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding-left: 3rem;
 
 }
-.name{
+
+.name {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding-left: 3rem;
     width: 90%;
 }
-.name select{
+
+.name select {
     height: 60px;
     border-radius: 5px;
     outline: none;
@@ -52,27 +58,28 @@
 }
 
 
-.caret{
+.caret {
     display: flex;
     border: 1px solid gray;
     justify-content: space-between;
     padding: 20px;
     border-radius: 5px;
-    width: 28rem;
     align-items: center;
 }
-.caret input{
+
+.caret input {
     border: none;
     outline: none;
     font-size: 15px;
     width: 20rem;
 }
-.caret p{
+
+.caret p {
     color: #1B59F8;
 
 }
 
-.commissionpercentage{
+.commissionpercentage {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -81,11 +88,13 @@
     padding-left: 3rem;
 
 }
-.commissionpercentage h2{
+
+.commissionpercentage h2 {
     padding-top: 20px;
     font-weight: 500;
 }
-.percentage{
+
+.percentage {
     display: flex;
     border: 1px solid gray;
     justify-content: space-between;
@@ -93,25 +102,29 @@
     border-radius: 5px;
 }
 
-.heading{
+.heading {
     display: flex;
     justify-content: space-between;
     padding-left: 40px;
 }
-.heading h1{
-}
-.percentage input{
+
+.heading h1 {}
+
+.percentage input {
     border: none;
     font-size: 15px;
     width: 15rem;
     outline: none;
-    
+
 }
-.percent::-webkit-outer-spin-button,.percent::-webkit-inner-spin-button{
+
+.percent::-webkit-outer-spin-button,
+.percent::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-    
+
 }
+
 /* .percent::-webkit-outer-spin-button{
   -webkit-appearance: none;
   margin: 0;
@@ -127,12 +140,13 @@ input[type=number]::-webkit-inner-spin-button {
 /* input[type=number] {
   -moz-appearance: textfield;
 } */
-.submit{
+.submit {
     display: flex;
     justify-content: center;
     padding: 30px;
 }
-.submit  button{
+
+.submit button {
     width: 28rem;
     height: 60px;
     background-color: #1B59F8;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "../styles/committransact.module.css";
 import Axios from "axios";
 import { AiFillCaretDown, AiOutlineClose } from "react-icons/ai";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const token =
   typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -17,10 +18,13 @@ function Commitransact({ canceltransact }) {
   const [service_type, setService_type] = useState("withdrawal");
   const [payment_mode, setPayment_mode] = useState("card");
 
+  const [loading, setLoading] = useState(false);
+  const [color, setColor] = useState("white");
   const details = { commission, service_type, payment_mode };
 
   async function Handler(e) {
     e.preventDefault();
+    setLoading(true);
     console.log(details);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API}manager/commission/funds`,
@@ -35,6 +39,8 @@ function Commitransact({ canceltransact }) {
     );
     const server = await response.json();
     console.log(server);
+    setLoading(false);
+    canceltransact(false);
   }
 
   return (
@@ -62,7 +68,7 @@ function Commitransact({ canceltransact }) {
               }}
             >
               <option>withdrawal</option>
-              <option>deposit</option>
+              {/* <option>deposit</option> */}
             </select>
           </div>
 
@@ -84,7 +90,7 @@ function Commitransact({ canceltransact }) {
             <label>Commission Percentage</label>
             <div className={style.percentage}>
               <input
-                type="text"
+                type="number"
                 placeholder="1.5%"
                 onChange={(e) => {
                   setCommission(e.target.value);
@@ -93,7 +99,13 @@ function Commitransact({ canceltransact }) {
               <p>Edit Commission</p>
             </div>
           </div>
-          <button onClick={Handler}>Submit</button>
+          <button onClick={Handler}>
+            {loading ? (
+              <ClipLoader loading={loading} size={20} color={color} />
+            ) : (
+              "Submit"
+            )}
+          </button>
         </div>
       </div>
     </div>

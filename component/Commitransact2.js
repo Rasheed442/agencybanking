@@ -14,7 +14,11 @@ const config = {
 
 function Commitransact({ canceltransact2 }) {
   const [percentage, setPercentage] = useState("");
+  const [commission, setCommission] = useState("");
+  const [service_type, setService_type] = useState("withdrawal");
+  const [payment_mode, setPayment_mode] = useState("card");
 
+  const details = { percentage, commission, service_type, payment_mode };
   async function Handler(e) {
     e.preventDefault();
     const response = await fetch(
@@ -25,7 +29,7 @@ function Commitransact({ canceltransact2 }) {
           "Content-type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ percentage }),
+        body: JSON.stringify({ details }),
       }
     );
     const server = await response.json();
@@ -70,7 +74,7 @@ function Commitransact({ canceltransact2 }) {
           <div className={style.input}>
             <label>Commission Percentage</label>
             <div className={style.percentage}>
-              <input type="text" placeholder="1.5%" />
+              <input type="number" placeholder="1.5%" />
               <p>Edit Commission</p>
             </div>
           </div>

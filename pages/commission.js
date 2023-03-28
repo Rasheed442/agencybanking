@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../component/Sidebar";
 import style from "../styles/commission.module.css";
 import styles from "../styles/transactionlimit.module.css";
+import Electricitycommission from "../component/Electricitycommission";
 import {
   AiOutlineSearch,
   AiOutlineDown,
@@ -58,10 +59,20 @@ function setting() {
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   // modal commission toggle
-  const [commission, setCommission] = useState(false);
+  const [servicecommission, setServicecommission] = useState(false);
+  const [electricitycommission, setElectricitycommission] = useState();
   return (
     <div className={style.header}>
-      {commission ? <Setcommission cancelCommission={setCommission} /> : ""}
+      {servicecommission ? (
+        <Setcommission cancelCommission={setServicecommission} />
+      ) : (
+        ""
+      )}
+      {electricitycommission ? (
+        <Electricitycommission cancelelectricity={setElectricitycommission} />
+      ) : (
+        ""
+      )}
       {show ? <Commitransact canceltransact={setShow} /> : ""}
       {show2 ? <Commitransact2 canceltransact2={setShow2} /> : ""}
       <Sidebar />
@@ -145,6 +156,7 @@ function setting() {
                 onClick={() => {
                   setElectricity(true);
                   setAirtime(false);
+                  setFundtransaction(false);
                 }}
                 style={{ color: electricity ? "blue" : "" }}
               >
@@ -212,9 +224,13 @@ function setting() {
                       <span>others (Per Transaction)</span>
                     </div>
                     <div className={styles.transaction}>
-                      <p>2.5%</p>
-                      <p>2.5%</p>
-                      <p>2.5%</p>
+                      <p>
+                        {transactiontype?.data?.funcommission?.[0].commission}%
+                      </p>
+                      <p>
+                        {transactiontype?.data?.funcommission?.[0].commission}%
+                      </p>
+                      <p>0%</p>
                     </div>
                   </div>
 
@@ -237,7 +253,7 @@ function setting() {
                   <p>Select Biller:</p>
                   <button
                     onClick={() => {
-                      setCommission(true);
+                      setServicecommission(true);
                     }}
                   >
                     Set Commission
@@ -255,18 +271,30 @@ function setting() {
             )}
 
             {electricity ? (
-              <div className={style.electric}>
-                <Image src="/ikeja.png" width={150} height={150} priority />
-                <Image src="/ekedc.png" width={150} height={150} priority />
-                <Image src="/eedc.png" width={150} height={150} priority />
-                <Image src="/yedc.png" width={150} height={150} priority />
-                <Image src="/aedc.png" width={150} height={150} priority />
-                <Image src="/kedco.png" width={150} height={150} priority />
-                <Image src="/joe.png" width={150} height={150} priority />
-                <Image src="/kaduna.png" width={150} height={150} priority />
-                <Image src="/ibedc.png" width={150} height={150} priority />
-                <Image src="/bedc.png" width={150} height={150} priority />
-                <Image src="/phcc.png" width={150} height={150} priority />
+              <div>
+                <div className={style.biller}>
+                  <p>Select Biller:</p>
+                  <button
+                    onClick={() => {
+                      setElectricitycommission(true);
+                    }}
+                  >
+                    Set Commission
+                  </button>
+                </div>
+                <div className={style.electric}>
+                  <Image src="/ikeja.png" width={150} height={150} priority />
+                  <Image src="/ekedc.png" width={150} height={150} priority />
+                  <Image src="/eedc.png" width={150} height={150} priority />
+                  <Image src="/yedc.png" width={150} height={150} priority />
+                  <Image src="/aedc.png" width={150} height={150} priority />
+                  <Image src="/kedco.png" width={150} height={150} priority />
+                  <Image src="/joe.png" width={150} height={150} priority />
+                  <Image src="/kaduna.png" width={150} height={150} priority />
+                  <Image src="/ibedc.png" width={150} height={150} priority />
+                  <Image src="/bedc.png" width={150} height={150} priority />
+                  <Image src="/phcc.png" width={150} height={150} priority />
+                </div>
               </div>
             ) : (
               ""

@@ -67,7 +67,7 @@
     background-color: transparent;
     cursor: pointer;
     display: flex;
-    padding-left: 20px;
+    padding: 15px;
     font-size: 15px;
     align-items: center;
     border: none;
@@ -197,8 +197,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 20px;
     align-items: center;
-
     cursor: pointer;
 }
 /* .add h2{
@@ -211,9 +211,12 @@
 }
 .prof p{
     font-size: 11px;
+     font-size: 13px;
+     font-weight: 500;
  }
  .prof span{
-     font-size: 10px;
+     font-size: 13px;
+     font-weight: 500;
      color: gray;
  }
  .prof{
@@ -222,12 +225,20 @@
     gap: 20px;
     padding-top: 20px;
 }
+.back{
+    background-color: white;
+        border-radius: 10px;
+}
+.headline{
+    padding: 30px;
+    padding-bottom: 0;
+    font-size: 20px;
+}
  .gridout{
      display: flex;
      padding: 30px;
+     padding-top: 20px;
      justify-content: space-between;
-     background-color: white;
-     border-radius: 20px;
  }
  .footer{
     display: flex;

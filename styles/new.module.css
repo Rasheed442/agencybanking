@@ -60,7 +60,11 @@
     flex-direction: column;
     gap: 10px;
 }
-
+.name ::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+    
+}
 .top{
     display: flex;
     justify-content: space-between;

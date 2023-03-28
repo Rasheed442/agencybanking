@@ -1,0 +1,71 @@
+.overlay{
+    background-color: rgba(0, 0, 0, 0.535);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+}
+.white{
+    background-color: white;
+    height: 55%;
+    width: 70%;
+    border-radius: 10px;
+    padding: 30px;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.biller{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.biller span{
+    color: red;
+}
+.biller select{
+    outline: none;
+    height: 60px;
+    padding: 5px;
+}
+.textinput{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.textinput span{
+    color: red;
+}
+.textinput input{
+    height: 60px;
+    padding: 5px;
+}
+.textinput ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+
+}
+.gridout{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding-top: 40px;
+    gap: 30px;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+.submit button{
+    height: 60px;
+    width: 30rem;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #1B59F8;
+}

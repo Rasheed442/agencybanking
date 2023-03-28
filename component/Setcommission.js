@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import style from "../styles/Setcommission.module.css";
 import Axios from "axios";
 import { AiFillCaretDown, AiOutlineClose } from "react-icons/ai";
+import ClipLoader from "react-spinners/ClipLoader";
 function Setcommission({ cancelCommission }) {
   const [server, setServer] = useState();
 
   const [service_name, setService_name] = useState();
-  const [biller_name, setBiller_name] = useState();
-  const [payment_mode, setPayment_mode] = useState();
+  const [biller_name, setBiller_name] = useState("mtn");
+  const [payment_mode, setPayment_mode] = useState("cash");
   const [commission, setCommission] = useState();
+  const [loading, setLoading] = useState(false);
+  const [color, setColor] = useState("whit9e");
 
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -29,9 +32,11 @@ function Setcommission({ cancelCommission }) {
       setServer(response?.data?.data?.providers);
     });
   }, []);
-  console.log(server);
+  // console.log(server);
 
   async function submithandler(e) {
+    e.preventDefault();
+    setLoading(true);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API}manager/provider/commission`,
       {
@@ -45,16 +50,21 @@ function Setcommission({ cancelCommission }) {
     );
     const server = await response.json();
     console.log(server);
+    setLoading(false);
+    // alert(errors?.[0].message);
   }
   return (
     <div className={style.overlay}>
       <div className={style.white}>
         <div className={style.heading}>
-          <h1>Set Commission</h1>
+          <h1>Set Service Commission</h1>
           <AiOutlineClose
             size={30}
             onClick={() => {
               cancelCommission(false);
+            }}
+            style={{
+              cursor: "pointer",
             }}
           />
         </div>
@@ -84,10 +94,10 @@ function Setcommission({ cancelCommission }) {
                 setBiller_name(e.target.value);
               }}
             >
-              <option>MTN</option>
-              <option>GLO</option>
-              <option>AIRTEL</option>
-              <option>9MOBILE</option>
+              <option>mtn</option>
+              <option>glo</option>
+              <option>airtel</option>
+              <option>9mobile</option>
             </select>
           </div>
 
@@ -100,28 +110,28 @@ function Setcommission({ cancelCommission }) {
                 setPayment_mode(e.target.value);
               }}
             >
-              <option>CASH</option>
-              <option>CARD</option>
+              <option>cash</option>
+              <option>card</option>
             </select>
           </div>
-        </div>
 
-        <div className={style.commissionpercentage}>
-          <label>
-            Commission Percentage <span style={{ color: "red" }}>*</span>
-          </label>
-          <div className={style.percentage}>
-            <input
-              className={style.percent}
-              type="number"
-              placeholder="1.2%"
-              onChange={(e) => {
-                setCommission(e.target.value);
-              }}
-            />
-            <p style={{ color: "blue" }}>Edit Commission</p>
+          <div className={style.commissionpercentage}>
+            <label>
+              Commission Percentage <span style={{ color: "red" }}>*</span>
+            </label>
+            <div className={style.percentage}>
+              <input
+                className={style.percent}
+                type="number"
+                placeholder="1.2%"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <p style={{ color: "blue" }}>Edit Commission</p>
+            </div>
+            {/* <h2>Select Provider</h2> */}
           </div>
-          {/* <h2>Select Provider</h2> */}
         </div>
 
         {/* <div className={style.inputs}>   
@@ -142,7 +152,13 @@ function Setcommission({ cancelCommission }) {
         </div>    */}
 
         <div className={style.submit} onClick={submithandler}>
-          <button>Set Commission</button>
+          <button>
+            {loading ? (
+              <ClipLoader loading={loading} size={20} color={color} />
+            ) : (
+              "Set Commission"
+            )}
+          </button>
         </div>
       </div>
     </div>
