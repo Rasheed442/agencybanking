@@ -94,6 +94,7 @@ function utilis() {
   useEffect(() => {
     setCurrlocation(localStorage.getItem("currL"));
   }, [typeof window !== "undefined" ? localStorage.getItem("currL") : null]);
+
   return (
     <div>
       {username.map((s) => {
