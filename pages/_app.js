@@ -1,10 +1,12 @@
 // import Sidebar from '../component/Sidebar'
-import '../styles/globals.css'
+import toast, { Toaster } from "react-hot-toast";
+import "../styles/globals.css";
 export default function App({ Component, pageProps }) {
   return (
-     <>   
-     {/* <Sidebar/> */}
-       <Component {...pageProps} />
-     </>
-  )
+    <>
+      {/* <Sidebar/> */}
+      <Toaster />
+      <Component {...pageProps} />
+    </>
+  );
 }

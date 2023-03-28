@@ -19,6 +19,7 @@ import Commitransact2 from "../component/Commitransact2";
 function setting() {
   const [username, setUsername] = useState();
   const [transactiontype, setTransactiontype] = useState();
+  const [transactiontype1, setTransactiontype1] = useState();
 
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -44,7 +45,7 @@ function setting() {
 
   useEffect(() => {
     Axios.get(
-      `${process.env.NEXT_PUBLIC_API}manager/commission/funds`,
+      `${process.env.NEXT_PUBLIC_API}manager/commission/funds/?type=withdrawal`,
       config
     ).then((response) => {
       // console.log(response?.data);
@@ -52,6 +53,16 @@ function setting() {
     });
   }, []);
   console.log(transactiontype);
+
+  useEffect(() => {
+    Axios.get(
+      `${process.env.NEXT_PUBLIC_API}manager/commission/funds/?type=deposit`,
+      config
+    ).then((response) => {
+      setTransactiontype1(response?.data);
+    });
+  }, []);
+  // console.log(transactiontype1);
 
   const [airtime, setAirtime] = useState(false);
   const [electricity, setElectricity] = useState(false);
@@ -192,10 +203,10 @@ function setting() {
                     </div>
                     <div className={styles.transaction}>
                       <p>
-                        {transactiontype?.data?.funcommission?.[0].commission}%
+                        {/* {transactiontype?.data?.funcommission?.[0].commission}% */}
                       </p>
                       <p>
-                        {transactiontype?.data?.funcommission?.[0].commission}%
+                        {/* {transactiontype?.data?.funcommission?.[0].commission}% */}
                       </p>
                       <p>0%</p>
                     </div>

@@ -6,17 +6,19 @@ import Sidebar from "./Sidebar";
 import ClipLoader from "react-spinners/ClipLoader";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import { BsUpload } from "react-icons/bs";
-toast.configure();
+import { toast } from "react-hot-toast";
+// toast.configure();
 
 function New({ handle }) {
   const [fullname, setFullname] = useState();
   const [phonenumber, setNumber] = useState();
   const [business_name, setBusinessname] = useState();
   const [address, setBusinessaddress] = useState();
-  const [localgovt, setLocalgovt] = useState("NIN");
+  const [localgovt, setLocalgovt] = useState();
+  const [govtid, setGovtid] = useState("NIN");
   const [state, setState] = useState("");
   const [allstates, setAllstate] = useState();
   const [region, setRegion] = useState();
@@ -34,6 +36,7 @@ function New({ handle }) {
     address,
     business_name,
     localgovt,
+    govtid,
     state,
     region,
     email,
@@ -71,8 +74,11 @@ function New({ handle }) {
     console.log(server);
     setLoading(false);
     handle(false);
+    toast.success("Agent Created Successfully");
     toast(server?.errors);
-    window.location = "/agent";
+    setTimeout(() => {
+      window.location = "/agent";
+    }, 2000);
   }
 
   useEffect(() => {
@@ -195,15 +201,15 @@ function New({ handle }) {
               </label>
               <select
                 onChange={(e) => {
-                  setLocalgovt(e?.target?.value);
-                  if (e.target.value === "PASSPORT" || "NIN") {
+                  setGovtid(e?.target?.value);
+                  if (e.target.value === "PASSPORT" || "NIN" || "BVN") {
                     setId(true);
                   } else {
                     setId(false);
                   }
                 }}
               >
-                {["NIN", "PASSPORT"].map((x, idx) => {
+                {["NIN", "PASSPORT ID", "BVN"].map((x, idx) => {
                   return <option>{x}</option>;
                 })}
               </select>
@@ -211,9 +217,15 @@ function New({ handle }) {
 
             <div className={style.name}>
               <label>
-                {localgovt} <span>*</span>
+                {govtid} <span>*</span>
               </label>
-              <input type="text" placeholder="" />
+              <input
+                type="text"
+                onChange={(e) => {
+                  // setGovtid(e.target.value);
+                }}
+                placeholder=""
+              />
             </div>
 
             <div className={style.btn}>
