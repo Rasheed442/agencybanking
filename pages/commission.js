@@ -52,7 +52,7 @@ function setting() {
       setTransactiontype(response?.data);
     });
   }, []);
-  console.log(transactiontype);
+  // console.log(transactiontype);
 
   useEffect(() => {
     Axios.get(
@@ -62,7 +62,7 @@ function setting() {
       setTransactiontype1(response?.data);
     });
   }, []);
-  // console.log(transactiontype1);
+  console.log(transactiontype1);
 
   const [airtime, setAirtime] = useState(false);
   const [electricity, setElectricity] = useState(false);
@@ -203,10 +203,10 @@ function setting() {
                     </div>
                     <div className={styles.transaction}>
                       <p>
-                        {/* {transactiontype?.data?.funcommission?.[0].commission}% */}
+                        {transactiontype?.data?.funcommission?.[0]?.commission}%
                       </p>
                       <p>
-                        {/* {transactiontype?.data?.funcommission?.[0].commission}% */}
+                        {transactiontype?.data?.funcommission?.[0]?.commission}%
                       </p>
                       <p>0%</p>
                     </div>
@@ -236,10 +236,12 @@ function setting() {
                     </div>
                     <div className={styles.transaction}>
                       <p>
-                        {transactiontype?.data?.funcommission?.[0].commission}%
+                        {transactiontype1?.data?.funcommission?.[0]?.commission}
+                        %
                       </p>
                       <p>
-                        {transactiontype?.data?.funcommission?.[0].commission}%
+                        {transactiontype1?.data?.funcommission?.[0]?.commission}
+                        %
                       </p>
                       <p>0%</p>
                     </div>

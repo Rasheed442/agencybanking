@@ -52,6 +52,7 @@ function Commitransact({ canceltransact }) {
     // console.log(server);
     setLoading(false);
     canceltransact(false);
+    window.location = "/commission";
   }
 
   return (
@@ -78,8 +79,8 @@ function Commitransact({ canceltransact }) {
                 setService_type(e.target.value);
               }}
             >
-              <option>withdrawal</option>
-              {/* <option>deposit</option> */}
+              {/* <option>withdrawal</option> */}
+              <option>deposit</option>
             </select>
           </div>
 

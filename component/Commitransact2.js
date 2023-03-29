@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import style from "../styles/committransact.module.css";
 import Axios from "axios";
 import { AiFillCaretDown, AiOutlineClose } from "react-icons/ai";
+import { toast } from "react-toastify";
+// import Setcommission from "./Setcommission";
 
 const token =
   typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -13,12 +15,12 @@ const config = {
 };
 
 function Commitransact({ canceltransact2 }) {
-  const [percentage, setPercentage] = useState("");
-  const [commission, setCommission] = useState("");
+  // const [percentage, setPercentage] = useState("");
+  const [commission, setCommission] = useState();
   const [service_type, setService_type] = useState("withdrawal");
   const [payment_mode, setPayment_mode] = useState("card");
 
-  const details = { percentage, commission, service_type, payment_mode };
+  const details = { commission, service_type, payment_mode };
   async function Handler(e) {
     e.preventDefault();
     const response = await fetch(
@@ -29,11 +31,12 @@ function Commitransact({ canceltransact2 }) {
           "Content-type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ details }),
+        body: JSON.stringify({ ...details }),
       }
     );
     const server = await response.json();
     console.log(server);
+    canceltransact2(false);
   }
 
   return (
@@ -55,9 +58,13 @@ function Commitransact({ canceltransact2 }) {
             <label>
               Service type<span>*</span>
             </label>
-            <select>
+            <select
+              onChange={(e) => {
+                setService_type(e.target.value);
+              }}
+            >
               <option>Withdrawal</option>
-              <option>Deposit</option>
+              {/* <option>Deposit</option> */}
             </select>
           </div>
 
@@ -65,7 +72,11 @@ function Commitransact({ canceltransact2 }) {
             <label>
               Payment mode<span>*</span>
             </label>
-            <select>
+            <select
+              onChange={(e) => {
+                setPayment_mode(e.target.value);
+              }}
+            >
               <option>Card</option>
               <option>Cash</option>
             </select>
@@ -74,7 +85,13 @@ function Commitransact({ canceltransact2 }) {
           <div className={style.input}>
             <label>Commission Percentage</label>
             <div className={style.percentage}>
-              <input type="number" placeholder="1.5%" />
+              <input
+                type="number"
+                placeholder="1.2%"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
               <p>Edit Commission</p>
             </div>
           </div>
