@@ -202,14 +202,18 @@ function New({ handle }) {
               <select
                 onChange={(e) => {
                   setGovtid(e?.target?.value);
-                  if (e.target.value === "PASSPORT" || "NIN" || "BVN") {
+                  if (
+                    e.target.value === "PASSPORT" ||
+                    "NIN" ||
+                    "Driver's License"
+                  ) {
                     setId(true);
                   } else {
                     setId(false);
                   }
                 }}
               >
-                {["NIN", "PASSPORT ID", "BVN"].map((x, idx) => {
+                {["NIN", "PASSPORT ID", "Driver's License"].map((x, idx) => {
                   return <option>{x}</option>;
                 })}
               </select>
