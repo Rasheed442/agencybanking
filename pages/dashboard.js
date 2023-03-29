@@ -439,7 +439,7 @@ function Main() {
                 </div>
                 <Image
                   className={style.svg}
-                  src="/Frame1.png"
+                  src="/ref.svg"
                   width={50}
                   height={50}
                   priority
