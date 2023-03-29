@@ -444,7 +444,6 @@ function dispute() {
                 <p>WTH/23434663356866..</p>
                 <p>WTH/23434663356866..</p>
                 <p>WTH/23434663356866..</p>
-                <p>WTH/23434663356866..</p>
               </div>
             </div>
 
@@ -459,6 +458,9 @@ function dispute() {
                   }}
                   onClick={() => {
                     setCounter(counter - 1);
+                    if (counter === 0) {
+                      setCounter(0);
+                    }
                   }}
                 >
                   Previous

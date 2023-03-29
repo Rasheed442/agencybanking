@@ -196,13 +196,15 @@
 }
 
 .profil p{
-   font-size: 11px;
+   font-size: 11.5px;
    padding: 5PX;
    border-radius: 2px;
+   font-weight: 500;
 }
 .profil span{
-    font-size: 10px;
+    font-size: 11px;
     color: gray;
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 5px;

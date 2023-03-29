@@ -120,11 +120,13 @@
     cursor: pointer;
 }
 .status p{
-    font-size: 11px;
+    font-size: 13px;
+    font-weight: 500;
 }
 .status main{
     color: gray;
-    font-size: 10px;
+    font-size: 13px;
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 10px;
