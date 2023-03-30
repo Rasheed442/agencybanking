@@ -1,118 +1,190 @@
-import React,{useState,useEffect} from 'react'
-import Sidebar from '../component/Sidebar'
-import style from "../styles/agent.module.css"
-import {AiOutlineDown,AiTwotoneBell,AiOutlineSearch,AiOutlinePlus,AiOutlineArrowRight,AiOutlineArrowLeft} from "react-icons/ai"
-import {BsToggleOn} from "react-icons/bs"
-import Image from 'next/image'
-import Term from '../component/Term'
-import New from '../component/New'
-import Terminal from '../component/Terminal'
-import Link from 'next/link'
-import Assignterminal from '../component/Assignterminal'
-import Axios from 'axios'
-import Term2 from '../component/Term2'
+import React, { useState, useEffect } from "react";
+import Sidebar from "../component/Sidebar";
+import style from "../styles/agent.module.css";
+import {
+  AiOutlineDown,
+  AiTwotoneBell,
+  AiOutlineSearch,
+  AiOutlinePlus,
+  AiOutlineArrowRight,
+  AiOutlineArrowLeft,
+} from "react-icons/ai";
+import { BsToggleOn } from "react-icons/bs";
+import Image from "next/image";
+import Term from "../component/Term";
+import New from "../component/New";
+import Terminal from "../component/Terminal";
+import Link from "next/link";
+import Assignterminal from "../component/Assignterminal";
+import Axios from "axios";
+import Term2 from "../component/Term2";
 function agent() {
-  
-   const [counter, setCounter] = useState(1)
-   const [username, setUsername] = useState()
+  const [counter, setCounter] = useState(1);
+  const [username, setUsername] = useState();
   // counter
-  const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
-  useEffect(()=>{
-      setUsername(localStorage.getItem("userName"))
-    },[typeof window !== 'undefined' ? localStorage.getItem("userName"): null])
-  
-// local storage
-  
-    const [color, setColor] = useState(false)
-    const [color2, setColor2] = useState(true)
-    const [open, setOpen] = useState(false)
-    const [terminal, setTerminal] = useState(false)
-    const [assignterminal, setAssignterminal] = useState(false)
-    const [allagents, setAllagents] = useState([])
-    const [value, setValue] = useState("Agents")
-    const [search, setSearch] = useState()
-    const [pagination, setPagination] = useState(1)
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+  useEffect(() => {
+    setUsername(localStorage.getItem("userName"));
+  }, [typeof window !== "undefined" ? localStorage.getItem("userName") : null]);
 
-    const config = {
-      headers:{
-        Authorization: `Bearer ${token}`
-      }
-    }
-    useEffect(() => {
-      Axios.get(`${process.env.NEXT_PUBLIC_API}manager/agents/all/?page=${pagination}`, config).then((response)=>{
-        console.log(response?.data)
-        setAllagents(response?.data?.data?.getallagents)
-      })
-      
-    }, [pagination])
+  // local storage
 
-    
+  const [color, setColor] = useState(false);
+  const [color2, setColor2] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [terminal, setTerminal] = useState(false);
+  const [assignterminal, setAssignterminal] = useState(false);
+  const [allagents, setAllagents] = useState([]);
+  const [value, setValue] = useState("Agents");
+  const [search, setSearch] = useState();
+  const [pagination, setPagination] = useState(1);
+  const [loading, setLoading] = useState(true);
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  useEffect(() => {
+    Axios.get(
+      `${process.env.NEXT_PUBLIC_API}manager/agents/all/?page=${pagination}`,
+      config,
+      setLoading(true)
+    ).then((response) => {
+      console.log(response?.data);
+      setAllagents(response?.data?.data?.getallagents);
+      setLoading(false);
+    });
+  }, [pagination]);
+
   return (
-    
-    <div className={style.background}> 
-    {assignterminal ?<Assignterminal submit={setAssignterminal}/>:""}
-      {terminal ?<Terminal back={setTerminal} />:""}
-    {open ?<New handle={setOpen}/>:""}
-       {terminal ? "" : <Sidebar/> }
-       
-     {!terminal && <>
-      <div className={style.main}>   
-        <div className={style.container}>
-        <h2>Agent Management</h2>
+    <div className={style.background}>
+      {assignterminal ? <Assignterminal submit={setAssignterminal} /> : ""}
+      {terminal ? <Terminal back={setTerminal} /> : ""}
+      {open ? <New handle={setOpen} /> : ""}
+      {terminal ? "" : <Sidebar />}
 
-          <div className={style.profile}>
-          <div className={style.reminder}>
-         <AiTwotoneBell size={27} style={{backgroundColor:"gainsboro", color:"gray", borderRadius:"10px"}}/>
-          <div></div>
-       </div>
-             <div className={style.line}></div>          
-                   <Link href='setting'><Image src="/profile.png" width={40} height={40} priority/></Link>
-             <div className={style.name}>
-                <p style={{textTransform:"capitalize"}}>{username} <AiOutlineDown size={12}/></p>
-                <span>Agent Manager</span>
-             </div>
-          </div>     
-      </div> 
-      <div className={style.bg}>  
-      <div className={style.white}> 
-      <div className={style.contain}>
-        <p style={{fontSize:"15px"}}>{value}</p>
-        <div className={style.corner}>
-        <div className={style.search}>
-             <AiOutlineSearch size={20} style={{ color:"gray"}}/>
-             <input type="text" placeholder='Search Terminals ID, Agent and Agent Managers'/>
-        </div>
-          {color?"":<div className={style.agent} onClick={()=> {setOpen(true)}}>
-               <p ><AiOutlinePlus/> Add New Agent</p>
-          </div>}       
-          {color ?<div className={style.agent} onClick={()=> {setAssignterminal(true)}}>
-               <p><AiOutlinePlus/> Assign New Terminal</p>
-          </div>:""}
-           </div>      
-      </div>
-      <div className={style.head}>
-         <p onClick={(e)=>{setColor(false),setColor2(true), setValue(e.target.textContent)}} style={{backgroundColor: color ? "transparent":"#1B59F8", color:color ? "gray":""}}>Agents </p>
-         <span onClick={(e)=>{setColor(true),setColor2(false),setValue(e.target.textContent)}} style={{backgroundColor: color ?"#1B59F8":"", color:color ?"white":""}}>Terminals</span>
+      {!terminal && (
+        <>
+          <div className={style.main}>
+            <div className={style.container}>
+              <h2>Agent Management</h2>
+
+              <div className={style.profile}>
+                <div className={style.reminder}>
+                  <AiTwotoneBell
+                    size={27}
+                    style={{
+                      backgroundColor: "gainsboro",
+                      color: "gray",
+                      borderRadius: "10px",
+                    }}
+                  />
+                  <div></div>
+                </div>
+                <div className={style.line}></div>
+                <Link href="setting">
+                  <Image src="/profile.png" width={40} height={40} priority />
+                </Link>
+                <div className={style.name}>
+                  <p style={{ textTransform: "capitalize" }}>
+                    {username} <AiOutlineDown size={12} />
+                  </p>
+                  <span>Agent Manager</span>
+                </div>
+              </div>
+            </div>
+            <div className={style.bg}>
+              <div className={style.white}>
+                <div className={style.contain}>
+                  <p style={{ fontSize: "15px" }}>{value}</p>
+                  <div className={style.corner}>
+                    <div className={style.search}>
+                      <AiOutlineSearch size={20} style={{ color: "gray" }} />
+                      <input
+                        type="text"
+                        placeholder="Search Terminals ID, Agent and Agent Managers"
+                      />
+                    </div>
+                    {color ? (
+                      ""
+                    ) : (
+                      <div
+                        className={style.agent}
+                        onClick={() => {
+                          setOpen(true);
+                        }}
+                      >
+                        <p>
+                          <AiOutlinePlus /> Add New Agent
+                        </p>
+                      </div>
+                    )}
+                    {color ? (
+                      <div
+                        className={style.agent}
+                        onClick={() => {
+                          setAssignterminal(true);
+                        }}
+                      >
+                        <p>
+                          <AiOutlinePlus /> Assign New Terminal
+                        </p>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+                <div className={style.head}>
+                  <p
+                    onClick={(e) => {
+                      setColor(false),
+                        setColor2(true),
+                        setValue(e.target.textContent);
+                    }}
+                    style={{
+                      backgroundColor: color ? "transparent" : "#1B59F8",
+                      color: color ? "gray" : "",
+                    }}
+                  >
+                    Agents{" "}
+                  </p>
+                  <span
+                    onClick={(e) => {
+                      setColor(true),
+                        setColor2(false),
+                        setValue(e.target.textContent);
+                    }}
+                    style={{
+                      backgroundColor: color ? "#1B59F8" : "",
+                      color: color ? "white" : "",
+                    }}
+                  >
+                    Terminals
+                  </span>
+                </div>
+                {color2 ? (
+                  <Term2
+                    data={allagents}
+                    check={setTerminal}
+                    number={setPagination}
+                    loading={loading}
+                  />
+                ) : (
+                  ""
+                )}
+                {color ? <Term check={setTerminal} /> : ""}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
-    {color2 ?<Term2 data={allagents} check={setTerminal} number={setPagination}/>:""} 
-       {color ?<Term check={setTerminal}/>:""}
-       </div>
-       </div>
-       </div>
-
-     </>}
-      
- 
-    
-
-    
-  
-
-  </div>
-   
-  )
+  );
 }
-export default agent 
+export default agent;
 
 // {/* <div className={style.footer}>
 //         <span>Showing 1 to 5 of 100 entries</span>
@@ -232,6 +304,6 @@ export default agent
 //           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
 //           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
 //        </div>
-       
+
 //    </div>:""} */}
 //    {/* {color ?<Term check={setTerminal}/>:""} */}

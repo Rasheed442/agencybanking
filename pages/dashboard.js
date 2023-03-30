@@ -9,12 +9,14 @@ import Link from "next/link";
 import Axios from "axios";
 import style from "../styles/dashboard.module.css";
 import Sidebar from "../component/Sidebar";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 function Main() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState([]);
   const [commission, setCommission] = useState([]);
   const [agent, setAgent] = useState([]);
-
+  const [loading, setLoading] = useState();
   const [username, setUsername] = useState();
 
   const [frame, setFrame] = useState("All-time");
@@ -37,11 +39,14 @@ function Main() {
         Authorization: `Bearer ${token && token}`,
       },
     };
-    Axios.get(`${process.env.NEXT_PUBLIC_API}dashboard`, config).then(
-      (response) => {
-        setData(response?.data);
-      }
-    );
+    Axios.get(
+      `${process.env.NEXT_PUBLIC_API}dashboard`,
+      config,
+      setLoading(true)
+    ).then((response) => {
+      setData(response?.data);
+      setLoading(false);
+    });
   }, []);
   console.log(data);
 
@@ -309,7 +314,11 @@ function Main() {
                     <span style={{ fontSize: "20px", fontWeight: "800" }}>
                       &#8358;&nbsp;
                     </span>
-                    {data?.data?.balance?.commission}
+                    {loading ? (
+                      <Skeleton count={1} width="40px" height="40px" />
+                    ) : (
+                      <>{data?.data?.balance?.commission}</>
+                    )}
                   </h4>
                   <p>
                     <span style={{ color: "red" }}>
@@ -370,7 +379,14 @@ function Main() {
               <div className={style.gridout}>
                 <div className={style.transaction}>
                   <h5>Total Number of Agents</h5>
-                  <h4>{data?.data?.total_agent}</h4>
+                  {loading ? (
+                    <Skeleton count={1} width="40px" height="40px" />
+                  ) : (
+                    <>
+                      <h4>{data?.data?.total_agent}</h4>
+                    </>
+                  )}
+                  {/* <h4>{data?.data?.total_agent}</h4> */}
                   <p>
                     <span style={{ color: "green" }}>
                       <Image src="/Vector.png" width={15} height={10} /> 1.3%

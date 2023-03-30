@@ -36,30 +36,31 @@ function Commitransact({ canceltransact }) {
   async function Handler(e) {
     e.preventDefault();
     setLoading(true);
-    console.log(details);
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API}manager/commission/funds`,
-      {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(details),
-      }
-    );
-    const server = await response.json();
-    // console.log(server);
-    setLoading(false);
     canceltransact(false);
-    window.location = "/commission";
+    // console.log(details);
+    // const response = await fetch(
+    //   `${process.env.NEXT_PUBLIC_API}manager/commission/funds`,
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-type": "application/json",
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //     body: JSON.stringify(details),
+    //   }
+    // );
+    // const server = await response.json();
+    // // console.log(server);
+    // setLoading(false);
+    // canceltransact(false);
+    // window.location = "/commission";
   }
 
   return (
     <div className={style.overlay}>
       <div className={style.white}>
         <div className={style.heading}>
-          <h1>Set Commission for cash In Transactions</h1>
+          <h1>Amount Range</h1>
           <AiOutlineClose
             size={30}
             onClick={() => {
@@ -70,34 +71,147 @@ function Commitransact({ canceltransact }) {
         </div>
 
         <div className={style.flexout}>
-          <div className={style.servicetype}>
+          <div className={style.input}>
             <label>
-              Service type<span>*</span>
+              Amount Range<span style={{ color: "red" }}>*</span>
             </label>
-            <select
-              onChange={(e) => {
-                setService_type(e.target.value);
-              }}
-            >
-              {/* <option>withdrawal</option> */}
-              <option>deposit</option>
-            </select>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="1000-5000"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <AiFillCaretDown size={20} />
+            </div>
           </div>
 
-          <div className={style.servicetype}>
-            <label>
-              Payment mode<span>*</span>
-            </label>
-            <select
-              onChange={(e) => {
-                setPayment_mode(e.target.value);
-              }}
-            >
-              <option>card</option>
-              <option>cash</option>
-            </select>
+          <div className={style.input}>
+            <label>Set Charges</label>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="50"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <AiFillCaretDown size={20} />
+            </div>
           </div>
-
+          <div className={style.input}>
+            <label>
+              Amount Range<span style={{ color: "red" }}>*</span>
+            </label>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="5,0001-10,000"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <AiFillCaretDown size={20} />
+            </div>
+          </div>
+          <div className={style.input}>
+            <label>Set Charges</label>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="100"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <AiFillCaretDown size={20} />
+            </div>
+          </div>
+          <div className={style.input}>
+            <label>
+              Amount Range<span style={{ color: "red" }}>*</span>
+            </label>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="10,001 - 20,000"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <AiFillCaretDown size={20} />
+            </div>
+          </div>
+          <div className={style.input}>
+            <label>Set Charges</label>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="200"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <AiFillCaretDown size={20} />
+            </div>
+          </div>
+          <div className={style.input}>
+            <label>
+              Amount Range<span style={{ color: "red" }}>*</span>
+            </label>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="20,001 - 50,000"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <AiFillCaretDown size={20} />
+            </div>
+          </div>
+          <div className={style.input}>
+            <label>Set Charges</label>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="300"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <AiFillCaretDown size={20} />
+            </div>
+          </div>
+          <div className={style.input}>
+            <label>
+              Amount Range<span style={{ color: "red" }}>*</span>
+            </label>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="50,001 - 500,000"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <AiFillCaretDown size={20} />
+            </div>
+          </div>
+          <div className={style.input}>
+            <label>Set Charges</label>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="500"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <AiFillCaretDown size={20} />
+            </div>
+          </div>
           <div className={style.input}>
             <label>Commission Percentage</label>
             <div className={style.percentage}>
@@ -111,6 +225,20 @@ function Commitransact({ canceltransact }) {
               <p>Edit Commission</p>
             </div>
           </div>
+
+          {/* <div className={style.input}>
+            <label>Commission Percentage</label>
+            <div className={style.percentage}>
+              <input
+                type="number"
+                placeholder="1.5%"
+                onChange={(e) => {
+                  setCommission(e.target.value);
+                }}
+              />
+              <p>Edit Commission</p>
+            </div>
+          </div> */}
           <button onClick={Handler}>
             {loading ? (
               <ClipLoader loading={loading} size={20} color={color} />

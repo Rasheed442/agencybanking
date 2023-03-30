@@ -38,17 +38,11 @@ function Term({ check }) {
           <p>James Adekola</p>
           <p>James Adekola</p>
           <p>James Adekola</p>
-          <p>James Adekola</p>
-          <p>James Adekola</p>
-          <p>James Adekola</p>
         </div>
         <div className={style.status}>
           <main>
             AGENT ID <TiArrowUnsorted size={12} />
           </main>
-          <p>N1123SB3</p>
-          <p>N1123SB3</p>
-          <p>N1123SB3</p>
           <p>N1123SB3</p>
           <p>N1123SB3</p>
           <p>N1123SB3</p>
@@ -88,13 +82,54 @@ function Term({ check }) {
           <p>N1123SB3</p>
           <p>N1123SB3</p>
           <p>N1123SB3</p>
-          <p>N1123SB3</p>
-          <p>N1123SB3</p>
-          <p>N1123SB3</p>
         </div>
         <div className={style.status}>
           <main>
-            BUSINESS NAME <TiArrowUnsorted size={12} />
+            TERMINAL LOCATION <TiArrowUnsorted size={12} />
+          </main>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+          <p>IKEJA, LAGOS STATE</p>
+        </div>
+        <div className={style.status}>
+          <main>
+            TERMINAL SERIAL NUMBER <TiArrowUnsorted size={12} />
+          </main>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+          <p>12345573983</p>
+        </div>
+        <div className={style.status}>
+          <main>
+            TERMINAL MANUFACTURER <TiArrowUnsorted size={12} />
           </main>
           <p>TM30 GLOBAL INTERNATIONAL</p>
           <p>TM30 GLOBAL INTERNATIONAL</p>
@@ -113,85 +148,76 @@ function Term({ check }) {
           <p>TM30 GLOBAL INTERNATIONAL</p>
           <p>TM30 GLOBAL INTERNATIONAL</p>
           <p>TM30 GLOBAL INTERNATIONAL</p>
-          <p>TM30 GLOBAL INTERNATIONAL</p>
-          <p>TM30 GLOBAL INTERNATIONAL</p>
-          <p>TM30 GLOBAL INTERNATIONAL</p>
         </div>
         <div className={style.status}>
           <main>
-            EMAIL ADDRESS <TiArrowUnsorted size={12} />
+            TRANSACTION LIMIT <TiArrowUnsorted size={12} />
           </main>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
-          <p>CUSTOMER@TM30.COM.NG</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
+          <p>&#8358;500,000</p>
         </div>
         <div className={style.status}>
           <main>
-            ADDRESS <TiArrowUnsorted size={12} />
+            PROFILE <TiArrowUnsorted size={12} />
           </main>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-          <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
+          <p>UP-ALL TRANSACTION</p>
         </div>
         <div className={style.statu}>
           <main>
             STATUS <TiArrowUnsorted size={12} />
           </main>
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
-          <BsToggleOn size={25} style={{ color: "green" }} />
+
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
+          <BsToggleOn size={20} style={{ color: "green" }} />
         </div>
       </div>
 

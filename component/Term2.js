@@ -8,74 +8,82 @@ import {
 import { BsToggleOn, BsToggleOff } from "react-icons/bs";
 import { MdToggleOn, MdToggleOff } from "react-icons/md";
 import Terminal from "./Terminal";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { TiArrowUnsorted } from "react-icons/ti";
 import { icons } from "react-icons/lib";
-function Term2({ check, data, number }) {
+function Term2({ check, data, loading }) {
   console.log(data);
   const [counter, setCounter] = useState(1);
   const [isAgent, setisAgent] = useState();
   const [toggle, setToggle] = useState(true);
   const [clientId, setClientId] = useState();
-
   return (
     <div>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th>
-              AGENT NAME <TiArrowUnsorted size={10} />
-            </th>
-            <th>AGENT ID </th>
-            <th>
-              PHONE NUMBER <TiArrowUnsorted size={10} />
-            </th>
-            <th>
-              BUSINESS NAME <TiArrowUnsorted size={10} />
-            </th>
-            <th>
-              EMAIL ADDRESS <TiArrowUnsorted size={10} />
-            </th>
-            <th>
-              ADDRESS <TiArrowUnsorted size={10} />
-            </th>
-            <th>STATUS </th>
-          </tr>
-        </thead>
+      {loading ? (
+        <Skeleton count={1} width="" height="100vh" />
+      ) : (
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>
+                AGENT NAME <TiArrowUnsorted size={10} />
+              </th>
+              <th>AGENT ID </th>
+              <th>
+                PHONE NUMBER <TiArrowUnsorted size={10} />
+              </th>
+              <th>
+                BUSINESS NAME <TiArrowUnsorted size={10} />
+              </th>
+              <th>
+                EMAIL ADDRESS <TiArrowUnsorted size={10} />
+              </th>
+              <th>
+                ADDRESS <TiArrowUnsorted size={10} />
+              </th>
+              <th>STATUS </th>
+            </tr>
+          </thead>
 
-        {data &&
-          data?.map((d) => {
-            return (
-              <tr>
-                <td
-                  onClick={() => {
-                    setClientId(d?._id);
-                    localStorage.setItem("d.id", d?._id);
-                    check(true);
-                  }}
-                  style={{ textTransform: "capitalize", cursor: "pointer" }}
-                >
-                  {d?.fullname}
-                </td>
-                <td>{d?._id}</td>
-                <td>{d?.phonenumber}</td>
-                <td style={{ textTransform: "uppercase" }}>
-                  {d?.business_name}
-                </td>
-                <td style={{ textTransform: "uppercase" }}>{d?.email}</td>
-                <td style={{ textTransform: "uppercase" }}>{d?.address}</td>
-                <td>
-                  <div>
-                    <BsToggleOn
-                      style={{ color: "green" }}
-                      size={25}
-                      onClick={() => setToggle(false)}
-                    />
-                  </div>
-                </td>
-              </tr>
-            );
-          })}
-      </table>
+          {data &&
+            data?.map((d) => {
+              return (
+                <tr>
+                  <td
+                    onClick={() => {
+                      setClientId(d?._id);
+                      localStorage.setItem("d.id", d?._id);
+                      check(true);
+                    }}
+                    style={{
+                      textTransform: "capitalize",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {d?.fullname}
+                  </td>
+                  <td>{d?._id}</td>
+                  <td>{d?.phonenumber}</td>
+                  <td style={{ textTransform: "uppercase" }}>
+                    {d?.business_name}
+                  </td>
+                  <td style={{ textTransform: "uppercase" }}>{d?.email}</td>
+                  <td style={{ textTransform: "uppercase" }}>{d?.address}</td>
+                  <td>
+                    <div>
+                      <BsToggleOn
+                        style={{ color: "green" }}
+                        size={25}
+                        onClick={() => setToggle(false)}
+                      />
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+        </table>
+      )}
 
       <div className={styles.footer}>
         <span>Showing 1 to 5 of 100 entries</span>

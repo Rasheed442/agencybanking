@@ -91,8 +91,8 @@
 }
 .amount input{
     height: 4rem;
-    border: 1px solid gainsboro;
-    border-radius: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
     padding: 20px;
     font-size: 20px;
     cursor: pointer;

@@ -5,12 +5,14 @@ import Service2 from "../component/Service2";
 import Link from "next/link";
 import Save from "../component/Save";
 import Axios from "axios";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function Allservices({ handle }) {
   const [add, setAdd] = useState(false);
   const [open, setOpen] = useState(false);
   const [add1, setAdd1] = useState(false);
-
+  const [loading, setLoading] = useState(false);
   const [server, setServer] = useState();
 
   const token =
@@ -26,9 +28,11 @@ function Allservices({ handle }) {
   useEffect(() => {
     Axios.get(
       `${process.env.NEXT_PUBLIC_API}user/agents/details?id=53a6bf6f-2efd-443c-a795-c069eed3e66f`,
-      config
+      config,
+      setLoading(true)
     ).then((response) => {
       setServer(response?.data);
+      setLoading(false);
     });
   }, []);
   console.log(server);
@@ -52,33 +56,38 @@ function Allservices({ handle }) {
               />
             </div>
 
-            {server?.data?.services?.map((d) => {
-              return (
-                <div className={style.check}>
-                  <input className={style.check} type="checkbox" checked />
-                  <p>{d.name}</p>
+            {loading ? (
+              <Skeleton count={1} width="" height="100vh" />
+            ) : (
+              <>
+                {server?.data?.services?.map((d) => {
+                  return (
+                    <div className={style.check}>
+                      <input className={style.check} type="checkbox" checked />
+                      <p>{d.name}</p>
+                    </div>
+                  );
+                })}
+                <div className={style.btn}>
+                  <button
+                    className={style.btn1}
+                    onClick={() => {
+                      setAdd1(true);
+                    }}
+                  >
+                    Add More Services
+                  </button>
+                  <button
+                    className={style.btn2}
+                    onClick={() => {
+                      handle(false);
+                    }}
+                  >
+                    Done
+                  </button>
                 </div>
-              );
-            })}
-
-            <div className={style.btn}>
-              <button
-                className={style.btn1}
-                onClick={() => {
-                  setAdd1(true);
-                }}
-              >
-                Add More Services
-              </button>
-              <button
-                className={style.btn2}
-                onClick={() => {
-                  handle(false);
-                }}
-              >
-                Done
-              </button>
-            </div>
+              </>
+            )}
           </div>
         </div>
       )}

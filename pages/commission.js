@@ -192,7 +192,7 @@ function setting() {
                   <div className={styles.timer}>
                     <Image src="/timer.png" height={50} width={50} priority />
                     <div>
-                      <p>Cash -in Transaction</p>
+                      <p>Deposits</p>
                     </div>
                   </div>
                   <div className={styles.flexout}>
@@ -202,8 +202,8 @@ function setting() {
                       <span>others (Per Transaction)</span>
                     </div>
                     <div className={styles.transaction}>
-                      <p>{deposit?.data?.funcommission?.[0]?.commission}%</p>
-                      <p>{deposit?.data?.funcommission?.[0]?.commission}%</p>
+                      <p>{deposit?.data?.funcommission?.[0]?.commission}1.2%</p>
+                      <p>{deposit?.data?.funcommission?.[0]?.commission}1.2%</p>
                       <p>0%</p>
                     </div>
                   </div>
@@ -221,7 +221,7 @@ function setting() {
                   <div className={styles.timer}>
                     <Image src="/timer.png" height={50} width={50} priority />
                     <div>
-                      <p>Cash -out Transaction</p>
+                      <p> Withdrawals</p>
                     </div>
                   </div>
                   <div className={styles.flexout}>
@@ -231,8 +231,10 @@ function setting() {
                       <span>others (Per Transaction)</span>
                     </div>
                     <div className={styles.transaction}>
-                      <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p>
-                      <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p>
+                      <p>1.2%</p>
+                      <p>1.2%</p>
+                      {/* <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p>
+                      <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p> */}
                       <p>0%</p>
                     </div>
                   </div>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import style from "../styles/terminal.module.css";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import {
   AiOutlineDown,
   AiTwotoneBell,
@@ -22,6 +24,7 @@ function Terminal({ back, nav }) {
   const [open, setOpen] = useState();
   const [update, setUpdate] = useState();
   const [click, setClick] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const username =
     typeof window !== "undefined" ? localStorage.getItem("userName") : null;
@@ -38,9 +41,11 @@ function Terminal({ back, nav }) {
   useEffect(() => {
     Axios.get(
       `${process.env.NEXT_PUBLIC_API}user/agents/details?id=${clientId}`,
-      config
+      config,
+      setLoading(true)
     ).then((response) => {
       setClients(response?.data);
+      setLoading(false);
     });
   }, []);
   console.log(clients);
@@ -105,7 +110,7 @@ function Terminal({ back, nav }) {
               <p>
                 <span style={{ fontSize: "25px", color: "black" }}>
                   {clients?.data?.currency?.symbol}
-                </span>
+                </span>{" "}
                 {clients?.data?.balance?.wallet}
               </p>
               <h5>
@@ -119,7 +124,7 @@ function Terminal({ back, nav }) {
               <p>
                 <span style={{ fontSize: "25px", color: "black" }}>
                   {clients?.data?.currency?.symbol}
-                </span>
+                </span>{" "}
                 {clients?.data?.balance?.commission}
               </p>
               <h5 style={{ color: "red" }}>
@@ -150,16 +155,16 @@ function Terminal({ back, nav }) {
           <div style={{ display: "flex" }}>
             <div
               className={style.transactionlimit}
-              onClick={() => {
-                setOpen(true);
-              }}
+              // onClick={() => {
+              //   setOpen(true);
+              // }}
             >
               <button>Set Transaction Limit</button>
             </div>
             <div
               className={style.transactionlimit}
               onClick={() => {
-                // setOpen(true)
+                setOpen(true);
               }}
             >
               <button style={{ backgroundColor: "#DDE7FF" }}>
@@ -191,83 +196,64 @@ function Terminal({ back, nav }) {
             </div>
 
             <div className={style.balance}>
-              {clients?.data?.services?.slice(0, 6)?.map((s) => {
-                return (
-                  <div className={style.dstv}>
-                    <h2
+              <>
+                {loading ? (
+                  <Skeleton count={1} width="100%" height="140px" />
+                ) : (
+                  <>
+                    {clients?.data?.services?.slice(0, 6)?.map((s) => {
+                      return (
+                        <div className={style.dstv}>
+                          <h2
+                            onClick={() => {
+                              setUpdate(true);
+                            }}
+                          >
+                            {s?.name}
+                          </h2>
+
+                          <div onClick={() => {}}>
+                            {s?.status === true ? (
+                              <p
+                                onClick={() => {
+                                  setClick(true);
+                                }}
+                              >
+                                Active{" "}
+                                <BsToggleOn
+                                  style={{ color: " #1B59F8" }}
+                                  size={25}
+                                />
+                              </p>
+                            ) : (
+                              <p>
+                                <BsToggleOff
+                                  style={{ color: " #1B59F8" }}
+                                  size={20}
+                                />
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                    <div
+                      className={style.add}
                       onClick={() => {
-                        setUpdate(true);
+                        setAllservice(true);
                       }}
                     >
-                      {s?.name}
-                    </h2>
-
-                    <div onClick={() => {}}>
-                      {s?.status === true ? (
-                        <p
-                          onClick={() => {
-                            setClick(true);
-                          }}
-                        >
-                          Active{" "}
-                          <BsToggleOn style={{ color: " #1B59F8" }} size={25} />
-                        </p>
-                      ) : (
-                        <p>
-                          <BsToggleOff
-                            style={{ color: " #1B59F8" }}
-                            size={20}
-                          />
-                        </p>
-                      )}
+                      <Image src="/add.png" width={50} height={50} priority />
+                      <p>
+                        Add New
+                        <br /> Services
+                      </p>
                     </div>
-                  </div>
-                );
-              })}
-
-              {/* <div className={style.dstv} onClick={()=>{
-            setUpdate(true)
-           }}>
-              <h2>AirTime</h2>
-             <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
-           </div>
-           <div className={style.dstv} onClick={()=>{
-            setUpdate(true)
-           }}>
-              <h2>GOTV</h2>
-             <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
-           </div>
-           <div className={style.dstv} onClick={()=>{
-            setUpdate(true)
-           }}>
-              <h2>Electricity</h2>
-             <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
-           </div>
-           <div className={style.dstv} onClick={()=>{
-            setUpdate(true)
-           }}>
-              <h2>FIRS</h2>
-             <p>Active <BsToggleOn size={25} style={{color:"#1B59F8"}}/></p>
-           </div>
-           <div className={style.dstv} onClick={()=>{
-            setUpdate(true)
-           }}>
-              <h2>FRSC</h2>
-             <p>Active <BsToggleOff size={25} style={{color:"#1B59F8"}}/></p>
-           </div> */}
-              <div
-                className={style.add}
-                onClick={() => {
-                  setAllservice(true);
-                }}
-              >
-                <Image src="/add.png" width={50} height={50} priority />
-                <p>
-                  Add New
-                  <br /> Services
-                </p>
-              </div>
+                  </>
+                )}
+              </>
             </div>
+
             <p
               style={{ textAlign: "end", color: "blue", fontSize: "12px" }}
               onClick={() => {}}
