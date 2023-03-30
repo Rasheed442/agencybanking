@@ -16,22 +16,22 @@ function Commitransact({ canceltransact }) {
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
 
-  useEffect(() => {
-    Axios.get(
-      `${process.env.NEXT_PUBLIC_API}manager/commission/funds/?type=deposit`,
-      config
-    ).then((response) => {
-      // console.log(response?.data)
-      setDeposit(response?.data);
-    });
-  }, []);
-  console.log(deposit);
+  // useEffect(() => {
+  //   Axios.get(
+  //     `${process.env.NEXT_PUBLIC_API}manager/commission/funds/?type=deposit`,
+  //     config
+  //   ).then((response) => {
+  //     // console.log(response?.data)
+  //     setDeposit(response?.data);
+  //   });
+  // }, []);
+  // console.log(deposit);
 
   async function Handler(e) {
     e.preventDefault();

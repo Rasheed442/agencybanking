@@ -62,7 +62,7 @@ function login() {
       setLoading(false);
     }
 
-    if (email === undefined || (null && password === undefined) || null) {
+    if (email === undefined && password === undefined) {
       toast.warn("Invalid input");
     }
   }

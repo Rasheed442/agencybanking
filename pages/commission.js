@@ -18,8 +18,8 @@ import Commitransact2 from "../component/Commitransact2";
 
 function setting() {
   const [username, setUsername] = useState();
-  const [transactiontype, setTransactiontype] = useState();
-  const [transactiontype1, setTransactiontype1] = useState();
+  const [deposit, setDeposit] = useState();
+  const [withdrawal, setWithdrawal] = useState();
 
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
@@ -45,24 +45,24 @@ function setting() {
 
   useEffect(() => {
     Axios.get(
-      `${process.env.NEXT_PUBLIC_API}manager/commission/funds/?type=withdrawal`,
-      config
-    ).then((response) => {
-      // console.log(response?.data);
-      setTransactiontype(response?.data);
-    });
-  }, []);
-  // console.log(transactiontype);
-
-  useEffect(() => {
-    Axios.get(
       `${process.env.NEXT_PUBLIC_API}manager/commission/funds/?type=deposit`,
       config
     ).then((response) => {
-      setTransactiontype1(response?.data);
+      // console.log(response?.data);
+      setDeposit(response?.data);
     });
   }, []);
-  console.log(transactiontype1);
+  // console.log(deposit);
+
+  useEffect(() => {
+    Axios.get(
+      `${process.env.NEXT_PUBLIC_API}manager/commission/funds/?type=withdrawal`,
+      config
+    ).then((response) => {
+      setWithdrawal(response?.data);
+    });
+  }, []);
+  console.log(withdrawal);
 
   const [airtime, setAirtime] = useState(false);
   const [electricity, setElectricity] = useState(false);
@@ -202,12 +202,8 @@ function setting() {
                       <span>others (Per Transaction)</span>
                     </div>
                     <div className={styles.transaction}>
-                      <p>
-                        {transactiontype?.data?.funcommission?.[0]?.commission}%
-                      </p>
-                      <p>
-                        {transactiontype?.data?.funcommission?.[0]?.commission}%
-                      </p>
+                      <p>{deposit?.data?.funcommission?.[0]?.commission}%</p>
+                      <p>{deposit?.data?.funcommission?.[0]?.commission}%</p>
                       <p>0%</p>
                     </div>
                   </div>
@@ -235,14 +231,8 @@ function setting() {
                       <span>others (Per Transaction)</span>
                     </div>
                     <div className={styles.transaction}>
-                      <p>
-                        {transactiontype1?.data?.funcommission?.[0]?.commission}
-                        %
-                      </p>
-                      <p>
-                        {transactiontype1?.data?.funcommission?.[0]?.commission}
-                        %
-                      </p>
+                      <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p>
+                      <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p>
                       <p>0%</p>
                     </div>
                   </div>

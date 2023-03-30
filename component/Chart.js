@@ -224,7 +224,12 @@ function Chart() {
         <div className={style.background}>
           <div className={style.transact}>
             <h3>Transactions</h3>
-            <Link href="/reporting">
+            <Link
+              href="/reporting"
+              onClick={() => {
+                localStorage.setItem("currL", "/reporting");
+              }}
+            >
               <p>
                 View All Transaction <AiOutlineRight size={11} />
               </p>

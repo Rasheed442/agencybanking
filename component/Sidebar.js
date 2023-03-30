@@ -10,10 +10,10 @@ import {
 } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 import Link from "next/link";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import Utilis from "../component/Utilis";
-import "react-toastify/dist/ReactToastify.css";
-toast.configure();
+// import "react-toastify/dist/ReactToastify.css";
+// toast.configure();
 function Sidebar({ change }) {
   const [referralcode, setReferral] = useState();
 
@@ -32,7 +32,7 @@ function Sidebar({ change }) {
       <div
         className={style.exit1}
         onClick={() => {
-          navigator.clipboard.writeText(referralcode), toast.info("copied");
+          navigator.clipboard.writeText(referralcode), toast.success("copied");
         }}
       >
         <div className={style.profile}>
