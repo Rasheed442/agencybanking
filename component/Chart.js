@@ -120,12 +120,12 @@ function Chart() {
           <div className={style.terminal}>
             <span>Terminals</span>
             <p>64%</p>
-            <Image src="/Graph.svg" width={120} height={50} priority />
+            <img src="/Graph.svg" />
           </div>
           <div className={style.terminal}>
             <span>Agents</span>
             <p>86%</p>
-            <Image src="/Graph.svg" width={120} height={50} priority />
+            <img src="/Graph.svg" />
           </div>
           <div className={style.terminal}>
             <span>Agent Managers</span>
