@@ -42,7 +42,7 @@ function Commitransact({ canceltransact2 }) {
     <div className={style.overlay}>
       <div className={style.white}>
         <div className={style.heading}>
-          <h1>Set commission for withdrawal</h1>
+          <h1>Set commission for withdrawals</h1>
           <AiOutlineClose
             size={30}
             onClick={() => {
