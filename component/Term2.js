@@ -21,7 +21,7 @@ function Term2({ check, data, loading }) {
   return (
     <div>
       {loading ? (
-        <Skeleton count={1} width="" height="100vh" />
+        <Skeleton count={10} width="" height="100%" />
       ) : (
         <table className={styles.table}>
           <thead>

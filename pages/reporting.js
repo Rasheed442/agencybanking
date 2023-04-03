@@ -20,6 +20,7 @@ function dispute() {
   const [oneData, setOneData] = useState([]);
   const [username, setUsername] = useState();
   const [show, setShow] = useState(false);
+
   console.log(oneData);
   console.log(show);
 

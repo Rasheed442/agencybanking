@@ -50,7 +50,7 @@ function Electricitycommission({ cancelelectricity }) {
             <label>
               Commission Percentage <span>*</span>
             </label>
-            <input type="number" placeholder="26382921" />
+            <input type="number" placeholder="1.2%" />
           </div>
         </div>
 

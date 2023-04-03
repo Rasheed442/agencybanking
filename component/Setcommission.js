@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "../styles/Setcommission.module.css";
+import style from "../styles/electricitycommission.module.css";
 import Axios from "axios";
 import { AiFillCaretDown, AiOutlineClose } from "react-icons/ai";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -56,10 +56,10 @@ function Setcommission({ cancelCommission }) {
   return (
     <div className={style.overlay}>
       <div className={style.white}>
-        <div className={style.heading}>
-          <h1>Set Service Commission</h1>
+        <div className={style.header}>
+          <h1>Set airtime commission</h1>
           <AiOutlineClose
-            size={30}
+            size={25}
             onClick={() => {
               cancelCommission(false);
             }}
@@ -68,97 +68,42 @@ function Setcommission({ cancelCommission }) {
             }}
           />
         </div>
-
-        <div className={style.inputs}>
-          <div className={style.billername}>
+        <div className={style.gridout}>
+          <div className={style.biller}>
             <label>
-              Service name<span style={{ color: "red" }}>*</span>
+              Service Name <span>*</span>
             </label>
-            <div className={style.caret}>
-              <input
-                onChange={(e) => {
-                  setService_name(e.target.value);
-                }}
-                type="text"
-                placeholder="airtime"
-              />
-            </div>
+            <select>
+              <option>airtime</option>
+            </select>
           </div>
-
-          <div className={style.name}>
+          <div className={style.textinput}>
+            <label>
+              Service ID <span>*</span>
+            </label>
+            <input type="number" placeholder="26382921" />
+          </div>
+          <div className={style.biller}>
             <label>
               Biller Name <span>*</span>
             </label>
-            <select
-              onChange={(e) => {
-                setBiller_name(e.target.value);
-              }}
-            >
-              <option>mtn</option>
-              <option>glo</option>
+            <select>
               <option>airtel</option>
+              <option>glo</option>
               <option>9mobile</option>
+              <option>mtn</option>
             </select>
           </div>
-
-          <div className={style.name} style={{ paddingTop: "30px" }}>
+          <div className={style.textinput}>
             <label>
-              Payment mode <span>*</span>
+              Commission Percentage <span>*</span>
             </label>
-            <select
-              onChange={(e) => {
-                setPayment_mode(e.target.value);
-              }}
-            >
-              <option>cash</option>
-              <option>card</option>
-            </select>
-          </div>
-
-          <div className={style.commissionpercentage}>
-            <label>
-              Commission Percentage <span style={{ color: "red" }}>*</span>
-            </label>
-            <div className={style.percentage}>
-              <input
-                className={style.percent}
-                type="number"
-                placeholder="1.2%"
-                onChange={(e) => {
-                  setCommission(e.target.value);
-                }}
-              />
-              <p style={{ color: "blue" }}>Edit Commission</p>
-            </div>
-            {/* <h2>Select Provider</h2> */}
+            <input type="number" placeholder="1.2" />
           </div>
         </div>
 
-        {/* <div className={style.inputs}>   
-           <div className={style.billername}>
-             <label>Primary Provider <span style={{color:"red"}}>*</span></label>
-             <div className={style.caret}>
-                <input type="text" placeholder="Select your default provider"/>
-                <AiFillCaretDown/>
-             </div>
-           </div>
-           <div className={style.billername}>
-             <label>Secondary Provider(optional) </label>
-             <div className={style.caret}>
-                <input type="text" placeholder="Select your Secondary Provider"/>
-              <AiFillCaretDown/>
-             </div>
-           </div>
-        </div>    */}
-
-        <div className={style.submit} onClick={submithandler}>
-          <button>
-            {loading ? (
-              <ClipLoader loading={loading} size={20} color={color} />
-            ) : (
-              "Set Commission"
-            )}
-          </button>
+        <div className={style.submit}>
+          <button>Set Commission</button>
         </div>
       </div>
     </div>

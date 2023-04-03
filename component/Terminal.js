@@ -108,10 +108,21 @@ function Terminal({ back, nav }) {
             <div className={style.wallet}>
               <span>Wallet Balance</span>
               <p>
-                <span style={{ fontSize: "25px", color: "black" }}>
-                  {clients?.data?.currency?.symbol}
-                </span>{" "}
-                {clients?.data?.balance?.wallet}
+                {loading ? (
+                  <Skeleton
+                    count={2}
+                    width="100%"
+                    height=""
+                    // baseColor="#245BE8"
+                  />
+                ) : (
+                  <>
+                    <span style={{ fontSize: "25px", color: "black" }}>
+                      {clients?.data?.currency?.symbol}2
+                    </span>{" "}
+                    {clients?.data?.balance?.wallet}
+                  </>
+                )}
               </p>
               <h5>
                 <MdShowChart />
@@ -123,7 +134,16 @@ function Terminal({ back, nav }) {
               <span>Commission</span>
               <p>
                 <span style={{ fontSize: "25px", color: "black" }}>
-                  {clients?.data?.currency?.symbol}
+                  {loading ? (
+                    <Skeleton
+                      count={2}
+                      width=""
+                      height=""
+                      // baseColor="#245BE8"
+                    />
+                  ) : (
+                    <>{clients?.data?.currency?.symbol}</>
+                  )}
                 </span>{" "}
                 {clients?.data?.balance?.commission}
               </p>
@@ -198,7 +218,12 @@ function Terminal({ back, nav }) {
             <div className={style.balance}>
               <>
                 {loading ? (
-                  <Skeleton count={1} width="100%" height="140px" />
+                  <Skeleton
+                    count={8}
+                    width="100%"
+                    height=""
+                    // baseColor="#245BE8"
+                  />
                 ) : (
                   <>
                     {clients?.data?.services?.slice(0, 6)?.map((s) => {
