@@ -1,6 +1,8 @@
 import React from "react";
 import style from "../styles/agent.module.css";
 import { AiOutlineCaretDown } from "react-icons/ai";
+import Map from "../component/Map";
+
 function Term3() {
   return (
     <div>
@@ -18,6 +20,10 @@ function Term3() {
           <AiOutlineCaretDown size={12} />
         </div>
         <button>Apply</button>
+      </div>
+      <div>
+        {" "}
+        <Map />
       </div>
     </div>
   );
