@@ -10,6 +10,8 @@ import {
   AiOutlineArrowLeft,
 } from "react-icons/ai";
 import { BsToggleOn } from "react-icons/bs";
+import { MdOutlineShareLocation } from "react-icons/md";
+import { FaUserCheck } from "react-icons/fa";
 import Image from "next/image";
 import Term from "../component/Term";
 import New from "../component/New";
@@ -18,6 +20,9 @@ import Link from "next/link";
 import Assignterminal from "../component/Assignterminal";
 import Axios from "axios";
 import Term2 from "../component/Term2";
+import Term3 from "../component/Term3";
+import Locate_terminal from "../component/Locate_terminal";
+import Editterminal from "../component/Editterminal";
 function agent() {
   const [counter, setCounter] = useState(1);
   const [username, setUsername] = useState();
@@ -27,19 +32,20 @@ function agent() {
   useEffect(() => {
     setUsername(localStorage.getItem("userName"));
   }, [typeof window !== "undefined" ? localStorage.getItem("userName") : null]);
-
   // local storage
 
-  const [color, setColor] = useState(false);
-  const [color2, setColor2] = useState(true);
+  const [color, setColor] = useState(true);
+  const [color2, setColor2] = useState(false);
+  const [color3, setColor3] = useState(false);
   const [open, setOpen] = useState(false);
   const [terminal, setTerminal] = useState(false);
   const [assignterminal, setAssignterminal] = useState(false);
   const [allagents, setAllagents] = useState([]);
+  const [pagination, setPagination] = useState();
   const [value, setValue] = useState("Agents");
-  const [search, setSearch] = useState();
-  const [pagination, setPagination] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [locateterminal, setLocateterminal] = useState(false);
+  const [editterminal, setEditterminal] = useState(false);
 
   const config = {
     headers: {
@@ -64,7 +70,10 @@ function agent() {
       {terminal ? <Terminal back={setTerminal} /> : ""}
       {open ? <New handle={setOpen} /> : ""}
       {terminal ? "" : <Sidebar />}
-
+      {locateterminal ? (
+        <Locate_terminal closeterminal={setLocateterminal} />
+      ) : null}
+      {editterminal && <Editterminal closeEdit={setEditterminal} />}
       {!terminal && (
         <>
           <div className={style.main}>
@@ -108,8 +117,6 @@ function agent() {
                       />
                     </div>
                     {color ? (
-                      ""
-                    ) : (
                       <div
                         className={style.agent}
                         onClick={() => {
@@ -120,8 +127,10 @@ function agent() {
                           <AiOutlinePlus /> Add New Agent
                         </p>
                       </div>
+                    ) : (
+                      ""
                     )}
-                    {color ? (
+                    {color2 ? (
                       <div
                         className={style.agent}
                         onClick={() => {
@@ -135,37 +144,79 @@ function agent() {
                     ) : (
                       ""
                     )}
+                    {color3 ? (
+                      <>
+                        <div
+                          className={style.agent}
+                          onClick={() => {
+                            setLocateterminal(true);
+                          }}
+                        >
+                          <p>
+                            <MdOutlineShareLocation size={15} /> Locate Terminal
+                          </p>
+                        </div>
+                        <div
+                          className={style.agent}
+                          onClick={() => {
+                            setEditterminal(true);
+                          }}
+                        >
+                          <p>
+                            <FaUserCheck size={15} /> Edit Terminal Address
+                          </p>
+                        </div>
+                      </>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <div className={style.head}>
                   <p
                     onClick={(e) => {
-                      setColor(false),
-                        setColor2(true),
-                        setValue(e.target.textContent);
+                      setColor(true);
+                      setColor2(false);
+                      setColor3(false);
+                      setValue(e.target.textContent);
                     }}
                     style={{
-                      backgroundColor: color ? "transparent" : "#1B59F8",
-                      color: color ? "gray" : "",
+                      backgroundColor: color ? "#1B59F8" : "white",
+                      color: color ? "" : "gray",
                     }}
                   >
                     Agents{" "}
                   </p>
                   <span
                     onClick={(e) => {
-                      setColor(true),
-                        setColor2(false),
-                        setValue(e.target.textContent);
+                      setColor2(true);
+                      setColor(false);
+                      setColor3(false);
+                      setValue(e.target.textContent);
                     }}
                     style={{
-                      backgroundColor: color ? "#1B59F8" : "",
-                      color: color ? "white" : "",
+                      backgroundColor: color2 ? "#1B59F8" : "",
+                      color: color2 ? "white" : "",
                     }}
                   >
                     Terminals
                   </span>
+                  <span
+                    onClick={(e) => {
+                      setColor3(true);
+                      setColor(false);
+                      setColor2(false);
+                      setValue(e.target.textContent);
+                    }}
+                    style={{
+                      backgroundColor: color3 ? "#1B59F8" : "",
+                      color: color3 ? "white" : "gray",
+                    }}
+                  >
+                    Agent/Terminal Location
+                  </span>
                 </div>
-                {color2 ? (
+                {color ? (
                   <Term2
                     data={allagents}
                     check={setTerminal}
@@ -175,7 +226,8 @@ function agent() {
                 ) : (
                   ""
                 )}
-                {color ? <Term check={setTerminal} /> : ""}
+                {color2 ? <Term check={setTerminal} /> : ""}
+                {color3 ? <Term3 /> : ""}
               </div>
             </div>
           </div>
@@ -185,125 +237,3 @@ function agent() {
   );
 }
 export default agent;
-
-// {/* <div className={style.footer}>
-//         <span>Showing 1 to 5 of 100 entries</span>
-//         <div className={style.btn}>
-//           <button style={{border:"1px solid red", color:"red"}} onClick={()=>{
-//             setCounter(counter-1)
-//           }}><AiOutlineArrowLeft/>&nbsp;Previous</button>
-//           <div className={style.btn1}>
-//             {/* <button style={{backgroundColor:"#1B59F8", color:"white"}}>1</button>
-//             <button>2</button>
-//             <button>3</button>
-//             <button>4</button>
-//             <button>...</button>
-//             <button>10</button> */}
-//             <button>{counter}</button>
-//           </div>
-//           <button  style={{border:"1px solid #1B59F8", color:"#1B59F8"}} onClick={()=>{
-//             setCounter(counter+1)
-//           }}>Next&nbsp;<AiOutlineArrowRight/></button>
-//         </div>
-// //       </div> */}{/* {color2 ?<div className={style.gridout}>
-//        <div className={style.status} onClick={()=> {setTerminal(true)}}>
-//         <main>AGENT NAME <AiOutlineDown/></main>
-//         <p>James Adekola</p>
-//         <p>Shola Adeniyi</p>
-//         <p>Shola Adeniyi</p>
-//         <p>Tayo Temitope</p>
-//         <p>Tayo Temitope</p>
-//         <p>Shola Adeniyi</p>
-//         <p>Shola Adeniyi</p>
-//         <p>Shola Adeniyi</p>
-//         <p>James Adekola</p>
-//         <p>James Adekola</p>
-//         <p>James Adekola</p>
-//        </div>
-//        <div className={style.status}>
-//         <main>AGENT ID <AiOutlineDown/></main>
-//         <p>N1123SB3</p>
-//         <p>N1123SB3</p>
-//         <p>N1123SB3</p>
-//         <p>N1123SB3</p>
-//         <p>N1123SB3</p>
-//         <p>N1123SB3</p>
-//         <p>N1123SB3</p>
-//         <p>N1123SB3</p>
-//         <p>N1123SB3</p>
-//         <p>N1123SB3</p>
-//         <p>N1123SB3</p>
-//        </div>
-//        <div className={style.status}>
-//         <main>PHONE NUMBER <AiOutlineDown/></main>
-//          <p>+23481 3226 5445</p>
-//          <p>+23481 3226 5445</p>
-//          <p>+23481 3226 5445</p>
-//          <p>+23481 3226 5445</p>
-//          <p>+23481 3226 5445</p>
-//          <p>+23481 3226 5445</p>
-//          <p>+23481 3226 5445</p>
-//          <p>+23481 3226 5445</p>
-//          <p>+23481 3226 5445</p>
-//          <p>+23481 3226 5445</p>
-//          <p>+23481 3226 5445</p>
-//        </div>
-//        <div className={style.status}>
-//         <main>BUSINESS NAME <AiOutlineDown/></main>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//           <p>TM30 GLOBAL INTERNATIONAL</p>
-//        </div>
-//        <div className={style.status}>
-//         <main>EMAIL ADDRESS <AiOutlineDown/></main>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//          <p>CUSTOMER@TM30.COM.NG</p>
-//        </div>
-//        <div className={style.status}>
-//         <main>ADDRESS <AiOutlineDown/></main>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//            <p>27,ADEAGA STR, ABULE EGBA, LAGOS</p>
-//        </div>
-//        <div className={style.statu}>
-//         <main>STATUS <AiOutlineDown/></main>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//           <BsToggleOn size={25} style={{color:"#2DCA72"}}/>
-//        </div>
-
-//    </div>:""} */}
-//    {/* {color ?<Term check={setTerminal}/>:""} */}

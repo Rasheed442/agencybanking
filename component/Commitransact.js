@@ -3,6 +3,7 @@ import style from "../styles/committransact.module.css";
 import Axios from "axios";
 import {
   AiFillCaretDown,
+  AiOutlineCaretDown,
   AiOutlineClose,
   AiOutlinePlus,
   AiFillDelete,
@@ -54,65 +55,83 @@ function Commitransact({ canceltransact }) {
 
         {formList?.map((item, index) => {
           return (
-            <div className={style.flexout}>
-              <div className={style.input}>
-                <label>
-                  Minimum Range<span style={{ color: "red" }}>*</span>
-                </label>
-                <div className={style.percentage}>
-                  <input
-                    type="number"
-                    placeholder="1000-5000"
-                    onChange={(e) => {
-                      setCommission(e.target.value);
-                    }}
-                  />
+            <>
+              <div
+                className={style.input}
+                style={{
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                  paddingBottom: "20px",
+                }}
+              >
+                <label>Deposit to</label>
+                <div className={style.select}>
+                  <select>
+                    <option></option>
+                  </select>
+                  <AiOutlineCaretDown />
                 </div>
               </div>
-              <div className={style.input}>
-                <label>
-                  Maximum range<span style={{ color: "red" }}>*</span>
-                </label>
-                <div className={style.percentage}>
-                  <input
-                    type="number"
-                    placeholder="50"
-                    onChange={(e) => {
-                      setCommission(e.target.value);
-                    }}
-                  />
-                </div>
-              </div>
-              <div className={style.input}>
-                <label>
-                  Set Charges<span style={{ color: "red" }}>*</span>
-                </label>
-                <div className={style.percentage}>
-                  <input
-                    type="number"
-                    placeholder="5,0001-10,000"
-                    onChange={(e) => {
-                      setCommission(e.target.value);
-                    }}
-                  />
-                </div>
-                {item?.button && (
-                  <div
-                    className={style.delete}
-                    onClick={() => {
-                      setFormList([
-                        ...formList.slice(0, index),
-                        ...formList.slice(index + 1),
-                      ]);
-                    }}
-                  >
-                    <button>
-                      <AiFillDelete />
-                    </button>
+              <div className={style.flexout}>
+                <div className={style.input}>
+                  <label>
+                    Minimum Amount<span style={{ color: "red" }}>*</span>
+                  </label>
+                  <div className={style.percentage}>
+                    <input
+                      type="number"
+                      placeholder="1000-5000"
+                      onChange={(e) => {
+                        setCommission(e.target.value);
+                      }}
+                    />
                   </div>
-                )}
+                </div>
+                <div className={style.input}>
+                  <label>
+                    Maximum Amount<span style={{ color: "red" }}>*</span>
+                  </label>
+                  <div className={style.percentage}>
+                    <input
+                      type="number"
+                      placeholder="5,0001-10,000"
+                      onChange={(e) => {
+                        setCommission(e.target.value);
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className={style.input}>
+                  <label>
+                    Set Charges<span style={{ color: "red" }}>*</span>
+                  </label>
+                  <div className={style.percentage}>
+                    <input
+                      type="number"
+                      placeholder="50"
+                      onChange={(e) => {
+                        setCommission(e.target.value);
+                      }}
+                    />
+                  </div>
+                  {item?.button && (
+                    <div
+                      className={style.delete}
+                      onClick={() => {
+                        setFormList([
+                          ...formList.slice(0, index),
+                          ...formList.slice(index + 1),
+                        ]);
+                      }}
+                    >
+                      <button>
+                        <AiFillDelete />
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            </>
           );
         })}
         <div className={style.flexout}>

@@ -7,11 +7,12 @@ import {
 } from "react-icons/ai";
 import { BsToggleOn, BsToggleOff } from "react-icons/bs";
 import { TiArrowUnsorted } from "react-icons/ti";
+import { myterminals } from "./Terminaldashboard";
 function Term({ check }) {
   const [counter, setCounter] = useState(0);
   return (
     <div>
-      <div className={style.gridout}>
+      {/* <div className={style.gridout}>
         <div
           className={style.status}
           onClick={() => {
@@ -219,7 +220,65 @@ function Term({ check }) {
           <BsToggleOn size={20} style={{ color: "green" }} />
           <BsToggleOn size={20} style={{ color: "green" }} />
         </div>
-      </div>
+      </div> */}
+      <table className={style.table}>
+        <thead>
+          <tr>
+            <th>
+              ASSIGNED AGENT NAME <TiArrowUnsorted />
+            </th>
+            <th>
+              AGENT ID
+              <TiArrowUnsorted />
+            </th>
+            <th>
+              TERMINAL ID
+              <TiArrowUnsorted />
+            </th>
+            <th>
+              TERMINAL LOCATION
+              <TiArrowUnsorted />
+            </th>
+            <th>
+              TERMINAL SERIAL NUMBER
+              <TiArrowUnsorted />
+            </th>
+            <th>
+              TERMINAL MANUFACTURER
+              <TiArrowUnsorted />
+            </th>
+            <th>
+              TRANSACTION LIMIT
+              <TiArrowUnsorted />
+            </th>
+            <th>
+              PROFILE
+              <TiArrowUnsorted />
+            </th>
+            <th>
+              STATUS
+              <TiArrowUnsorted />
+            </th>
+          </tr>
+        </thead>
+        {myterminals.map((m) => {
+          return (
+            <>
+              <tr>
+                <td>{m.assigned_agent_name}</td>
+                <td>{m.Agent_id}</td>
+                <td>{m.Terminal_id}</td>
+                <td>{m.Terminal_location}</td>
+                <td>{m.Terminal_serial_number}</td>
+                <td>{m.Terminal_manufacturer}</td>
+                <td>{m.Transaction_limit}</td>
+                <td>{m.Profile}</td>
+                <td>{m.status}</td>
+              </tr>
+            </>
+          );
+        })}
+      </table>
 
       <div className={style.footer}>
         <span>Showing 1 to 5 of 100 entries</span>

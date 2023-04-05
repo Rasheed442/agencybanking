@@ -1,20 +1,14 @@
-import React from 'react'
-import Bar from "../component/Bar"
-import Radar from "../component/Radar"
-import Fundtransaction from "../component/Fundtransaction"
-import Updatecommission from '../component/Updatecommission'
-import Changepassword from '../component/Changepassword'
+import React from "react";
+import style from "../styles/test.module.css";
+import { transaction } from "../component/Dashboardtable";
+import Locate_terminal from "../component/Locate_terminal";
 function testing() {
+  console.log(transaction);
   return (
     <div>
-      {/* <Bar/> */}
-      {/* <Radar/> */}
-      {/* <Pie/> */}
-      {/* <Fundtransaction/> */}
-      {/* <Updatecommission/> */}
-      <Changepassword/>
+      <Locate_terminal />
     </div>
-  )
+  );
 }
 
-export default testing
+export default testing;

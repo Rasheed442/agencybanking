@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "../styles/chart.module.css";
 import Image from "next/image";
 import Chartjs from "chart.js/auto";
+import { transaction } from "../component/Dashboardtable";
 import Bar from "../component/Bar";
 import { Pie, Line, Doughnut } from "react-chartjs-2";
 import {
@@ -50,7 +51,6 @@ function Chart() {
       responsive: true,
     },
   };
-  // console.log(data.labels)
   const pie = {
     labels: ["20%", "80%"],
     datasets: [
@@ -58,15 +58,7 @@ function Chart() {
         label: "Sales for 2020 (M)",
         data: [20, 80],
 
-        backgroundColor: [
-          "#42CC7E",
-          "#FF993ACC",
-          // "green",
-          // "blue"
-          // "#FD8A8A",
-          // "#7286D3",
-          // "lightblue"
-        ],
+        backgroundColor: ["#42CC7E", "#FF993ACC"],
       },
     ],
   };
@@ -76,16 +68,7 @@ function Chart() {
       {
         label: "Sales for 2020 (M)",
         data: [2, 2, 5, 4],
-        backgroundColor: [
-          // "orange",
-          // "green",
-          // "blue",
-          // "gray"
-          "#7397F5",
-          "#FF993A",
-          "#42CC7E",
-          "#D1D2D2",
-        ],
+        backgroundColor: ["#7397F5", "#FF993A", "#42CC7E", "#D1D2D2"],
       },
     ],
   };
@@ -236,328 +219,65 @@ function Chart() {
             </Link>
           </div>
           <div className={style.gridoutside}>
-            <div className={style.profile}>
-              <span>
-                AGENT NAME
-                <TiArrowUnsorted size={12} />
-              </span>
-              <p>James Adekola</p>
-              <p>Shola Adeniyi</p>
-              <p>Shola Adeniyi</p>
-              <p>Tayo Temitope</p>
-              <p>Tayo Temitope</p>
-              <p>Shola Adeniyi</p>
-              <p>Shola Adeniyi</p>
-              <p>James Adekola</p>
-              <p>James Adekola</p>
-              <p>James Adekola</p>
-              <p>Shola Adeniyi</p>
-              <p>Shola Adeniyi</p>
-              <p>Shola Adeniyi</p>
-              <p>Shola Adeniyi</p>
-              <p>Shola Adeniyi</p>
-            </div>
-            <div className={style.profile}>
-              <span>AGENT ID</span>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-              <p>N1123SB3</p>
-            </div>
-            <div className={style.profile}>
-              <span>
-                RES MESSAGE <TiArrowUnsorted size={12} />
-              </span>
-              <p>Transaction Approved</p>
-              <p>Transaction Approved</p>
-              <p>Transaction Approved</p>
-              <p>Transaction Approved</p>
-              <p>Insufficient Fund</p>
-              <p>Transaction Approved</p>
-              <p>Transaction Approved</p>
-              <p>Transaction Approved</p>
-              <p>Insufficient Fund</p>
-              <p>Insufficient Fund</p>
-              <p>Insufficient Fund</p>
-              <p>Insufficient Fund</p>
-              <p>Insufficient Fund</p>
-              <p>Insufficient Fund</p>
-              <p>Insufficient Fund</p>
-            </div>
-            <div className={style.profile}>
-              <span>
-                RESP CODE <TiArrowUnsorted size={12} />
-              </span>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-              <p>00</p>
-            </div>
-            <div className={style.profile}>
-              <span>
-                TRANS.TYPE &nbsp;
-                <TiArrowUnsorted size={12} />
-              </span>
-              <p style={{ color: "green" }}>Withdrawal</p>
-              <p style={{ color: "green" }}>Withdrawal</p>
-              <p style={{ color: "green" }}>Withdrawal</p>
-              <p style={{ color: "red" }}>Deposit</p>
-              <p style={{ color: "green" }}>Withdrawal</p>
-              <p style={{ color: "green" }}>Withdrawal</p>
-              <p style={{ color: "green" }}>Withdrawal</p>
-              <p style={{ color: "red" }}>Deposit</p>
-              <p style={{ color: "green" }}>Withdrawal</p>
-              <p style={{ color: "green" }}>Withdrawal</p>
-              <p style={{ color: "green" }}>Withdrawal</p>
-              <p style={{ color: "red" }}>Deposit</p>
-              <p style={{ color: "red" }}>Deposit</p>
-              <p style={{ color: "red" }}>Deposit</p>
-              <p style={{ color: "red" }}>Deposit</p>
-            </div>
-            <div className={style.profile}>
-              <span>
-                AMOUNT <TiArrowUnsorted size={12} />
-              </span>
-              <p>&#8358;150,000</p>
-              <p>&#8358;250,000</p>
-              <p>&#8358;170,000</p>
-              <p>&#8358;80,000</p>
-              <p>&#8358;96,000</p>
-              <p>&#8358;10,000</p>
-              <p>&#8358;52,000</p>
-              <p>&#8358;80,000</p>
-              <p>&#8358;96,000</p>
-              <p>&#8358;42,000</p>
-              <p>&#8358;40,000</p>
-              <p>&#8358;40,000</p>
-              <p>&#8358;40,000</p>
-              <p>&#8358;40,000</p>
-              <p>&#8358;40,000</p>
-            </div>
-            <div className={style.profile}>
-              <span>
-                EARNING <TiArrowUnsorted size={12} />
-              </span>
-              <p>&#8358;150,000</p>
-              <p>&#8358;250,000</p>
-              <p>&#8358;170,000</p>
-              <p>&#8358;80,000</p>
-              <p>&#8358;96,000</p>
-              <p>&#8358;10,000</p>
-              <p>&#8358;52,000</p>
-              <p>&#8358;80,000</p>
-              <p>&#8358;96,000</p>
-              <p>&#8358;42,000</p>
-              <p>&#8358;40,000</p>
-              <p>&#8358;40,000</p>
-              <p>&#8358;40,000</p>
-              <p>&#8358;40,000</p>
-              <p>&#8358;40,000</p>
-            </div>
-            <div className={style.profile}>
-              <span>
-                DATE <TiArrowUnsorted size={12} />
-              </span>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-              <p>14th April 2022</p>
-            </div>
-            <div className={style.profile}>
-              <span>
-                STATUS <TiArrowUnsorted size={12} />
-              </span>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  borderRadius: "20px",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#FF3A441A",
-                  color: "red",
-                  width: "100%",
-                  textAlign: "center",
-                }}
-              >
-                FAILED
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#FF3A441A",
-                  color: "red",
-                  width: "100%",
-                  textAlign: "center",
-                }}
-              >
-                FAILED
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-              <p
-                style={{
-                  backgroundColor: "#00F4001A",
-                  color: "#008000",
-                  width: "100%",
-                }}
-              >
-                SUCCESSFUL
-              </p>
-            </div>
-            <div className={style.profile}>
-              <span>
-                TRANS REF. <TiArrowUnsorted size={12} />
-              </span>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-              <p>WTH/2021052980205747R...</p>
-            </div>
+            <table className={style.table}>
+              <thead>
+                <tr>
+                  <th>
+                    AGENT NAME <TiArrowUnsorted />
+                  </th>
+                  <th>AGENT ID</th>
+                  <th>RES MESSAGE</th>
+                  <th>RES CODE</th>
+                  <th>TRANS.TYPE</th>
+                  <th>AMOUNT</th>
+                  <th>EARNING</th>
+                  <th>DATE</th>
+                  <th>STATUS</th>
+                  <th>TRANS REF.</th>
+                </tr>
+              </thead>
+              <tbody>
+                {transaction.map((t) => {
+                  return (
+                    <tr>
+                      <td>{t.name}</td>
+                      <td>{t.id}</td>
+                      <td>{t.res_mesg}</td>
+                      <td>{t.res_code}</td>
+                      <td>{t.trans_type}</td>
+                      <td>{t.amount}</td>
+                      <td>{t.earning}</td>
+                      <td>{t.date}</td>
+                      <td
+                        style={{
+                          width: "80%",
+                          margin: "10px",
+                          display: "inline-flex",
+                          borderRadius: "5px",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          backgroundColor:
+                            t.status === "SUCCESSFUL"
+                              ? "#00F4001A"
+                              : t.status === "FAILED"
+                              ? "#FF3A441A"
+                              : "",
+                          color:
+                            t.status === "SUCCESSFUL"
+                              ? "#008000"
+                              : t.status === "FAILED"
+                              ? "#FF3A44"
+                              : "",
+                        }}
+                      >
+                        {t.status}
+                      </td>
+                      <td>{t.trans_ref}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
           <div className={style.footer}>
             <span>Showing 1 to 5 of 100 entries</span>

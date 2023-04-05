@@ -17,6 +17,7 @@
     width: 50rem;
     display: flex;
     flex-direction: column;
+    border-radius: 5px;
     gap: 45px;
     padding: 30px;
 }
