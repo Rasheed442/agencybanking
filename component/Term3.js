@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../styles/agent.module.css";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import Map from "../component/Map";
-
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 function Term3() {
+  const [loading, setLoading] = useState(false);
   return (
     <div>
       <div className={style.fram}>
@@ -22,7 +24,6 @@ function Term3() {
         <button>Apply</button>
       </div>
       <div>
-        {" "}
         <Map />
       </div>
     </div>

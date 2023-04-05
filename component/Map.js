@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
-
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 function MyComponent() {
+  const [loading, setLoading] = useState();
   const { isLoaded } = {
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyA6Isl6rcuvUpvIx6t95BcNb68j_vKCRsE",
@@ -33,12 +35,20 @@ function MyComponent() {
 
   return (
     <>
-      <LoadScript googleMapsApiKey="AIzaSyA6Isl6rcuvUpvIx6t95BcNb68j_vKCRsE">
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-          {/* Child components, such as markers, info windows, etc. */}
-          <></>
-        </GoogleMap>
-      </LoadScript>
+      {loading ? (
+        <Skeleton count={10} width="" height="100%" />
+      ) : (
+        <LoadScript googleMapsApiKey="AIzaSyA6Isl6rcuvUpvIx6t95BcNb68j_vKCRsE">
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={10}
+          >
+            {/* Child components, such as markers, info windows, etc. */}
+            <></>
+          </GoogleMap>
+        </LoadScript>
+      )}
     </>
   );
 }
