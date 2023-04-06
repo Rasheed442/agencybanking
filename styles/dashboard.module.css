@@ -26,6 +26,26 @@
     font-weight: 500;
 }
 
+
+.timeframe {
+
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+.timeframe select {
+    appearance: none;
+    outline: none;
+    padding: 6px;
+    width: 15rem;
+    border: none;
+    border-radius: 5px;
+}
+
 .frame{
      /* display: grid;
      grid-template-columns: repeat(2,1fr); */
@@ -69,6 +89,7 @@
 .cor span{
     cursor: pointer;
     font-size: 14px;
+    z-index: -1;
     display: flex;
     color: black;
         box-shadow: 1px 1px 1px 1px gray;

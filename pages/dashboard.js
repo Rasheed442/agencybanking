@@ -100,81 +100,17 @@ function Main() {
 
           <div className={style.bg}>
             <div className={style.options}>
-              <div className={style.frame}>
-                <p
-                  onClick={() => {
-                    setDrop(!drop);
-                  }}
-                >
-                  Timeframe:{frame}{" "}
-                  <AiFillCaretDown
-                    style={{ color: "black" }}
-                    onClick={() => {
-                      setDrop(false);
-                    }}
-                  />
-                </p>
-                <div className={style.cor}>
-                  {drop ? (
-                    <span
-                      onClick={(e) => {
-                        setFrame(e.target.textContent), setDrop(false);
-                      }}
-                    >
-                      {" "}
-                      This Year{" "}
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                  {drop ? (
-                    <span
-                      onClick={(e) => {
-                        setFrame(e.target.textContent), setDrop(false);
-                      }}
-                    >
-                      {" "}
-                      Last 7 Days
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                  {drop ? (
-                    <span
-                      onClick={(e) => {
-                        setFrame(e.target.textContent), setDrop(false);
-                      }}
-                    >
-                      {" "}
-                      This Month
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                  {drop ? (
-                    <span
-                      onClick={(e) => {
-                        setFrame(e.target.textContent), setDrop(false);
-                      }}
-                    >
-                      {" "}
-                      This Year
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                  {drop ? (
-                    <span
-                      onClick={(e) => {
-                        setFrame(e.target.textContent), setDrop(false);
-                      }}
-                    >
-                      {" "}
-                      All Time
-                    </span>
-                  ) : (
-                    ""
-                  )}
+              <div className={style.timeframe}>
+                <select>
+                  <option>Timeframe:All-time</option>
+                  <option>Timeframe:This Year</option>
+                  <option>Timeframe:Last 7 days</option>
+                  <option>Timeframe:This month</option>
+                  <option>Timeframe:This Year</option>
+                  <option>Timeframe:All Time</option>
+                </select>
+                <div>
+                  <AiFillCaretDown />
                 </div>
               </div>
 
