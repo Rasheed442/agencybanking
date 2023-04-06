@@ -225,15 +225,33 @@ function Chart() {
                   <th>
                     AGENT NAME <TiArrowUnsorted />
                   </th>
-                  <th>AGENT ID</th>
-                  <th>RES MESSAGE</th>
-                  <th>RES CODE</th>
-                  <th>TRANS.TYPE</th>
-                  <th>AMOUNT</th>
-                  <th>EARNING</th>
-                  <th>DATE</th>
-                  <th>STATUS</th>
-                  <th>TRANS REF.</th>
+                  <th>
+                    AGENT ID <TiArrowUnsorted />
+                  </th>
+                  <th>
+                    RES MESSAGE <TiArrowUnsorted />
+                  </th>
+                  <th>
+                    RES CODE <TiArrowUnsorted />
+                  </th>
+                  <th>
+                    TRANS.TYPE <TiArrowUnsorted />
+                  </th>
+                  <th>
+                    AMOUNT <TiArrowUnsorted />
+                  </th>
+                  <th>
+                    EARNING <TiArrowUnsorted />
+                  </th>
+                  <th>
+                    DATE <TiArrowUnsorted />
+                  </th>
+                  <th>
+                    STATUS <TiArrowUnsorted />
+                  </th>
+                  <th>
+                    TRANS REF. <TiArrowUnsorted />
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -244,7 +262,16 @@ function Chart() {
                       <td>{t.id}</td>
                       <td>{t.res_mesg}</td>
                       <td>{t.res_code}</td>
-                      <td>{t.trans_type}</td>
+                      <td
+                        style={{
+                          color:
+                            t.trans_type === "withdrawal"
+                              ? "#01B001"
+                              : "#E01919",
+                        }}
+                      >
+                        {t.trans_type}
+                      </td>
                       <td>{t.amount}</td>
                       <td>{t.earning}</td>
                       <td>{t.date}</td>
@@ -259,15 +286,10 @@ function Chart() {
                           backgroundColor:
                             t.status === "SUCCESSFUL"
                               ? "#00F4001A"
-                              : t.status === "FAILED"
-                              ? "#FF3A441A"
-                              : "",
+                              : "#FF3A441A",
+
                           color:
-                            t.status === "SUCCESSFUL"
-                              ? "#008000"
-                              : t.status === "FAILED"
-                              ? "#FF3A44"
-                              : "",
+                            t.status === "SUCCESSFUL" ? "#008000" : "#FF3A44",
                         }}
                       >
                         {t.status}
