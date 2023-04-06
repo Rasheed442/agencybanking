@@ -33,6 +33,10 @@ function Main() {
     setUsername(localStorage.getItem("userName"));
   }, [typeof window !== "undefined" ? localStorage.getItem("userName") : null]);
 
+  typeof window !== "undefined"
+    ? localStorage.setItem("number_of_agent", data?.data?.total_agent)
+    : null;
+
   useEffect(() => {
     const config = {
       headers: {

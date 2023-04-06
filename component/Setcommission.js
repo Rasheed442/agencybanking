@@ -6,36 +6,37 @@ import ClipLoader from "react-spinners/ClipLoader";
 function Setcommission({ cancelCommission }) {
   const [server, setServer] = useState();
 
-  const [service_name, setService_name] = useState();
+  const [service_name, setService_name] = useState("airtime");
+  const [service_id, setService_id] = useState();
   const [biller_name, setBiller_name] = useState("mtn");
-  const [payment_mode, setPayment_mode] = useState("cash");
   const [commission, setCommission] = useState();
   const [loading, setLoading] = useState(false);
-  const [color, setColor] = useState("whit9e");
+  const [color, setColor] = useState("white");
 
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
-  const details = { service_name, biller_name, payment_mode, commission };
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
+  const details = { service_name, service_id, biller_name, commission };
 
-  useEffect(() => {
-    Axios.get(
-      `${process.env.NEXT_PUBLIC_API}manager/provider/commission`,
-      config
-    ).then((response) => {
-      // console.log(response.data)
-      setServer(response?.data?.data?.providers);
-    });
-  }, []);
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
+
+  // useEffect(() => {
+  //   Axios.get(
+  //     `${process.env.NEXT_PUBLIC_API}manager/provider/commission`,
+  //     config
+  //   ).then((response) => {
+  //     setServer(response?.data?.data?.providers);
+  //   });
+  // }, []);
   // console.log(server);
 
   async function submithandler(e) {
     e.preventDefault();
+    console.log(details);
     setLoading(true);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API}manager/provider/commission`,
@@ -73,7 +74,11 @@ function Setcommission({ cancelCommission }) {
             <label>
               Service Name <span>*</span>
             </label>
-            <select>
+            <select
+              onChange={(e) => {
+                setService_name(e.target.value);
+              }}
+            >
               <option>airtime</option>
             </select>
           </div>
@@ -81,13 +86,23 @@ function Setcommission({ cancelCommission }) {
             <label>
               Service ID <span>*</span>
             </label>
-            <input type="number" placeholder="26382921" />
+            <input
+              type="number"
+              placeholder="26382921"
+              onChange={(e) => {
+                setService_id(e.target.value);
+              }}
+            />
           </div>
           <div className={style.biller}>
             <label>
               Biller Name <span>*</span>
             </label>
-            <select>
+            <select
+              onChange={(e) => {
+                setBiller_name(e.target.value);
+              }}
+            >
               <option>airtel</option>
               <option>glo</option>
               <option>9mobile</option>
@@ -98,11 +113,17 @@ function Setcommission({ cancelCommission }) {
             <label>
               Commission Percentage <span>*</span>
             </label>
-            <input type="number" placeholder="1.2" />
+            <input
+              type="number"
+              placeholder="1.2"
+              onChange={(e) => {
+                setCommission(e.target.value);
+              }}
+            />
           </div>
         </div>
 
-        <div className={style.submit}>
+        <div className={style.submit} onClick={submithandler}>
           <button>Set Commission</button>
         </div>
       </div>

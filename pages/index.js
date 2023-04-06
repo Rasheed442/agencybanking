@@ -37,11 +37,26 @@ function login() {
       ? localStorage.setItem("userName", server?.data?.name)
       : null;
     typeof window !== "undefined"
+      ? localStorage.setItem("email", server?.data?.email)
+      : null;
+    typeof window !== "undefined"
+      ? localStorage.setItem("business_name", server?.data?.business_name)
+      : null;
+    typeof window !== "undefined"
+      ? localStorage.setItem("address", server?.data?.address)
+      : null;
+
+    typeof window !== "undefined"
+      ? localStorage.setItem("state", server?.data?.state)
+      : null;
+
+    typeof window !== "undefined"
       ? localStorage.setItem(
           "transactioncap",
           server?.data?.allow_set_transactioncap
         )
       : null;
+
     typeof window !== "undefined"
       ? localStorage.setItem("token", server?.token)
       : null;

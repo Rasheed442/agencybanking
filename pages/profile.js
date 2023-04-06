@@ -14,11 +14,41 @@ import Changepassword from "../component/Changepassword";
 
 function setting() {
   const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [business_name, setBusiness_name] = useState();
+  const [address, setAddress] = useState();
+  const [state, setState] = useState();
+  const [agent, setAgent] = useState();
   const [changepassword, setChangepassword] = useState(false);
 
   useEffect(() => {
     setUsername(localStorage.getItem("userName"));
   }, [typeof window !== "undefined" ? localStorage.getItem("userName") : null]);
+
+  useEffect(() => {
+    setAgent(localStorage.getItem("number_of_agent"));
+  }, [
+    typeof window !== "undefined"
+      ? localStorage.getItem("number_of_agent")
+      : null,
+  ]);
+
+  useEffect(() => {
+    setEmail(localStorage.getItem("email"));
+  }, [typeof window !== "undefined" ? localStorage.getItem("email") : null]);
+  useEffect(() => {
+    setAddress(localStorage.getItem("address"));
+  }, [typeof window !== "undefined" ? localStorage.getItem("email") : null]);
+  useEffect(() => {
+    setState(localStorage.getItem("state"));
+  }, [typeof window !== "undefined" ? localStorage.getItem("email") : null]);
+  useEffect(() => {
+    setBusiness_name(localStorage.getItem("business_name"));
+  }, [
+    typeof window !== "undefined"
+      ? localStorage.getItem("business_name")
+      : null,
+  ]);
 
   return (
     <div className={style.background}>
@@ -99,18 +129,18 @@ function setting() {
             <div className={style.top}>
               <div className={style.name}>
                 <label>First Name</label>
-                <input type="text" placeholder="Segun Peters" />
+                <input type="text" placeholder={`${username}`} />
               </div>
               <div className={style.email}>
                 <label>Email Address</label>
-                <input type="email" placeholder="sakini@gmail.com" />
+                <input type="email" placeholder={`${email}`} />
               </div>
             </div>
 
             <div className={style.middle}>
               <div className={style.name}>
                 <label>Business Name</label>
-                <input type="text" placeholder="TM30 INTERNATIONAL LIMITED" />
+                <input type="text" placeholder={`${business_name}`} />
               </div>
               <div className={style.agent}>
                 <label>Number of terminal</label>
@@ -118,13 +148,13 @@ function setting() {
               </div>
               <div className={style.agent}>
                 <label>Number of agent</label>
-                <input type="email" placeholder="300" />
+                <input type="email" placeholder={`${agent}`} />
               </div>
             </div>
 
             <div className={style.add}>
               <label>Business Address</label>
-              <input type="text" placeholder="Enter Your Business Address" />
+              <input type="text" placeholder={`${address}`} />
             </div>
 
             <div className={style.middle}>
@@ -132,7 +162,7 @@ function setting() {
                 <input type="text" placeholder="City" />
               </div>
               <div className={style.agent}>
-                <input type="email" placeholder="State/Province" />
+                <input type="email" placeholder={`${state}`} />
               </div>
               <div className={style.agent}>
                 <input type="email" placeholder="Zip Code" />

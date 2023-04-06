@@ -42,6 +42,7 @@
 .textinput input{
     height: 60px;
     padding: 5px;
+    outline: none;
 }
 .textinput ::-webkit-inner-spin-button {
     -webkit-appearance: none;
