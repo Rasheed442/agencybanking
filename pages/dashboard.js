@@ -24,15 +24,15 @@ function Main() {
   const [drop, setDrop] = useState(false);
   const [drop1, setDrop1] = useState(false);
 
-  // const username = typeof window !== 'undefined' ? window.localStorage.getItem('userName') : null
   const token =
     typeof window !== "undefined" ? window.localStorage.getItem("token") : null;
 
-  // local storage inputs
+  // GETTING DATA STORED IN THE LOCAL STORAGE
   useEffect(() => {
     setUsername(localStorage.getItem("userName"));
   }, [typeof window !== "undefined" ? localStorage.getItem("userName") : null]);
 
+  //  SETTING DATA FOR THE PROFILE IN THE LOCAL STORAGE
   typeof window !== "undefined"
     ? localStorage.setItem("number_of_agent", data?.data?.total_agent)
     : null;

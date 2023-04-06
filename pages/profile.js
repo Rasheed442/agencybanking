@@ -21,6 +21,7 @@ function setting() {
   const [agent, setAgent] = useState();
   const [changepassword, setChangepassword] = useState(false);
 
+  // GETTING DATA FROM LOCAL STORAGE SET IN THE INDEX.JS FILE & DASHBOARD
   useEffect(() => {
     setUsername(localStorage.getItem("userName"));
   }, [typeof window !== "undefined" ? localStorage.getItem("userName") : null]);
@@ -32,7 +33,6 @@ function setting() {
       ? localStorage.getItem("number_of_agent")
       : null,
   ]);
-
   useEffect(() => {
     setEmail(localStorage.getItem("email"));
   }, [typeof window !== "undefined" ? localStorage.getItem("email") : null]);
@@ -53,7 +53,10 @@ function setting() {
   return (
     <div className={style.background}>
       <Sidebar />
+      {/* CHANGE PASSWORD COMPONENTS */}
       {changepassword ? <Changepassword Close={setChangepassword} /> : ""}
+      {/* CHANGE PASSWORD COMPONENTS */}
+
       <div className={style.header}>
         <div className={style.container}>
           <h2>Profile Management</h2>
