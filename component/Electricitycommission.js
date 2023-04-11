@@ -31,8 +31,6 @@ function Electricitycommission({ cancelelectricity }) {
             <div className={style.caret}>
               <select>
                 <option>Ikeja Electric</option>
-                <option>Ikeja Electric</option>
-                <option>Ikeja Electric</option>
               </select>
               <AiOutlineCaretDown />
             </div>
@@ -53,9 +51,10 @@ function Electricitycommission({ cancelelectricity }) {
               </select>
               <AiOutlineCaretDown />
             </div>
-            <div className={style.textinput}></div>
+          </div>
+          <div className={style.textinput}>
             <label>
-              Commission Percentage <span>*</span>
+              Commision <span>*</span>
             </label>
             <input type="number" placeholder="1.2%" />
           </div>

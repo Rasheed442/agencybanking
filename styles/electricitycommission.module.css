@@ -9,7 +9,6 @@
 }
 .white{
     background-color: white;
-    height: 55%;
     width: 70%;
     border-radius: 10px;
     padding: 30px;
@@ -38,10 +37,10 @@
 .biller select{
     outline: none;
     height: 60px;
-    border: none;
     padding: 10px;
     width: 100%;
     appearance: none;
+    border: none;
     border-radius: 5px;
 }
 .textinput{

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import style from "../styles/electricitycommission.module.css";
 import Axios from "axios";
-import { AiFillCaretDown, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineCaretDown, AiOutlineClose } from "react-icons/ai";
 import ClipLoader from "react-spinners/ClipLoader";
 function Setcommission({ cancelCommission }) {
   const [server, setServer] = useState();
@@ -74,13 +74,12 @@ function Setcommission({ cancelCommission }) {
             <label>
               Service Name <span>*</span>
             </label>
-            <select
-              onChange={(e) => {
-                setService_name(e.target.value);
-              }}
-            >
-              <option>airtime</option>
-            </select>
+            <div className={style.caret}>
+              <select>
+                <option>airtime</option>
+              </select>
+              <AiOutlineCaretDown />
+            </div>
           </div>
           <div className={style.textinput}>
             <label>
@@ -98,16 +97,15 @@ function Setcommission({ cancelCommission }) {
             <label>
               Biller Name <span>*</span>
             </label>
-            <select
-              onChange={(e) => {
-                setBiller_name(e.target.value);
-              }}
-            >
-              <option>airtel</option>
-              <option>glo</option>
-              <option>9mobile</option>
-              <option>mtn</option>
-            </select>
+            <div className={style.caret}>
+              <select>
+                <option>airtel</option>
+                <option>glo</option>
+                <option>9mobile</option>
+                <option>mtn</option>
+              </select>
+              <AiOutlineCaretDown />
+            </div>
           </div>
           <div className={style.textinput}>
             <label>
