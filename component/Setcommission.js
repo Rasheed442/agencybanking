@@ -60,7 +60,7 @@ function Setcommission({ cancelCommission }) {
         <div className={style.header}>
           <h1>Set airtime commission</h1>
           <AiOutlineClose
-            size={25}
+            size={30}
             onClick={() => {
               cancelCommission(false);
             }}

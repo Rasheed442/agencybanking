@@ -30,7 +30,7 @@ function dispute() {
 
   return (
     <div className={style.background}>
-      {show ? <Caution data={oneData} check={setShow} /> : ""}
+      {/* Side bar component */}
       <Sidebar />
       <div className={style.container}>
         <div className={style.main}>
@@ -68,6 +68,7 @@ function dispute() {
               <p>Reporting</p>
               <div className={style.search}>
                 <MdSearch size={20} style={{ color: "gray" }} />
+
                 <input placeholder="Search Agent name, Agent ID, Business name e.tc" />
               </div>
               <div className={style.filter}>

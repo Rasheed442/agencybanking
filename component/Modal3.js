@@ -4,6 +4,7 @@ import { AiOutlineClose, AiFillCaretDown } from "react-icons/ai";
 import { BsUpload } from "react-icons/bs";
 import Image from "next/image";
 import Aos from "aos";
+import { NumericFormat } from "react-number-format";
 import "aos/dist/aos.css";
 function Modal3({ cancelmodal3 }) {
   const [open, setOpen] = useState(false);
@@ -77,12 +78,20 @@ function Modal3({ cancelmodal3 }) {
             <div className={style.naration}>
               <div className={style.amount}>
                 <label>Amount</label>
-                <input
+                {/* <input
                   type="number"
                   onChange={(e) => {
                     setAmount(e.target.value);
                   }}
                   placeholder="Enter Amount"
+                /> */}
+                <NumericFormat
+                  prefix={"₦"}
+                  thousandSeparator=","
+                  placeholder="Enter Amount"
+                  onChange={(e) => {
+                    setAmount(e.target.value);
+                  }}
                 />
               </div>
 

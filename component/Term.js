@@ -15,7 +15,7 @@ function Term({ check }) {
       <table className={style.table}>
         <thead>
           <tr>
-            <th>
+            <th style={{ display: "flex" }}>
               ASSIGNED AGENT NAME <TiArrowUnsorted />
             </th>
             <th>

@@ -19,6 +19,7 @@ function New({ handle }) {
   const [address, setBusinessaddress] = useState();
   const [localgovt, setLocalgovt] = useState();
   const [govtid, setGovtid] = useState("NIN");
+  const [govidcredent, setGovtidcredent] = useState();
   const [state, setState] = useState("");
   const [allstates, setAllstate] = useState();
   const [region, setRegion] = useState();
@@ -37,6 +38,7 @@ function New({ handle }) {
     business_name,
     localgovt,
     govtid,
+    govidcredent,
     state,
     region,
     email,
@@ -218,7 +220,11 @@ function New({ handle }) {
               <input
                 type="text"
                 onChange={(e) => {
-                  // setGovtid(e.target.value);
+                  setGovtidcredent(e.target.value);
+                  if (e.target.value.length === 11) {
+                    toast.error("ID must be less than 10");
+                    setGovtidcredent(e.target.value.length === "10");
+                  }
                 }}
                 placeholder={`Enter Your ${govtid} number`}
               />

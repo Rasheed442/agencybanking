@@ -6,6 +6,7 @@ import { AiOutlineClose, AiFillCaretDown, AiOutlineDown } from "react-icons/ai";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Modal1sample from "../component/Modal1sample";
+import { NumericFormat } from "react-number-format";
 function Modal2({ cancelmodal2 }) {
   const [open, setOpen] = useState(false);
 
@@ -64,7 +65,11 @@ function Modal2({ cancelmodal2 }) {
             <div className={style.naration}>
               <div className={style.amount}>
                 <label>Amount</label>
-                <input type="number" placeholder="Enter Amount" />
+                <NumericFormat
+                  prefix={"₦"}
+                  thousandSeparator=","
+                  placeholder="Enter Amount"
+                />
               </div>
 
               <div className={style.amount}>

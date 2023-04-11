@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "../styles/electricitycommission.module.css";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineCaretDown, AiOutlineClose } from "react-icons/ai";
 function Electricitycommission({ cancelelectricity }) {
   const [service_name, setService_name] = useState();
   const [biller_name, setBiller_name] = useState("mtn");
@@ -14,7 +14,7 @@ function Electricitycommission({ cancelelectricity }) {
         <div className={style.header}>
           <h1>Set electricity commission</h1>
           <AiOutlineClose
-            size={25}
+            size={35}
             onClick={() => {
               cancelelectricity(false);
             }}
@@ -28,9 +28,14 @@ function Electricitycommission({ cancelelectricity }) {
             <label>
               Service Name <span>*</span>
             </label>
-            <select>
-              <option>Ikeja Electric</option>
-            </select>
+            <div className={style.caret}>
+              <select>
+                <option>Ikeja Electric</option>
+                <option>Ikeja Electric</option>
+                <option>Ikeja Electric</option>
+              </select>
+              <AiOutlineCaretDown />
+            </div>
           </div>
           <div className={style.textinput}>
             <label>
@@ -42,11 +47,13 @@ function Electricitycommission({ cancelelectricity }) {
             <label>
               Biller Name <span>*</span>
             </label>
-            <select>
-              <option>Prepaid</option>
-            </select>
-          </div>
-          <div className={style.textinput}>
+            <div className={style.caret}>
+              <select>
+                <option>Prepaid</option>
+              </select>
+              <AiOutlineCaretDown />
+            </div>
+            <div className={style.textinput}></div>
             <label>
               Commission Percentage <span>*</span>
             </label>

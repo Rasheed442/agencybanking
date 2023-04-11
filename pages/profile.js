@@ -121,7 +121,7 @@ function setting() {
                       style={{ color: "#1B59F8", cursor: "pointer" }}
                       onClick={() => {
                         navigator.clipboard.writeText("9127805458"),
-                          toast.success("copied");
+                          toast.success("Copied to clipboard");
                       }}
                     />
                   </p>
@@ -132,43 +132,43 @@ function setting() {
             <div className={style.top}>
               <div className={style.name}>
                 <label>First Name</label>
-                <input type="text" placeholder={`${username}`} />
+                <input type="text" placeholder={`${username}`} disabled />
               </div>
               <div className={style.email}>
                 <label>Email Address</label>
-                <input type="email" placeholder={`${email}`} />
+                <input type="email" placeholder={`${email}`} disabled />
               </div>
             </div>
 
             <div className={style.middle}>
               <div className={style.name}>
                 <label>Business Name</label>
-                <input type="text" placeholder={`${business_name}`} />
+                <input type="text" placeholder={`${business_name}`} disabled />
               </div>
               <div className={style.agent}>
                 <label>Number of terminal</label>
-                <input type="email" placeholder="243" />
+                <input type="email" placeholder="243" disabled />
               </div>
               <div className={style.agent}>
                 <label>Number of agent</label>
-                <input type="email" placeholder={`${agent}`} />
+                <input type="email" placeholder={`${agent}`} disabled />
               </div>
             </div>
 
             <div className={style.add}>
               <label>Business Address</label>
-              <input type="text" placeholder={`${address}`} />
+              <input type="text" placeholder={`${address}`} disabled />
             </div>
 
             <div className={style.middle}>
               <div className={style.name}>
-                <input type="text" placeholder="City" />
+                <input type="text" placeholder="City" disabled />
               </div>
               <div className={style.agent}>
-                <input type="email" placeholder={`${state}`} />
+                <input type="email" placeholder={`${state}`} disabled />
               </div>
               <div className={style.agent}>
-                <input type="email" placeholder="Zip Code" />
+                <input type="email" placeholder="Zip Code" disabled />
               </div>
             </div>
 
