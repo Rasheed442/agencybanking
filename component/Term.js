@@ -8,7 +8,8 @@ import {
 import { BsToggleOn, BsToggleOff } from "react-icons/bs";
 import { TiArrowUnsorted } from "react-icons/ti";
 import { myterminals } from "./Terminaldashboard";
-function Term({ check }) {
+function Term({ check, data }) {
+  console.log(data);
   const [counter, setCounter] = useState(1);
   return (
     <div>

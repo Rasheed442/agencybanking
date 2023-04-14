@@ -13,8 +13,7 @@
 }
 .container{
     background-color: white;
-    height: 20rem;
-    width: 50rem;
+    width: 70%;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -36,6 +35,8 @@
     border: none;
     height: 30px;
     outline: none;
+    color: black;
+    cursor: pointer;
     font-size: 15px;
     width: 100%;
     color: gray;
@@ -46,10 +47,13 @@
 .terminal{
     border: 1px solid gray;
     padding:10px;
-    border-radius: 3px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    color: black;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
     align-items: center;
 }
 .btn{
@@ -65,4 +69,47 @@
     cursor: pointer;
     font-size: 20px;
     border-radius: 5px;
+}
+.drop{
+    display: flex;
+   border: 1px solid gray;
+   padding: 10px;
+   border-top-right-radius: 5px;
+   border-top-left-radius: 5px;
+   gap: 6px;
+}
+.drop input{
+    border: none;
+    width: 100%;
+    outline: none;
+    color: black;
+}
+.drop ::placeholder{
+    font-size: 15px;
+    color: gray;
+}
+.dropdown{
+    position: relative;
+  
+}
+.agentnames{
+    width: 100%;
+    padding-top: 5px;
+    height: 70px;
+    overflow: hidden;
+    overflow: scroll;
+    border: 1px solid gray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+}
+
+.full{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.full p{
+    border-bottom: 1px solid gray;
+    padding: 5px;
 }

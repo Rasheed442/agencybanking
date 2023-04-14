@@ -66,7 +66,11 @@ function agent() {
 
   return (
     <div className={style.background}>
-      {assignterminal ? <Assignterminal submit={setAssignterminal} /> : ""}
+      {assignterminal ? (
+        <Assignterminal submit={setAssignterminal} data={allagents} />
+      ) : (
+        ""
+      )}
       {terminal ? <Terminal back={setTerminal} /> : ""}
       {open ? <New handle={setOpen} /> : ""}
       {terminal ? "" : <Sidebar />}
@@ -79,30 +83,36 @@ function agent() {
           <div className={style.main}>
             <div className={style.container}>
               <h2>Agent Management</h2>
+              <Link
+                href="/profile"
+                onClick={() => {
+                  localStorage.setItem("currL", "/commission");
+                }}
+              >
+                <div className={style.profile}>
+                  <div className={style.reminder}>
+                    <AiTwotoneBell
+                      size={27}
+                      style={{
+                        backgroundColor: "gainsboro",
+                        color: "gray",
+                        borderRadius: "10px",
+                      }}
+                    />
+                    <div></div>
+                  </div>
+                  <div className={style.line}></div>
 
-              <div className={style.profile}>
-                <div className={style.reminder}>
-                  <AiTwotoneBell
-                    size={27}
-                    style={{
-                      backgroundColor: "gainsboro",
-                      color: "gray",
-                      borderRadius: "10px",
-                    }}
-                  />
-                  <div></div>
-                </div>
-                <div className={style.line}></div>
-                <Link href="setting">
                   <Image src="/profile.png" width={40} height={40} priority />
-                </Link>
-                <div className={style.name}>
-                  <p style={{ textTransform: "capitalize" }}>
-                    {username} <AiOutlineDown size={12} />
-                  </p>
-                  <span>Agent Manager</span>
-                </div>
-              </div>
+
+                  <div className={style.name}>
+                    <p style={{ textTransform: "capitalize", color: "black" }}>
+                      {username} <AiOutlineDown size={12} />
+                    </p>
+                    <span>Agent Manager</span>
+                  </div>
+                </div>{" "}
+              </Link>
             </div>
             <div className={style.bg}>
               <div className={style.white}>

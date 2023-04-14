@@ -78,7 +78,7 @@ const username = [
 
   {
     icon: <BsShieldExclamation />,
-    name: "Disputes",
+    name: "Complaints",
     path: "/dispute",
     background: "ghostwhite",
     color: "#1B59F8",
@@ -105,7 +105,7 @@ function utilis() {
                 onClick={() => {
                   localStorage.setItem("currL", s.path);
                 }}
-                className={currlocation === s.path ? style.top : style.head}
+                className={router.pathname === s.path ? style.top : style.head}
               >
                 <div>{s.icon}</div>
                 <p>{s.name}</p>

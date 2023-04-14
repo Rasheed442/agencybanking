@@ -55,7 +55,7 @@ function transactionlimit() {
       <div className={style.main}>
         <div className={style.container}>
           <h1>Settings</h1>
-          <Link href="setting">
+          <Link href="/profile">
             <div className={style.profile}>
               <div className={style.reminder}>
                 <AiTwotoneBell

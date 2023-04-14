@@ -78,9 +78,9 @@ function New({ handle }) {
     handle(false);
     toast.success("Agent Created Successfully");
     toast(server?.errors);
-    setTimeout(() => {
-      window.location = "/agent";
-    }, 1000);
+    // setTimeout(() => {
+    //   window.location = "/agent";
+    // }, 1000);
   }
 
   useEffect(() => {

@@ -77,7 +77,12 @@ function Main() {
                 placeholder="Search Terminals ID, Agent and Agent Managers"
               />
             </div>
-            <Link href="setting">
+            <Link
+              href="/profile"
+              onClick={() => {
+                localStorage.setItem("currL", "/commission");
+              }}
+            >
               <div className={style.profile}>
                 <div className={style.reminder}>
                   <AiTwotoneBell
@@ -223,183 +228,229 @@ function Main() {
    <select><option>Region(Location):All-time</option></select> */}
             <div className={style.flex}>
               <div className={style.gridout}>
-                <div className={style.transaction}>
-                  <h5>Total Transactions</h5>
-                  <h4>
-                    <span style={{ fontSize: "20px", fontWeight: "800" }}>
-                      &#8358;&nbsp;
-                    </span>
-                    500,000,783
-                  </h4>
-                  <p>
-                    <span style={{ color: "green" }}>
-                      <Image src="/Vector.png" width={15} height={10} /> 1.3%
-                    </span>{" "}
-                    up from last week
-                  </p>
-                </div>
-                <Image
-                  className={style.svg}
-                  src="/card.svg"
-                  width={50}
-                  height={50}
-                  priority
-                />
+                {loading ? (
+                  <Skeleton count={3} width="100%" height="30px" />
+                ) : (
+                  <>
+                    <div className={style.transaction}>
+                      <h5>Total Transactions</h5>
+                      <h4>
+                        <span style={{ fontSize: "20px", fontWeight: "800" }}>
+                          &#8358;&nbsp;
+                        </span>
+                        0
+                      </h4>
+                      <p>
+                        <span style={{ color: "green" }}>
+                          <Image src="/Vector.png" width={15} height={10} />{" "}
+                          1.3%
+                        </span>{" "}
+                        up from last week
+                      </p>
+                    </div>
+                    <Image
+                      className={style.svg}
+                      src="/card.svg"
+                      width={50}
+                      height={50}
+                      priority
+                    />
+                  </>
+                )}
               </div>
 
               <div className={style.gridout}>
-                <div className={style.transaction}>
-                  <h5>Total Earnings/Commission</h5>
-                  <h4>
-                    <span style={{ fontSize: "20px", fontWeight: "800" }}>
-                      &#8358;&nbsp;
-                    </span>
-                    {loading ? (
-                      <Skeleton count={1} width="40px" height="40px" />
-                    ) : (
-                      <>{data?.data?.balance?.commission}</>
-                    )}
-                  </h4>
-                  <p>
-                    <span style={{ color: "red" }}>
-                      <Image src="/vecdown.png" width={15} height={10} /> 1.3%
-                    </span>{" "}
-                    up from last week
-                  </p>
-                </div>
-                <Image
-                  src="/card1.svg"
-                  className={style.svg}
-                  width={50}
-                  height={50}
-                  priority
-                />
+                {loading ? (
+                  <Skeleton count={3} width="100%" height="30px" />
+                ) : (
+                  <>
+                    <div className={style.transaction}>
+                      <h5>Total Earnings/Commission</h5>
+                      <h4>
+                        <span style={{ fontSize: "20px", fontWeight: "800" }}>
+                          &#8358;&nbsp;
+                        </span>
+
+                        {data?.data?.balance?.commission}
+                      </h4>
+                      <p>
+                        <span style={{ color: "red" }}>
+                          <Image src="/vecdown.png" width={15} height={10} />{" "}
+                          1.3%
+                        </span>{" "}
+                        up from last week
+                      </p>
+                    </div>
+                    <Image
+                      src="/card1.svg"
+                      className={style.svg}
+                      width={50}
+                      height={50}
+                      priority
+                    />
+                  </>
+                )}
               </div>
 
               <div className={style.gridout}>
-                <div className={style.transaction}>
-                  <h5>Total Successful Transactions</h5>
-                  <h4>16,483</h4>
-                  <p>
-                    <span style={{ color: "green" }}>
-                      <Image src="/Vector.png" width={15} height={10} /> 1.3%
-                    </span>{" "}
-                    up from last week
-                  </p>
-                </div>
-                <Image
-                  src="/card2.svg"
-                  className={style.svg}
-                  width={50}
-                  height={50}
-                  priority
-                />
+                {loading ? (
+                  <Skeleton count={3} width="100%" height="30px" />
+                ) : (
+                  <>
+                    <div className={style.transaction}>
+                      <h5>Total Successful Transactions</h5>
+                      <h4>16,483</h4>
+                      <p>
+                        <span style={{ color: "green" }}>
+                          <Image src="/Vector.png" width={15} height={10} />{" "}
+                          1.3%
+                        </span>{" "}
+                        up from last week
+                      </p>
+                    </div>
+                    <Image
+                      src="/card2.svg"
+                      className={style.svg}
+                      width={50}
+                      height={50}
+                      priority
+                    />
+                  </>
+                )}
               </div>
 
               <div className={style.gridout}>
-                <div className={style.transaction}>
-                  <h5>Total Failed Transactions</h5>
-                  <h4>1,288</h4>
-                  <p>
-                    <span style={{ color: "green" }}>
-                      <Image src="/Vector.png" width={15} height={10} /> 1.3%
-                    </span>{" "}
-                    up from last week
-                  </p>
-                </div>
-                <Image
-                  className={style.svg}
-                  src="/card3.svg"
-                  width={50}
-                  height={50}
-                  priority
-                />
+                {loading ? (
+                  <Skeleton count={3} width="100%" height="30px" />
+                ) : (
+                  <>
+                    <div className={style.transaction}>
+                      <h5>Total Failed Transactions</h5>
+                      <h4>0</h4>
+                      <p>
+                        <span style={{ color: "green" }}>
+                          <Image src="/Vector.png" width={15} height={10} />{" "}
+                          1.3%
+                        </span>{" "}
+                        up from last week
+                      </p>
+                    </div>
+                    <Image
+                      className={style.svg}
+                      src="/card3.svg"
+                      width={50}
+                      height={50}
+                      priority
+                    />
+                  </>
+                )}
               </div>
 
               <div className={style.gridout}>
-                <div className={style.transaction}>
-                  <h5>Total Number of Agents</h5>
-                  {loading ? (
-                    <Skeleton count={1} width="40px" height="40px" />
-                  ) : (
-                    <>
+                {loading ? (
+                  <Skeleton count={3} width="100%" height="30px" />
+                ) : (
+                  <>
+                    <div className={style.transaction}>
+                      <h5>Total Number of Agents</h5>
+
                       <h4>{data?.data?.total_agent}</h4>
-                    </>
-                  )}
-                  {/* <h4>{data?.data?.total_agent}</h4> */}
-                  <p>
-                    <span style={{ color: "green" }}>
-                      <Image src="/Vector.png" width={15} height={10} /> 1.3%
-                    </span>{" "}
-                    up from last week
-                  </p>
-                </div>
-                <Image
-                  className={style.svg}
-                  src="/Frame2.png"
-                  width={50}
-                  height={50}
-                  priority
-                />
+                      <p>
+                        <span style={{ color: "green" }}>
+                          <Image src="/Vector.png" width={15} height={10} />{" "}
+                          1.3%
+                        </span>{" "}
+                        up from last week
+                      </p>
+                    </div>
+                    <Image
+                      className={style.svg}
+                      src="/Frame2.png"
+                      width={50}
+                      height={50}
+                      priority
+                    />
+                  </>
+                )}
               </div>
 
               <div className={style.gridout}>
-                <div className={style.transaction}>
-                  <h5>Total Number of Transactions</h5>
-                  <h4>4,231</h4>
-                  <p>
-                    <span>
-                      <Image src="/Vector.png" width={15} height={10} /> 1.3%
-                    </span>{" "}
-                    up from last week
-                  </p>
-                </div>
-                <Image
-                  className={style.svg}
-                  src="/person3.png"
-                  width={50}
-                  height={50}
-                  priority
-                />
+                {loading ? (
+                  <Skeleton count={3} width="100%" height="30px" />
+                ) : (
+                  <>
+                    <div className={style.transaction}>
+                      <h5>Total Number of Transactions</h5>
+                      <h4>0</h4>
+                      <p>
+                        <span>
+                          <Image src="/Vector.png" width={15} height={10} />{" "}
+                          1.3%
+                        </span>{" "}
+                        up from last week
+                      </p>
+                    </div>
+                    <Image
+                      className={style.svg}
+                      src="/person3.png"
+                      width={50}
+                      height={50}
+                      priority
+                    />
+                  </>
+                )}
               </div>
 
               <div className={style.gridout}>
-                <div className={style.transaction}>
-                  <h5>Total Number of Terminals</h5>
-                  <h4>5,783</h4>
-                  <p>
-                    <span style={{ color: "green" }}>
-                      <Image src="/Vector.png" width={15} height={10} /> 1.3%
-                    </span>{" "}
-                    up from last week
-                  </p>
-                </div>
-                <Image
-                  className={style.svg}
-                  src="/person2.png"
-                  width={50}
-                  height={50}
-                  priority
-                />
+                {loading ? (
+                  <Skeleton count={3} width="100%" height="30px" />
+                ) : (
+                  <>
+                    <div className={style.transaction}>
+                      <h5>Total Number of Terminals</h5>
+                      <h4>0</h4>
+                      <p>
+                        <span style={{ color: "green" }}>
+                          <Image src="/Vector.png" width={15} height={10} />{" "}
+                          1.3%
+                        </span>{" "}
+                        up from last week
+                      </p>
+                    </div>
+                    <Image
+                      className={style.svg}
+                      src="/person2.png"
+                      width={50}
+                      height={50}
+                      priority
+                    />
+                  </>
+                )}
               </div>
 
               <div className={style.gridout}>
-                <div className={style.transaction}>
-                  <h5>Total Referral Bonus</h5>
-                  <h4>
-                    <span style={{ fontSize: "25px", fontWeight: "800" }}>
-                      &#8358;&nbsp;
-                    </span>
-                    66,503
-                  </h4>
-                </div>
-                <Image
-                  className={style.svg}
-                  src="/ref.svg"
-                  width={50}
-                  height={50}
-                  priority
-                />
+                {loading ? (
+                  <Skeleton count={3} width="100%" height="30px" />
+                ) : (
+                  <>
+                    <div className={style.transaction}>
+                      <h5>Total Referral Bonus</h5>
+                      <h4>
+                        <span style={{ fontSize: "25px", fontWeight: "800" }}>
+                          &#8358;&nbsp;
+                        </span>
+                        0
+                      </h4>
+                    </div>
+                    <Image
+                      className={style.svg}
+                      src="/ref.svg"
+                      width={50}
+                      height={50}
+                      priority
+                    />
+                  </>
+                )}
               </div>
             </div>
             <Chart />

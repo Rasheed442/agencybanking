@@ -35,31 +35,35 @@ function dispute() {
       <div className={style.container}>
         <div className={style.main}>
           <h2>Reporting</h2>
-
-          <div className={style.profile}>
-            <div className={style.reminder}>
-              <AiTwotoneBell
-                size={27}
-                style={{
-                  backgroundColor: "gainsboro",
-                  color: "gray",
-                  borderRadius: "10px",
-                }}
-              />
-              <Image src="/dot.png" width={20} height={20} priority />
-            </div>
-            <div className={style.line}></div>
-            <Link href="setting">
+          <Link
+            href="/profile"
+            onClick={() => {
+              localStorage.setItem("currL", "/commission");
+            }}
+          >
+            <div className={style.profile}>
+              <div className={style.reminder}>
+                <AiTwotoneBell
+                  size={27}
+                  style={{
+                    backgroundColor: "gainsboro",
+                    color: "gray",
+                    borderRadius: "10px",
+                  }}
+                />
+                <Image src="/dot.png" width={20} height={20} priority />
+              </div>
+              <div className={style.line}></div>
               <Image src="/profile.png" width={40} height={40} priority />
-            </Link>
-            <div className={style.name}>
-              <p style={{ textTransform: "capitalize" }}>
-                {username} &nbsp;
-                <AiOutlineDown size={12} />
-              </p>
-              <span>Agent Manager</span>
+              <div className={style.name}>
+                <p style={{ textTransform: "capitalize", color: "black" }}>
+                  {username} &nbsp;
+                  <AiOutlineDown size={12} />
+                </p>
+                <span>Agent Manager</span>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div className={style.gray}>

@@ -32,6 +32,8 @@
     margin: 30px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 5px;
     background-color: white;
     border-radius: 10px;
 
@@ -40,7 +42,6 @@
 .timeframe select {
     appearance: none;
     outline: none;
-    padding: 6px;
     width: 15rem;
     border: none;
     border-radius: 5px;
