@@ -105,7 +105,8 @@ function utilis() {
                 onClick={() => {
                   localStorage.setItem("currL", s.path);
                 }}
-                className={router.pathname === s.path ? style.top : style.head}
+                // router.pathname
+                className={currlocation === s.path ? style.top : style.head}
               >
                 <div>{s.icon}</div>
                 <p>{s.name}</p>
