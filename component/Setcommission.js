@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import style from "../styles/electricitycommission.module.css";
 import Axios from "axios";
-import { AiOutlineCaretDown, AiOutlineClose } from "react-icons/ai";
+import {
+  AiOutlineCaretDown,
+  AiOutlineClose,
+  AiOutlineCloseCircle,
+} from "react-icons/ai";
 import ClipLoader from "react-spinners/ClipLoader";
 function Setcommission({ cancelCommission }) {
   const [server, setServer] = useState();
@@ -59,8 +63,8 @@ function Setcommission({ cancelCommission }) {
       <div className={style.white}>
         <div className={style.header}>
           <h1>Set airtime commission</h1>
-          <AiOutlineClose
-            size={30}
+          <AiOutlineCloseCircle
+            size={40}
             onClick={() => {
               cancelCommission(false);
             }}

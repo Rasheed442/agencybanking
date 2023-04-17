@@ -1,14 +1,18 @@
 import React from "react";
 import style from "../styles/updatetransaction.module.css";
-import { AiFillCaretDown, AiOutlineClose } from "react-icons/ai";
+import {
+  AiFillCaretDown,
+  AiOutlineClose,
+  AiOutlineCloseCircle,
+} from "react-icons/ai";
 function Setcommission({ cancelUpdate }) {
   return (
     <div className={style.overlay}>
       <div className={style.white}>
         <div className={style.heading}>
           <h1>Update Daily Transaction Limit</h1>
-          <AiOutlineClose
-            size={30}
+          <AiOutlineCloseCircle
+            size={40}
             onClick={() => {
               cancelUpdate(false);
             }}

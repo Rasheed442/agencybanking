@@ -6,6 +6,7 @@ import {
   AiOutlineClose,
   AiOutlinePlus,
   AiFillDelete,
+  AiOutlineCloseCircle,
 } from "react-icons/ai";
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -43,8 +44,8 @@ function Commitransact({ canceltransact2 }) {
       <div className={style.white}>
         <div className={style.heading}>
           <h1>Set commission for withdrawals</h1>
-          <AiOutlineClose
-            size={30}
+          <AiOutlineCloseCircle
+            size={40}
             onClick={() => {
               canceltransact2(false);
             }}

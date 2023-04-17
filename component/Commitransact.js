@@ -5,6 +5,7 @@ import {
   AiFillCaretDown,
   AiOutlineCaretDown,
   AiOutlineClose,
+  AiOutlineCloseCircle,
   AiOutlinePlus,
   AiFillDelete,
 } from "react-icons/ai";
@@ -44,8 +45,8 @@ function Commitransact({ canceltransact }) {
       <div className={style.white}>
         <div className={style.heading}>
           <h1>Set commission for Deposits</h1>
-          <AiOutlineClose
-            size={30}
+          <AiOutlineCloseCircle
+            size={40}
             onClick={() => {
               canceltransact(false);
             }}

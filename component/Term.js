@@ -10,6 +10,7 @@ import { TiArrowUnsorted } from "react-icons/ti";
 import { myterminals } from "./Terminaldashboard";
 function Term({ check, search }) {
   console.log(search);
+  console.log(myterminals);
   const [counter, setCounter] = useState(1);
   return (
     <div>
@@ -53,29 +54,35 @@ function Term({ check, search }) {
             </th>
           </tr>
         </thead>
-        {myterminals
-          // .filter((m) => {
-          //   return search.toLowerCase() === ""
-          //     ? m
-          //     : m.assigned_agent_name.toLocaleLowerCase().includes(search);
-          // })
-          .map((m) => {
-            return (
-              <>
-                <tr key={m.id}>
-                  <td>{m.assigned_agent_name}</td>
-                  <td>{m.Agent_id}</td>
-                  <td>{m.Terminal_id}</td>
-                  <td>{m.Terminal_location}</td>
-                  <td>{m.Terminal_serial_number}</td>
-                  <td>{m.Terminal_manufacturer}</td>
-                  <td>{m.Transaction_limit}</td>
-                  <td>{m.Profile}</td>
-                  <td>{m.status}</td>
-                </tr>
-              </>
-            );
-          })}
+        {myterminals &&
+          myterminals
+            ?.filter((m) => {
+              if (!search?.length) return m;
+              else if (
+                Object.values(m).some((value) =>
+                  value?.toString()?.toLowerCase()?.includes(search)
+                )
+              ) {
+                return m;
+              }
+            })
+            .map((m) => {
+              return (
+                <>
+                  <tr key={m?.id}>
+                    <td>{m?.assigned_agent_name}</td>
+                    <td>{m?.Agent_id}</td>
+                    <td>{m?.Terminal_id}</td>
+                    <td>{m?.Terminal_location}</td>
+                    <td>{m?.Terminal_serial_number}</td>
+                    <td>{m?.Terminal_manufacturer}</td>
+                    <td>{m?.Transaction_limit}</td>
+                    <td>{m?.Profile}</td>
+                    <td>{m?.status}</td>
+                  </tr>
+                </>
+              );
+            })}
       </table>
       <div className={style.footer}>
         <span>Showing 1 to 5 of 100 entries</span>

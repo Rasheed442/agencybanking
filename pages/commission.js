@@ -15,6 +15,7 @@ import Link from "next/link";
 import Setcommission from "../component/Setcommission";
 import Commitransact from "../component/Commitransact";
 import Commitransact2 from "../component/Commitransact2";
+import ProtectedRoute from "../component/ProtectedRoute";
 
 function setting() {
   const [username, setUsername] = useState();
@@ -73,241 +74,267 @@ function setting() {
   const [servicecommission, setServicecommission] = useState(false);
   const [electricitycommission, setElectricitycommission] = useState();
   return (
-    <div className={style.header}>
-      {servicecommission ? (
-        <Setcommission cancelCommission={setServicecommission} />
-      ) : (
-        ""
-      )}
-      {electricitycommission ? (
-        <Electricitycommission cancelelectricity={setElectricitycommission} />
-      ) : (
-        ""
-      )}
-      {show ? <Commitransact canceltransact={setShow} /> : ""}
-      {show2 ? <Commitransact2 canceltransact2={setShow2} /> : ""}
-      <Sidebar />
-      <div className={style.main}>
-        <div className={style.container}>
-          <h1>Settings</h1>
+    <ProtectedRoute>
+      <div className={style.header}>
+        {servicecommission ? (
+          <Setcommission cancelCommission={setServicecommission} />
+        ) : (
+          ""
+        )}
+        {electricitycommission ? (
+          <Electricitycommission cancelelectricity={setElectricitycommission} />
+        ) : (
+          ""
+        )}
+        {show ? <Commitransact canceltransact={setShow} /> : ""}
+        {show2 ? <Commitransact2 canceltransact2={setShow2} /> : ""}
+        <Sidebar />
+        <div className={style.main}>
+          <div className={style.container}>
+            <h1>Settings</h1>
 
-          <Link href="profile">
-            <div className={style.profile}>
-              <div className={style.reminder}>
-                <AiTwotoneBell
-                  size={27}
-                  style={{
-                    backgroundColor: "gainsboro",
-                    color: "gray",
-                    borderRadius: "10px",
+            <Link href="profile">
+              <div className={style.profile}>
+                <div className={style.reminder}>
+                  <AiTwotoneBell
+                    size={27}
+                    style={{
+                      backgroundColor: "gainsboro",
+                      color: "gray",
+                      borderRadius: "10px",
+                    }}
+                  />
+                  <div></div>
+                </div>
+                <div className={style.line}></div>
+                <Image src="/profile.png" width={40} height={40} priority />
+                <div className={style.name}>
+                  <p>
+                    {username} <AiOutlineDown size={10} />
+                  </p>
+                  <span>Agent Manager</span>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          <div className={style.whitesmoke}>
+            <div className={style.white}>
+              <div className={style.commission}>
+                <p>Commissions</p>
+                <div className={style.search}>
+                  <AiOutlineSearch />
+                  <input
+                    type="text"
+                    placeholder="Search Agent name, Agent ID, Business name etc."
+                  />
+                </div>
+              </div>
+
+              <div className={style.flexout}>
+                <div
+                  className={style.airtime}
+                  onClick={() => {
+                    setFundtransaction(true);
+                    setAirtime(false);
+                    setElectricity(false);
                   }}
-                />
-                <div></div>
-              </div>
-              <div className={style.line}></div>
-              <Image src="/profile.png" width={40} height={40} priority />
-              <div className={style.name}>
-                <p>
-                  {username} <AiOutlineDown size={10} />
-                </p>
-                <span>Agent Manager</span>
-              </div>
-            </div>
-          </Link>
-        </div>
-
-        <div className={style.whitesmoke}>
-          <div className={style.white}>
-            <div className={style.commission}>
-              <p>Commissions</p>
-              <div className={style.search}>
-                <AiOutlineSearch />
-                <input
-                  type="text"
-                  placeholder="Search Agent name, Agent ID, Business name etc."
-                />
-              </div>
-            </div>
-
-            <div className={style.flexout}>
-              <div
-                className={style.airtime}
-                onClick={() => {
-                  setFundtransaction(true);
-                  setAirtime(false);
-                  setElectricity(false);
-                }}
-                style={{ color: fundtransaction ? "blue" : "" }}
-              >
-                <Image src="/data.png" width={25} height={25} priority />
-                <p>FUNDS TRANSACTION</p>
-              </div>
-              <div
-                className={style.airtime}
-                onClick={() => {
-                  setFundtransaction(false);
-                  setAirtime(true);
-                  setElectricity(false);
-                }}
-                style={{ color: airtime ? "blue" : "" }}
-              >
-                <Image src="/PhoneCall4.png" width={25} height={25} priority />
-                <p>AIRTIME</p>
-              </div>
-              <div className={style.airtime}>
-                <Image src="/data.png" width={25} height={25} priority />
-                <p>DATA</p>
-              </div>
-              <div className={style.airtime}>
-                <Image src="/wifi.png" width={25} height={25} priority />
-                <p>CABLE</p>
-              </div>
-              <div
-                className={style.airtime}
-                onClick={() => {
-                  setElectricity(true);
-                  setAirtime(false);
-                  setFundtransaction(false);
-                }}
-                style={{ color: electricity ? "blue" : "" }}
-              >
-                <Image src="/ecohouse.png" width={25} height={25} priority />
-                <p>ELECTRICITY</p>
-              </div>
-              <div className={style.airtime}>
-                <Image src="/Smarttv.png" width={25} height={25} priority />
-                <p>INTERNET</p>
-              </div>
-              <div className={style.airtime}>
-                <Image src="/more.png" width={25} height={25} priority />
-                <p>OTHERS</p>
-              </div>
-            </div>
-
-            {/* {fundtransaction?<Fundtransaction/>:""} */}
-
-            {fundtransaction ? (
-              <div className={styles.gridout}>
-                <div className={styles.limits}>
-                  <div className={styles.timer}>
-                    <Image src="/timer.png" height={50} width={50} priority />
-                    <div>
-                      <p>Deposits</p>
-                    </div>
-                  </div>
-                  <div className={styles.flexout}>
-                    <div className={styles.transaction}>
-                      <span>card payment (Per Transaction)</span>
-                      <span>cash payment(Per Transaction)</span>
-                      <span>others (Per Transaction)</span>
-                    </div>
-                    <div className={styles.transaction}>
-                      <p>{deposit?.data?.funcommission?.[0]?.commission}1.2%</p>
-                      <p>{deposit?.data?.funcommission?.[0]?.commission}1.2%</p>
-                      <p>0%</p>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => {
-                      setShow(true);
-                    }}
-                  >
-                    Set Commission
-                  </button>
+                  style={{ color: fundtransaction ? "blue" : "" }}
+                >
+                  <Image src="/data.png" width={25} height={25} priority />
+                  <p>FUNDS TRANSACTION</p>
                 </div>
+                <div
+                  className={style.airtime}
+                  onClick={() => {
+                    setFundtransaction(false);
+                    setAirtime(true);
+                    setElectricity(false);
+                  }}
+                  style={{ color: airtime ? "blue" : "" }}
+                >
+                  <Image
+                    src="/PhoneCall4.png"
+                    width={25}
+                    height={25}
+                    priority
+                  />
+                  <p>AIRTIME</p>
+                </div>
+                <div className={style.airtime}>
+                  <Image src="/data.png" width={25} height={25} priority />
+                  <p>DATA</p>
+                </div>
+                <div className={style.airtime}>
+                  <Image src="/wifi.png" width={25} height={25} priority />
+                  <p>CABLE</p>
+                </div>
+                <div
+                  className={style.airtime}
+                  onClick={() => {
+                    setElectricity(true);
+                    setAirtime(false);
+                    setFundtransaction(false);
+                  }}
+                  style={{ color: electricity ? "blue" : "" }}
+                >
+                  <Image src="/ecohouse.png" width={25} height={25} priority />
+                  <p>ELECTRICITY</p>
+                </div>
+                <div className={style.airtime}>
+                  <Image src="/Smarttv.png" width={25} height={25} priority />
+                  <p>INTERNET</p>
+                </div>
+                <div className={style.airtime}>
+                  <Image src="/more.png" width={25} height={25} priority />
+                  <p>OTHERS</p>
+                </div>
+              </div>
 
-                <div className={styles.limits}>
-                  <div className={styles.timer}>
-                    <Image src="/timer.png" height={50} width={50} priority />
-                    <div>
-                      <p> Withdrawals</p>
+              {/* {fundtransaction?<Fundtransaction/>:""} */}
+
+              {fundtransaction ? (
+                <div className={styles.gridout}>
+                  <div className={styles.limits}>
+                    <div className={styles.timer}>
+                      <Image src="/timer.png" height={50} width={50} priority />
+                      <div>
+                        <p>Deposits</p>
+                      </div>
                     </div>
+                    <div className={styles.flexout}>
+                      <div className={styles.transaction}>
+                        <span>card payment (Per Transaction)</span>
+                        <span>cash payment(Per Transaction)</span>
+                        <span>others (Per Transaction)</span>
+                      </div>
+                      <div className={styles.transaction}>
+                        <p>
+                          {deposit?.data?.funcommission?.[0]?.commission}1.2%
+                        </p>
+                        <p>
+                          {deposit?.data?.funcommission?.[0]?.commission}1.2%
+                        </p>
+                        <p>0%</p>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        setShow(true);
+                      }}
+                    >
+                      Set Commission
+                    </button>
                   </div>
-                  <div className={styles.flexout}>
-                    <div className={styles.transaction}>
-                      <span>card payment (Per Transaction)</span>
-                      <span>cash payment(Per Transaction)</span>
-                      <span>others (Per Transaction)</span>
+
+                  <div className={styles.limits}>
+                    <div className={styles.timer}>
+                      <Image src="/timer.png" height={50} width={50} priority />
+                      <div>
+                        <p> Withdrawals</p>
+                      </div>
                     </div>
-                    <div className={styles.transaction}>
-                      <p>1.2%</p>
-                      <p>1.2%</p>
-                      {/* <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p>
+                    <div className={styles.flexout}>
+                      <div className={styles.transaction}>
+                        <span>card payment (Per Transaction)</span>
+                        <span>cash payment(Per Transaction)</span>
+                        <span>others (Per Transaction)</span>
+                      </div>
+                      <div className={styles.transaction}>
+                        <p>1.2%</p>
+                        <p>1.2%</p>
+                        {/* <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p>
                       <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p> */}
-                      <p>0%</p>
+                        <p>0%</p>
+                      </div>
                     </div>
+
+                    <button
+                      onClick={() => {
+                        setShow2(true);
+                      }}
+                    >
+                      Set Commission
+                    </button>
                   </div>
+                </div>
+              ) : (
+                ""
+              )}
 
-                  <button
-                    onClick={() => {
-                      setShow2(true);
-                    }}
-                  >
-                    Set Commission
-                  </button>
+              {airtime ? (
+                <div>
+                  <div className={style.biller}>
+                    <p>Select Biller:</p>
+                    <button
+                      onClick={() => {
+                        setServicecommission(true);
+                      }}
+                    >
+                      Set Commission
+                    </button>
+                  </div>
+                  <div className={style.network}>
+                    <Image src="/mtn.png" width={100} height={100} priority />
+                    <Image src="/glo.png" width={100} height={100} priority />
+                    <Image
+                      src="/airtel.png"
+                      width={100}
+                      height={100}
+                      priority
+                    />
+                    <Image
+                      src="/9mobile.png"
+                      width={100}
+                      height={100}
+                      priority
+                    />
+                  </div>
                 </div>
-              </div>
-            ) : (
-              ""
-            )}
+              ) : (
+                ""
+              )}
 
-            {airtime ? (
-              <div>
-                <div className={style.biller}>
-                  <p>Select Biller:</p>
-                  <button
-                    onClick={() => {
-                      setServicecommission(true);
-                    }}
-                  >
-                    Set Commission
-                  </button>
+              {electricity ? (
+                <div>
+                  <div className={style.biller}>
+                    <p>Select Biller:</p>
+                    <button
+                      onClick={() => {
+                        setElectricitycommission(true);
+                      }}
+                    >
+                      Set Commission
+                    </button>
+                  </div>
+                  <div className={style.electric}>
+                    <Image src="/ikeja.png" width={150} height={150} priority />
+                    <Image src="/ekedc.png" width={150} height={150} priority />
+                    <Image src="/eedc.png" width={150} height={150} priority />
+                    <Image src="/yedc.png" width={150} height={150} priority />
+                    <Image src="/aedc.png" width={150} height={150} priority />
+                    <Image src="/kedco.png" width={150} height={150} priority />
+                    <Image src="/joe.png" width={150} height={150} priority />
+                    <Image
+                      src="/kaduna.png"
+                      width={150}
+                      height={150}
+                      priority
+                    />
+                    <Image src="/ibedc.png" width={150} height={150} priority />
+                    <Image src="/bedc.png" width={150} height={150} priority />
+                    <Image src="/phcc.png" width={150} height={150} priority />
+                  </div>
                 </div>
-                <div className={style.network}>
-                  <Image src="/mtn.png" width={100} height={100} priority />
-                  <Image src="/glo.png" width={100} height={100} priority />
-                  <Image src="/airtel.png" width={100} height={100} priority />
-                  <Image src="/9mobile.png" width={100} height={100} priority />
-                </div>
-              </div>
-            ) : (
-              ""
-            )}
-
-            {electricity ? (
-              <div>
-                <div className={style.biller}>
-                  <p>Select Biller:</p>
-                  <button
-                    onClick={() => {
-                      setElectricitycommission(true);
-                    }}
-                  >
-                    Set Commission
-                  </button>
-                </div>
-                <div className={style.electric}>
-                  <Image src="/ikeja.png" width={150} height={150} priority />
-                  <Image src="/ekedc.png" width={150} height={150} priority />
-                  <Image src="/eedc.png" width={150} height={150} priority />
-                  <Image src="/yedc.png" width={150} height={150} priority />
-                  <Image src="/aedc.png" width={150} height={150} priority />
-                  <Image src="/kedco.png" width={150} height={150} priority />
-                  <Image src="/joe.png" width={150} height={150} priority />
-                  <Image src="/kaduna.png" width={150} height={150} priority />
-                  <Image src="/ibedc.png" width={150} height={150} priority />
-                  <Image src="/bedc.png" width={150} height={150} priority />
-                  <Image src="/phcc.png" width={150} height={150} priority />
-                </div>
-              </div>
-            ) : (
-              ""
-            )}
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 }
 

@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import style from "../styles/modal2.module.css";
-import { AiOutlineClose, AiFillCaretDown } from "react-icons/ai";
+import {
+  AiOutlineClose,
+  AiFillCaretDown,
+  AiOutlineCloseCircle,
+} from "react-icons/ai";
 import { BsUpload } from "react-icons/bs";
 import Image from "next/image";
 import Aos from "aos";
@@ -32,8 +36,8 @@ function Modal3({ cancelmodal3 }) {
           <div className={style.white} data-aos="slide-down">
             <div className={style.header}>
               <h1>Fund Agent&apos;s Account</h1>
-              <AiOutlineClose
-                size={25}
+              <AiOutlineCloseCircle
+                size={40}
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                   cancelmodal3(false);

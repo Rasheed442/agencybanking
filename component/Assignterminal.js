@@ -16,12 +16,8 @@ function Assignterminal({ submit, data }) {
   const [agents, setAgents] = useState(data);
 
   function filterAgentsByInput(array, input) {
-    // Convert user input to lowercase for case-insensitive filtering
     const searchTerm = input?.toLowerCase();
-
-    // Filter the array of objects
     const filteredArray = array?.filter((obj) => {
-      // Check if any of the object's values contain the search term
       return Object?.values(obj)?.some((value) => {
         if (typeof value === "string") {
           return value?.toLowerCase()?.includes(searchTerm);

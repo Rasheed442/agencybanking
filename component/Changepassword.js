@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from "react";
 import style from "../styles/changepassword.module.css";
-import { AiOutlineClose, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import {
+  AiOutlineCloseCircle,
+  AiFillEye,
+  AiFillEyeInvisible,
+} from "react-icons/ai";
 import { toast } from "react-hot-toast";
+import BeatLoader from "react-spinners/BeatLoader";
 
 function Changepassword({ Close }) {
   const [oldPassword, setOldpassword] = useState();
@@ -10,6 +15,8 @@ function Changepassword({ Close }) {
   const [cover, setCover] = useState();
   const [cover1, setCover1] = useState();
   const [cover2, setCover2] = useState();
+  const [loading, setLoading] = useState(false);
+  const [color, setColor] = useState("white");
 
   const details = { oldPassword, password, confirmpassword };
   const token =
@@ -17,6 +24,7 @@ function Changepassword({ Close }) {
 
   async function Submithandler(e) {
     e.preventDefault();
+    setLoading(true);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API}auth/reset-password`,
       {
@@ -29,13 +37,13 @@ function Changepassword({ Close }) {
       }
     );
     const server = await response.json();
+    setLoading(false);
     if (server?.message) {
       toast.success(server?.message);
       Close(false);
     } else {
       toast.error(server?.errors[0]?.msg);
     }
-    console.log(server?.errors[0]?.msg);
   }
 
   return (
@@ -44,8 +52,8 @@ function Changepassword({ Close }) {
         <div className={style.top}>
           <div className={style.header}>
             <h1>Change Password</h1>
-            <AiOutlineClose
-              size={25}
+            <AiOutlineCloseCircle
+              size={40}
               style={{ cursor: "pointer" }}
               onClick={() => {
                 Close(false);
@@ -115,7 +123,13 @@ function Changepassword({ Close }) {
               </div>
             </div>
           </div>
-          <button onClick={Submithandler}>Submit</button>
+          <button onClick={Submithandler}>
+            {loading ? (
+              <BeatLoader loading={loading} size={20} color={color} />
+            ) : (
+              "Submit"
+            )}
+          </button>
         </div>
       </div>
     </div>

@@ -13,7 +13,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { TiArrowUnsorted } from "react-icons/ti";
 import { icons } from "react-icons/lib";
 function Term2({ check, data, loading, search }) {
-  console.log(search);
+  console.log(data);
   const [counter, setCounter] = useState(1);
   const [isAgent, setisAgent] = useState();
   const [toggle, setToggle] = useState(true);
@@ -47,41 +47,52 @@ function Term2({ check, data, loading, search }) {
           </thead>
 
           {data &&
-            data?.map((d) => {
-              return (
-                <tr>
-                  <td
-                    onClick={() => {
-                      setClientId(d?._id);
-                      localStorage.setItem("d.id", d?._id);
-                      check(true);
-                    }}
-                    style={{
-                      textTransform: "capitalize",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {d?.fullname}
-                  </td>
-                  <td>{d?._id}</td>
-                  <td>{d?.phonenumber}</td>
-                  <td style={{ textTransform: "uppercase" }}>
-                    {d?.business_name}
-                  </td>
-                  <td style={{ textTransform: "uppercase" }}>{d?.email}</td>
-                  <td style={{ textTransform: "uppercase" }}>{d?.address}</td>
-                  <td>
-                    <div>
-                      <BsToggleOn
-                        style={{ color: "green" }}
-                        size={25}
-                        onClick={() => setToggle(false)}
-                      />
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
+            data
+              ?.filter((d) => {
+                if (!search?.length) return d;
+                else if (
+                  Object.values(d).some((value) =>
+                    value?.toString()?.toLowerCase()?.includes(search)
+                  )
+                ) {
+                  return d;
+                }
+              })
+              .map((d) => {
+                return (
+                  <tr>
+                    <td
+                      onClick={() => {
+                        setClientId(d?._id);
+                        localStorage.setItem("d.id", d?._id);
+                        check(true);
+                      }}
+                      style={{
+                        textTransform: "capitalize",
+                        cursor: "pointer",
+                      }}
+                    >
+                      {d?.fullname}
+                    </td>
+                    <td>{d?._id}</td>
+                    <td>{d?.phonenumber}</td>
+                    <td style={{ textTransform: "uppercase" }}>
+                      {d?.business_name}
+                    </td>
+                    <td style={{ textTransform: "uppercase" }}>{d?.email}</td>
+                    <td style={{ textTransform: "uppercase" }}>{d?.address}</td>
+                    <td>
+                      <div>
+                        <BsToggleOn
+                          style={{ color: "green" }}
+                          size={25}
+                          onClick={() => setToggle(false)}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
         </table>
       )}
 
