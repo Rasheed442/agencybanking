@@ -38,8 +38,8 @@ function Assignterminal({ submit, data }) {
         <div className={style.close}>
           <h1>Assign New Terminal</h1>
           <AiOutlineCloseCircle
-            size={40}
-            style={{ cursor: "pointer" }}
+            size={45}
+            style={{ cursor: "pointer", color: "#1B59F8" }}
             onClick={() => {
               submit(false);
             }}

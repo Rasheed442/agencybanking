@@ -99,8 +99,8 @@ function New({ handle }) {
             <div className={style.top}>
               <h3>Add New Agent</h3>
               <AiOutlineCloseCircle
-                size={40}
-                style={{ cursor: "pointer" }}
+                size={45}
+                style={{ cursor: "pointer", color: "#1B59F8" }}
                 onClick={() => {
                   handle(false);
                 }}

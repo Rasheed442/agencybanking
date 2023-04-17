@@ -14,8 +14,9 @@ function Locate_terminal({ closeterminal }) {
           onClick={() => {
             closeterminal(false);
           }}
+          style={{ cursor: "pointer", color: "#1B59F8" }}
         >
-          <AiOutlineCloseCircle size={40} />
+          <AiOutlineCloseCircle size={45} />
         </div>
 
         <div className={style.top}>
