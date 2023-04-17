@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import style from "../styles/new.module.css";
-import { AiFillCaretDown, AiOutlineClose } from "react-icons/ai";
+import {
+  AiFillCaretDown,
+  AiOutlineClose,
+  AiOutlineCloseCircle,
+} from "react-icons/ai";
 import Axios from "axios";
 import Sidebar from "./Sidebar";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -94,8 +98,8 @@ function New({ handle }) {
           <div className={style.up}>
             <div className={style.top}>
               <h3>Add New Agent</h3>
-              <AiOutlineClose
-                size={30}
+              <AiOutlineCloseCircle
+                size={40}
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                   handle(false);

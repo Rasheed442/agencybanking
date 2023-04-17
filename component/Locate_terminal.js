@@ -1,6 +1,10 @@
 import React from "react";
 import style from "../styles/locateterminal.module.css";
-import { AiOutlineClose, AiFillCaretDown } from "react-icons/ai";
+import {
+  AiOutlineClose,
+  AiFillCaretDown,
+  AiOutlineCloseCircle,
+} from "react-icons/ai";
 function Locate_terminal({ closeterminal }) {
   return (
     <div className={style.overlay}>
@@ -11,7 +15,7 @@ function Locate_terminal({ closeterminal }) {
             closeterminal(false);
           }}
         >
-          <AiOutlineClose size={35} />
+          <AiOutlineCloseCircle size={40} />
         </div>
 
         <div className={style.top}>

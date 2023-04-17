@@ -46,6 +46,7 @@ function agent() {
   const [loading, setLoading] = useState(true);
   const [locateterminal, setLocateterminal] = useState(false);
   const [editterminal, setEditterminal] = useState(false);
+  const [search, setSearch] = useState();
 
   const config = {
     headers: {
@@ -123,7 +124,10 @@ function agent() {
                       <AiOutlineSearch size={20} style={{ color: "gray" }} />
                       <input
                         type="text"
-                        placeholder="Search Terminals ID, Agent and Agent Managers"
+                        placeholder="Search for Agent and Terminals ID "
+                        onChange={(e) => {
+                          setSearch(e.target.value);
+                        }}
                       />
                     </div>
                     {color ? (
@@ -232,6 +236,7 @@ function agent() {
                     check={setTerminal}
                     number={setPagination}
                     loading={loading}
+                    search={search}
                   />
                 ) : (
                   ""

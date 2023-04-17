@@ -3,6 +3,7 @@ import { AiOutlineSearch, AiTwotoneBell, AiOutlineDown } from "react-icons/ai";
 import { MdStackedLineChart } from "react-icons/md";
 import { BiLineChartDown } from "react-icons/bi";
 import { AiOutlineMenu, AiFillCaretDown } from "react-icons/ai";
+import ProtectedRoute from "../component/ProtectedRoute";
 import Image from "next/image";
 import Chart from "../component/Chart";
 import Link from "next/link";
@@ -56,169 +57,170 @@ function Main() {
 
   return (
     <>
-      <div className={style.topp}>
-        <Sidebar />
-        <div className={style.header}>
-          <div className={style.container}>
-            <h1>Dashboard</h1>
-            <div
-              className={style.icon}
-              onClick={() => {
-                setShow(true);
-              }}
-            >
-              <AiOutlineMenu size={25} />
+      <ProtectedRoute>
+        <div className={style.topp}>
+          <Sidebar />
+          <div className={style.header}>
+            <div className={style.container}>
+              <h1>Dashboard</h1>
+              <div
+                className={style.icon}
+                onClick={() => {
+                  setShow(true);
+                }}
+              >
+                <AiOutlineMenu size={25} />
+              </div>
+
+              <div className={style.search}>
+                <AiOutlineSearch size={20} style={{ color: "gray" }} />
+                <input
+                  type="text"
+                  placeholder="Search Terminals ID, Agent and Agent Managers"
+                />
+              </div>
+              <Link
+                href="/profile"
+                onClick={() => {
+                  localStorage.setItem("currL", "/commission");
+                }}
+              >
+                <div className={style.profile}>
+                  <div className={style.reminder}>
+                    <AiTwotoneBell
+                      size={27}
+                      style={{
+                        backgroundColor: "gainsboro",
+                        color: "gray",
+                        borderRadius: "10px",
+                      }}
+                    />
+                    <div></div>
+                  </div>
+                  <div className={style.line}></div>
+                  <Image src="/profile.png" width={40} height={40} priority />
+                  <div className={style.name}>
+                    <p>
+                      {username} <AiOutlineDown size={12} />
+                    </p>
+                    <span>Agent Manager</span>
+                  </div>
+                </div>
+              </Link>
             </div>
 
-            <div className={style.search}>
-              <AiOutlineSearch size={20} style={{ color: "gray" }} />
-              <input
-                type="text"
-                placeholder="Search Terminals ID, Agent and Agent Managers"
-              />
-            </div>
-            <Link
-              href="/profile"
-              onClick={() => {
-                localStorage.setItem("currL", "/commission");
-              }}
-            >
-              <div className={style.profile}>
-                <div className={style.reminder}>
-                  <AiTwotoneBell
-                    size={27}
-                    style={{
-                      backgroundColor: "gainsboro",
-                      color: "gray",
-                      borderRadius: "10px",
+            <div className={style.bg}>
+              <div className={style.options}>
+                <div className={style.timeframe}>
+                  <select>
+                    <option>Timeframe:All-time</option>
+                    <option>Timeframe:This Year</option>
+                    <option>Timeframe:Last 7 days</option>
+                    <option>Timeframe:This month</option>
+                    <option>Timeframe:This Year</option>
+                    <option>Timeframe:All Time</option>
+                  </select>
+                  <div>
+                    <AiFillCaretDown />
+                  </div>
+                </div>
+
+                <div className={style.frame}>
+                  <p
+                    onClick={() => {
+                      setDrop1(!drop1);
                     }}
-                  />
-                  <div></div>
-                </div>
-                <div className={style.line}></div>
-                <Image src="/profile.png" width={40} height={40} priority />
-                <div className={style.name}>
-                  <p>
-                    {username} <AiOutlineDown size={12} />
+                  >
+                    {" "}
+                    User Roles:{roles}{" "}
+                    <AiFillCaretDown style={{ color: "black" }} />
                   </p>
-                  <span>Agent Manager</span>
+                  <div className={style.cor}>
+                    {drop1 ? (
+                      <div className={style.searching}>
+                        <AiOutlineSearch />
+                        <input type="text" placeholder="Search" />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                    {drop1 ? <span>GROUPS</span> : ""}
+                    {drop1 ? (
+                      <span
+                        onClick={(e) => {
+                          setRoles(e.target.textContent);
+                        }}
+                      >
+                        <input type="checkbox" /> All Users Roles{" "}
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {drop1 ? (
+                      <span
+                        onClick={(e) => {
+                          setRoles(e.target.textContent);
+                        }}
+                      >
+                        <input type="checkbox" /> Agent Managers{" "}
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {drop1 ? (
+                      <span
+                        onClick={(e) => {
+                          setRoles(e.target.textContent);
+                        }}
+                      >
+                        <input type="checkbox" /> Agents{" "}
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {drop1 ? <hr /> : ""}
+                    {drop1 ? <span>Agent Managers</span> : ""}
+                    {drop1 ? (
+                      <span
+                        onClick={(e) => {
+                          setRoles(e.target.textContent);
+                        }}
+                      >
+                        <input type="checkbox" /> Jame Olayinka
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                    {drop1 ? (
+                      <span
+                        onClick={(e) => {
+                          setRoles(e.target.textContent)(false);
+                        }}
+                      >
+                        <input type="checkbox" /> Shola Adeniyi{" "}
+                      </span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </div>
-
-          <div className={style.bg}>
-            <div className={style.options}>
-              <div className={style.timeframe}>
-                <select>
-                  <option>Timeframe:All-time</option>
-                  <option>Timeframe:This Year</option>
-                  <option>Timeframe:Last 7 days</option>
-                  <option>Timeframe:This month</option>
-                  <option>Timeframe:This Year</option>
-                  <option>Timeframe:All Time</option>
-                </select>
-                <div>
-                  <AiFillCaretDown />
-                </div>
-              </div>
-
-              <div className={style.frame}>
-                <p
-                  onClick={() => {
-                    setDrop1(!drop1);
-                  }}
-                >
-                  {" "}
-                  User Roles:{roles}{" "}
-                  <AiFillCaretDown style={{ color: "black" }} />
-                </p>
-                <div className={style.cor}>
-                  {drop1 ? (
-                    <div className={style.searching}>
-                      <AiOutlineSearch />
-                      <input type="text" placeholder="Search" />
-                    </div>
-                  ) : (
-                    ""
-                  )}
-                  {drop1 ? <span>GROUPS</span> : ""}
-                  {drop1 ? (
-                    <span
-                      onClick={(e) => {
-                        setRoles(e.target.textContent);
-                      }}
-                    >
-                      <input type="checkbox" /> All Users Roles{" "}
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                  {drop1 ? (
-                    <span
-                      onClick={(e) => {
-                        setRoles(e.target.textContent);
-                      }}
-                    >
-                      <input type="checkbox" /> Agent Managers{" "}
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                  {drop1 ? (
-                    <span
-                      onClick={(e) => {
-                        setRoles(e.target.textContent);
-                      }}
-                    >
-                      <input type="checkbox" /> Agents{" "}
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                  {drop1 ? <hr /> : ""}
-                  {drop1 ? <span>Agent Managers</span> : ""}
-                  {drop1 ? (
-                    <span
-                      onClick={(e) => {
-                        setRoles(e.target.textContent);
-                      }}
-                    >
-                      <input type="checkbox" /> Jame Olayinka
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                  {drop1 ? (
-                    <span
-                      onClick={(e) => {
-                        setRoles(e.target.textContent)(false);
-                      }}
-                    >
-                      <input type="checkbox" /> Shola Adeniyi{" "}
-                    </span>
-                  ) : (
-                    ""
-                  )}
-                </div>
-              </div>
-              <div className={style.frame}>
-                <p>
-                  {" "}
-                  Region (location): All
-                  <AiFillCaretDown style={{ color: "black" }} />
-                </p>
-                <div className={style.cor}>
-                  {/* {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> This Year </span>:""}
+                <div className={style.frame}>
+                  <p>
+                    {" "}
+                    Region (location): All
+                    <AiFillCaretDown style={{ color: "black" }} />
+                  </p>
+                  <div className={style.cor}>
+                    {/* {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> This Year </span>:""}
   {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> Last 7 Days</span>:""}
   {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> This Month</span>:""}
   {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> This Year</span>:""}
   {drop1 ?<span onClick={(e)=>{setRoles(e.target.textContent),setDrop1(false)}}> All Time</span>:""} */}
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* flex */}
-            {/* <select>
+              {/* flex */}
+              {/* <select>
    <option>Timeframe:All-time</option>
    <option>Timeframe:Last 7 Days</option>
    <option>Timeframe:This Month</option>
@@ -226,237 +228,238 @@ function Main() {
    </select>
    <select><option>UserRoles:All</option></select>
    <select><option>Region(Location):All-time</option></select> */}
-            <div className={style.flex}>
-              <div className={style.gridout}>
-                {loading ? (
-                  <Skeleton count={3} width="100%" height="30px" />
-                ) : (
-                  <>
-                    <div className={style.transaction}>
-                      <h5>Total Transactions</h5>
-                      <h4>
-                        <span style={{ fontSize: "20px", fontWeight: "800" }}>
-                          &#8358;&nbsp;
-                        </span>
-                        0
-                      </h4>
-                      <p>
-                        <span style={{ color: "green" }}>
-                          <Image src="/Vector.png" width={15} height={10} />{" "}
-                          1.3%
-                        </span>{" "}
-                        up from last week
-                      </p>
-                    </div>
-                    <Image
-                      className={style.svg}
-                      src="/card.svg"
-                      width={50}
-                      height={50}
-                      priority
-                    />
-                  </>
-                )}
+              <div className={style.flex}>
+                <div className={style.gridout}>
+                  {loading ? (
+                    <Skeleton count={3} width="100%" height="30px" />
+                  ) : (
+                    <>
+                      <div className={style.transaction}>
+                        <h5>Total Transactions</h5>
+                        <h4>
+                          <span style={{ fontSize: "20px", fontWeight: "800" }}>
+                            &#8358;&nbsp;
+                          </span>
+                          0
+                        </h4>
+                        <p>
+                          <span style={{ color: "green" }}>
+                            <Image src="/Vector.png" width={15} height={10} />{" "}
+                            1.3%
+                          </span>{" "}
+                          up from last week
+                        </p>
+                      </div>
+                      <Image
+                        className={style.svg}
+                        src="/card.svg"
+                        width={50}
+                        height={50}
+                        priority
+                      />
+                    </>
+                  )}
+                </div>
+
+                <div className={style.gridout}>
+                  {loading ? (
+                    <Skeleton count={3} width="100%" height="30px" />
+                  ) : (
+                    <>
+                      <div className={style.transaction}>
+                        <h5>Total Earnings/Commission</h5>
+                        <h4>
+                          <span style={{ fontSize: "20px", fontWeight: "800" }}>
+                            &#8358;&nbsp;
+                          </span>
+
+                          {data?.data?.balance?.commission}
+                        </h4>
+                        <p>
+                          <span style={{ color: "red" }}>
+                            <Image src="/vecdown.png" width={15} height={10} />{" "}
+                            1.3%
+                          </span>{" "}
+                          up from last week
+                        </p>
+                      </div>
+                      <Image
+                        src="/card1.svg"
+                        className={style.svg}
+                        width={50}
+                        height={50}
+                        priority
+                      />
+                    </>
+                  )}
+                </div>
+
+                <div className={style.gridout}>
+                  {loading ? (
+                    <Skeleton count={3} width="100%" height="30px" />
+                  ) : (
+                    <>
+                      <div className={style.transaction}>
+                        <h5>Total Successful Transactions</h5>
+                        <h4>16,483</h4>
+                        <p>
+                          <span style={{ color: "green" }}>
+                            <Image src="/Vector.png" width={15} height={10} />{" "}
+                            1.3%
+                          </span>{" "}
+                          up from last week
+                        </p>
+                      </div>
+                      <Image
+                        src="/card2.svg"
+                        className={style.svg}
+                        width={50}
+                        height={50}
+                        priority
+                      />
+                    </>
+                  )}
+                </div>
+
+                <div className={style.gridout}>
+                  {loading ? (
+                    <Skeleton count={3} width="100%" height="30px" />
+                  ) : (
+                    <>
+                      <div className={style.transaction}>
+                        <h5>Total Failed Transactions</h5>
+                        <h4>0</h4>
+                        <p>
+                          <span style={{ color: "green" }}>
+                            <Image src="/Vector.png" width={15} height={10} />{" "}
+                            1.3%
+                          </span>{" "}
+                          up from last week
+                        </p>
+                      </div>
+                      <Image
+                        className={style.svg}
+                        src="/card3.svg"
+                        width={50}
+                        height={50}
+                        priority
+                      />
+                    </>
+                  )}
+                </div>
+
+                <div className={style.gridout}>
+                  {loading ? (
+                    <Skeleton count={3} width="100%" height="30px" />
+                  ) : (
+                    <>
+                      <div className={style.transaction}>
+                        <h5>Total Number of Agents</h5>
+
+                        <h4>{data?.data?.total_agent}</h4>
+                        <p>
+                          <span style={{ color: "green" }}>
+                            <Image src="/Vector.png" width={15} height={10} />{" "}
+                            1.3%
+                          </span>{" "}
+                          up from last week
+                        </p>
+                      </div>
+                      <Image
+                        className={style.svg}
+                        src="/Frame2.png"
+                        width={50}
+                        height={50}
+                        priority
+                      />
+                    </>
+                  )}
+                </div>
+
+                <div className={style.gridout}>
+                  {loading ? (
+                    <Skeleton count={3} width="100%" height="30px" />
+                  ) : (
+                    <>
+                      <div className={style.transaction}>
+                        <h5>Total Number of Transactions</h5>
+                        <h4>0</h4>
+                        <p>
+                          <span>
+                            <Image src="/Vector.png" width={15} height={10} />{" "}
+                            1.3%
+                          </span>{" "}
+                          up from last week
+                        </p>
+                      </div>
+                      <Image
+                        className={style.svg}
+                        src="/person3.png"
+                        width={50}
+                        height={50}
+                        priority
+                      />
+                    </>
+                  )}
+                </div>
+
+                <div className={style.gridout}>
+                  {loading ? (
+                    <Skeleton count={3} width="100%" height="30px" />
+                  ) : (
+                    <>
+                      <div className={style.transaction}>
+                        <h5>Total Number of Terminals</h5>
+                        <h4>0</h4>
+                        <p>
+                          <span style={{ color: "green" }}>
+                            <Image src="/Vector.png" width={15} height={10} />{" "}
+                            1.3%
+                          </span>{" "}
+                          up from last week
+                        </p>
+                      </div>
+                      <Image
+                        className={style.svg}
+                        src="/person2.png"
+                        width={50}
+                        height={50}
+                        priority
+                      />
+                    </>
+                  )}
+                </div>
+
+                <div className={style.gridout}>
+                  {loading ? (
+                    <Skeleton count={3} width="100%" height="30px" />
+                  ) : (
+                    <>
+                      <div className={style.transaction}>
+                        <h5>Total Referral Bonus</h5>
+                        <h4>
+                          <span style={{ fontSize: "25px", fontWeight: "800" }}>
+                            &#8358;&nbsp;
+                          </span>
+                          0
+                        </h4>
+                      </div>
+                      <Image
+                        className={style.svg}
+                        src="/ref.svg"
+                        width={50}
+                        height={50}
+                        priority
+                      />
+                    </>
+                  )}
+                </div>
               </div>
-
-              <div className={style.gridout}>
-                {loading ? (
-                  <Skeleton count={3} width="100%" height="30px" />
-                ) : (
-                  <>
-                    <div className={style.transaction}>
-                      <h5>Total Earnings/Commission</h5>
-                      <h4>
-                        <span style={{ fontSize: "20px", fontWeight: "800" }}>
-                          &#8358;&nbsp;
-                        </span>
-
-                        {data?.data?.balance?.commission}
-                      </h4>
-                      <p>
-                        <span style={{ color: "red" }}>
-                          <Image src="/vecdown.png" width={15} height={10} />{" "}
-                          1.3%
-                        </span>{" "}
-                        up from last week
-                      </p>
-                    </div>
-                    <Image
-                      src="/card1.svg"
-                      className={style.svg}
-                      width={50}
-                      height={50}
-                      priority
-                    />
-                  </>
-                )}
-              </div>
-
-              <div className={style.gridout}>
-                {loading ? (
-                  <Skeleton count={3} width="100%" height="30px" />
-                ) : (
-                  <>
-                    <div className={style.transaction}>
-                      <h5>Total Successful Transactions</h5>
-                      <h4>16,483</h4>
-                      <p>
-                        <span style={{ color: "green" }}>
-                          <Image src="/Vector.png" width={15} height={10} />{" "}
-                          1.3%
-                        </span>{" "}
-                        up from last week
-                      </p>
-                    </div>
-                    <Image
-                      src="/card2.svg"
-                      className={style.svg}
-                      width={50}
-                      height={50}
-                      priority
-                    />
-                  </>
-                )}
-              </div>
-
-              <div className={style.gridout}>
-                {loading ? (
-                  <Skeleton count={3} width="100%" height="30px" />
-                ) : (
-                  <>
-                    <div className={style.transaction}>
-                      <h5>Total Failed Transactions</h5>
-                      <h4>0</h4>
-                      <p>
-                        <span style={{ color: "green" }}>
-                          <Image src="/Vector.png" width={15} height={10} />{" "}
-                          1.3%
-                        </span>{" "}
-                        up from last week
-                      </p>
-                    </div>
-                    <Image
-                      className={style.svg}
-                      src="/card3.svg"
-                      width={50}
-                      height={50}
-                      priority
-                    />
-                  </>
-                )}
-              </div>
-
-              <div className={style.gridout}>
-                {loading ? (
-                  <Skeleton count={3} width="100%" height="30px" />
-                ) : (
-                  <>
-                    <div className={style.transaction}>
-                      <h5>Total Number of Agents</h5>
-
-                      <h4>{data?.data?.total_agent}</h4>
-                      <p>
-                        <span style={{ color: "green" }}>
-                          <Image src="/Vector.png" width={15} height={10} />{" "}
-                          1.3%
-                        </span>{" "}
-                        up from last week
-                      </p>
-                    </div>
-                    <Image
-                      className={style.svg}
-                      src="/Frame2.png"
-                      width={50}
-                      height={50}
-                      priority
-                    />
-                  </>
-                )}
-              </div>
-
-              <div className={style.gridout}>
-                {loading ? (
-                  <Skeleton count={3} width="100%" height="30px" />
-                ) : (
-                  <>
-                    <div className={style.transaction}>
-                      <h5>Total Number of Transactions</h5>
-                      <h4>0</h4>
-                      <p>
-                        <span>
-                          <Image src="/Vector.png" width={15} height={10} />{" "}
-                          1.3%
-                        </span>{" "}
-                        up from last week
-                      </p>
-                    </div>
-                    <Image
-                      className={style.svg}
-                      src="/person3.png"
-                      width={50}
-                      height={50}
-                      priority
-                    />
-                  </>
-                )}
-              </div>
-
-              <div className={style.gridout}>
-                {loading ? (
-                  <Skeleton count={3} width="100%" height="30px" />
-                ) : (
-                  <>
-                    <div className={style.transaction}>
-                      <h5>Total Number of Terminals</h5>
-                      <h4>0</h4>
-                      <p>
-                        <span style={{ color: "green" }}>
-                          <Image src="/Vector.png" width={15} height={10} />{" "}
-                          1.3%
-                        </span>{" "}
-                        up from last week
-                      </p>
-                    </div>
-                    <Image
-                      className={style.svg}
-                      src="/person2.png"
-                      width={50}
-                      height={50}
-                      priority
-                    />
-                  </>
-                )}
-              </div>
-
-              <div className={style.gridout}>
-                {loading ? (
-                  <Skeleton count={3} width="100%" height="30px" />
-                ) : (
-                  <>
-                    <div className={style.transaction}>
-                      <h5>Total Referral Bonus</h5>
-                      <h4>
-                        <span style={{ fontSize: "25px", fontWeight: "800" }}>
-                          &#8358;&nbsp;
-                        </span>
-                        0
-                      </h4>
-                    </div>
-                    <Image
-                      className={style.svg}
-                      src="/ref.svg"
-                      width={50}
-                      height={50}
-                      priority
-                    />
-                  </>
-                )}
-              </div>
+              <Chart />
             </div>
-            <Chart />
           </div>
         </div>
-      </div>
+      </ProtectedRoute>
     </>
   );
 }

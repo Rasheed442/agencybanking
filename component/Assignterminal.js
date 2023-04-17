@@ -3,6 +3,7 @@ import style from "../styles/assignterminal.module.css";
 import {
   AiFillCaretDown,
   AiOutlineClose,
+  AiOutlineCloseCircle,
   AiOutlineSearch,
 } from "react-icons/ai";
 
@@ -40,8 +41,8 @@ function Assignterminal({ submit, data }) {
       <div className={style.container}>
         <div className={style.close}>
           <h1>Assign New Terminal</h1>
-          <AiOutlineClose
-            size={30}
+          <AiOutlineCloseCircle
+            size={40}
             style={{ cursor: "pointer" }}
             onClick={() => {
               submit(false);

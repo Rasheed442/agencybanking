@@ -12,8 +12,8 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { TiArrowUnsorted } from "react-icons/ti";
 import { icons } from "react-icons/lib";
-function Term2({ check, data, loading }) {
-  console.log(data);
+function Term2({ check, data, loading, search }) {
+  console.log(search);
   const [counter, setCounter] = useState(1);
   const [isAgent, setisAgent] = useState();
   const [toggle, setToggle] = useState(true);
@@ -21,7 +21,7 @@ function Term2({ check, data, loading }) {
   return (
     <div>
       {loading ? (
-        <Skeleton count={10} width="" height="100%" />
+        <Skeleton count={6} width="" height="9vh" />
       ) : (
         <table className={styles.table}>
           <thead>
@@ -92,8 +92,8 @@ function Term2({ check, data, loading }) {
             style={{ border: "1px solid red", color: "red" }}
             onClick={() => {
               setCounter(counter - 1);
-              if (counter === 0) {
-                setCounter(0);
+              if (counter === 1) {
+                setCounter(1);
               }
             }}
           >

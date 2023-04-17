@@ -31,11 +31,13 @@ function Changepassword({ Close }) {
     const server = await response.json();
     if (server?.message) {
       toast.success(server?.message);
+      Close(false);
     } else {
       toast.error(server?.errors[0]?.msg);
     }
-    Close(false);
+    console.log(server?.errors[0]?.msg);
   }
+
   return (
     <div className={style.overlay}>
       <div className={style.white}>
@@ -57,12 +59,12 @@ function Changepassword({ Close }) {
             </label>
             <div className={style.eye}>
               <input
-                type={cover2 ? "password" : "text"}
+                type={cover2 ? "text" : "password"}
                 onChange={(e) => {
                   setOldpassword(e.target.value);
                 }}
               />
-              <div onClick={() => setCover2(!cover1)}>
+              <div onClick={() => setCover2(!cover2)}>
                 {cover2 ? (
                   <AiFillEye size={25} />
                 ) : (
@@ -78,7 +80,7 @@ function Changepassword({ Close }) {
             </label>
             <div className={style.eye}>
               <input
-                type={cover1 ? "password" : "text"}
+                type={cover1 ? "text" : "password"}
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
@@ -99,7 +101,7 @@ function Changepassword({ Close }) {
             </label>
             <div className={style.eye}>
               <input
-                type={cover ? "password" : "text"}
+                type={cover ? "text" : "password"}
                 onChange={(e) => {
                   setConfirmpassword(e.target.value);
                 }}
