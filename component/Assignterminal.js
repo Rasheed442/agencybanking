@@ -6,32 +6,57 @@ import {
   AiOutlineCloseCircle,
   AiOutlineSearch,
 } from "react-icons/ai";
+import Axios from "axios";
 
 function Assignterminal({ submit, data }) {
-  // const filteredData = data.filter(item => item.fullname.toLowerCase().includes(search.toLowerCase()));
-
   const [show, setShow] = useState(false);
+  const [server, setServer] = useState();
+  const [show1, setShow1] = useState(false);
   const [assignedagent, setAssignedagent] = useState();
+  const [assignedterminal, setAssignedterminal] = useState();
   const [search, setSearch] = useState();
   const [agents, setAgents] = useState(data);
 
-  function filterAgentsByInput(array, input) {
-    const searchTerm = input?.toLowerCase();
-    const filteredArray = array?.filter((obj) => {
-      return Object?.values(obj)?.some((value) => {
-        if (typeof value === "string") {
-          return value?.toLowerCase()?.includes(searchTerm);
-        }
-        return false;
-      });
-    });
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
 
-    console.log(filteredArray);
-    setAgents(filteredArray);
-    return filteredArray;
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  useEffect(() => {
+    Axios.get(
+      `${process.env.NEXT_PUBLIC_API}terminal/unassigned/manager`,
+      config
+    ).then((response) => {
+      setServer(response.data);
+    });
+  }, []);
+
+  const details = { assignedagent, assignedterminal };
+
+  async function Submithandler(e) {
+    // e.preventDefault();
+    // submit(false);
+    // const response = await fetch(
+    //   `${process.env.NEXT_PUBLIC_API}terminal/assign/user/manager`,
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-type": "application/json",
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //     body: JSON.stringify(details),
+    //   }
+    // );
+    // const server = await response.json();
+    // alert(server);
+    // alert(details);
+    submit(false);
   }
 
-  console.log(data);
   return (
     <div className={style.background}>
       <div className={style.container}>
@@ -50,13 +75,61 @@ function Assignterminal({ submit, data }) {
             <label>
               Terminal ID <span>*</span>
             </label>
-            <div className={style.terminal}>
+            <div
+              className={style.terminal}
+              onClick={() => {
+                setShow1(!show1);
+              }}
+            >
               <input
                 type="text"
                 placeholder="Select from available terminals"
+                disabled
+                value={assignedterminal}
               />
               <AiFillCaretDown />
             </div>
+            {show1 && (
+              <div className={style.dropdown}>
+                <div className={style.drop}>
+                  <AiOutlineSearch size={23} style={{ color: "gray" }} />
+                  <input
+                    type="text"
+                    onChange={(e) => {
+                      setSearch(e.target.value);
+                    }}
+                    placeholder="Search By Terminal"
+                  />
+                </div>
+                <div className={style.agentnames}>
+                  {server?.data?.terminals
+                    ?.filter((s) => {
+                      if (!search?.length) return s;
+                      else if (
+                        Object.values(s).some((value) =>
+                          value?.toString()?.toLowerCase()?.includes(search)
+                        )
+                      ) {
+                        return s;
+                      }
+                    })
+                    .map((s) => {
+                      return (
+                        <div className={style.full}>
+                          <p
+                            onClick={(e) => {
+                              setAssignedterminal(e.target.textContent);
+                              setShow1(false);
+                            }}
+                          >
+                            {s.terminal_id}
+                          </p>
+                        </div>
+                      );
+                    })}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className={style.agents}>
@@ -71,7 +144,6 @@ function Assignterminal({ submit, data }) {
                 disabled
                 type="text"
                 value={assignedagent}
-                // onChange={(e) => setAssignedagent(e.target.value)}
                 placeholder="select an existing agent to terminal"
               />
               <AiFillCaretDown />
@@ -84,7 +156,6 @@ function Assignterminal({ submit, data }) {
                     type="text"
                     onChange={(e) => {
                       setSearch(e.target.value);
-                      filterAgentsByInput(data, search);
                     }}
                     placeholder="Search By Agent Name"
                   />
@@ -96,25 +167,31 @@ function Assignterminal({ submit, data }) {
                       setShow(false);
                     }}
                   >
-                    {agents?.map((d) => {
-                      return (
-                        <div className={style.full}>
-                          <p>{d?.fullname}</p>
-                        </div>
-                      );
-                    })}
+                    {agents
+                      ?.filter((d) => {
+                        if (!search?.length) return d;
+                        else if (
+                          Object.values(d).some((value) =>
+                            value?.toString()?.toLowerCase()?.includes(search)
+                          )
+                        ) {
+                          return d;
+                        }
+                      })
+                      .map((d) => {
+                        return (
+                          <div className={style.full}>
+                            <p>{d?.fullname}</p>
+                          </div>
+                        );
+                      })}
                   </p>{" "}
                 </div>
               </div>
             )}
           </div>
         </div>
-        <div
-          className={style.btn}
-          onClick={() => {
-            submit(false);
-          }}
-        >
+        <div className={style.btn} onClick={Submithandler}>
           <button>Submit</button>
         </div>
       </div>
