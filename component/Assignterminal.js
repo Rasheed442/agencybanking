@@ -34,6 +34,7 @@ function Assignterminal({ submit, data }) {
       setServer(response.data);
     });
   }, []);
+  console.log(server);
 
   const details = { assignedagent, assignedterminal };
 

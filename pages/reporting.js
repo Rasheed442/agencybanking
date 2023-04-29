@@ -6,6 +6,7 @@ import {
   AiOutlineDown,
   AiOutlineArrowRight,
 } from "react-icons/ai";
+import Axios from "axios";
 import disputes from "../pages/dispute.json";
 import Image from "next/image";
 import Transaction from "../component/Transaction";
@@ -21,6 +22,7 @@ function dispute() {
   const [oneData, setOneData] = useState([]);
   const [username, setUsername] = useState();
   const [show, setShow] = useState(false);
+  const [server, setServer] = useState();
 
   console.log(oneData);
   console.log(show);
@@ -28,6 +30,24 @@ function dispute() {
   useEffect(() => {
     setUsername(localStorage.getItem("userName"));
   }, [typeof window !== "undefined" ? localStorage.getItem("userName") : null]);
+
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  useEffect(() => {
+    Axios.get(
+      `${process.env.NEXT_PUBLIC_API_TRANSACTION}transaction/all`,
+      config
+    ).then((response) => {
+      console.log(response?.data);
+    });
+  }, []);
 
   return (
     <ProtectedRoute>
@@ -109,7 +129,7 @@ function dispute() {
                 </button>
               </div>
 
-              <div className={style.gridout}>
+              {/* <div className={style.gridout}>
                 <div className={style.profil}>
                   <span>
                     AGENT NAME
@@ -453,7 +473,92 @@ function dispute() {
                   <p>WTH/23434663356866..</p>
                   <p>WTH/23434663356866..</p>
                 </div>
-              </div>
+              </div> */}
+
+              <table className={style.table}>
+                <thead>
+                  <tr>
+                    <th>
+                      AGENT NAME <TiArrowUnsorted size={11} />
+                    </th>
+                    <th>AGENT ID </th>
+                    <th>
+                      REQUEST MESSAGE
+                      <TiArrowUnsorted size={11} />
+                    </th>
+                    <th>
+                      REQUEST TYPE <TiArrowUnsorted size={11} />
+                    </th>
+                    <th>
+                      DURATION <TiArrowUnsorted size={11} />
+                    </th>
+                    <th>
+                      DATE <TiArrowUnsorted size={11} />
+                    </th>
+                    <th>STATUS </th>
+                    <th>
+                      REQUEST REF.CODE <TiArrowUnsorted size={11} />
+                    </th>
+                  </tr>
+                </thead>
+
+                {server?.map((d) => {
+                  return (
+                    <tr>
+                      <td
+                        style={{
+                          textTransform: "capitalize",
+                          cursor: "pointer",
+                        }}
+                      >
+                        {d?.name}
+                      </td>
+                      <td>{d?.user_id}</td>
+                      <td style={{ textTransform: "capitalize" }}>
+                        {d?.message}
+                      </td>
+                      <td style={{ textTransform: "uppercase" }}>{d?.type}</td>
+                      <td style={{ textTransform: "uppercase" }}>
+                        {d?.duration}
+                      </td>
+                      <td style={{ textTransform: "uppercase" }}>
+                        {d?.createdAt}
+                      </td>
+
+                      <td
+                        style={{
+                          margin: "5px",
+                          paddling: "0",
+                          lineHeight: "10px",
+                          display: "inline-flex",
+                          borderRadius: "5px",
+                          textTransform: "uppercase",
+                          backgroundColor: `${
+                            d.status === "RESOLVED"
+                              ? "#00F4001A"
+                              : d?.status === "PENDING"
+                              ? "#E0191933"
+                              : ""
+                          }`,
+                          color: `${
+                            d?.status === "RESOLVED"
+                              ? "green"
+                              : d.status === "PENDING"
+                              ? "RED"
+                              : ""
+                          }`,
+                        }}
+                      >
+                        {d?.status}
+                      </td>
+
+                      <td style={{ textTransform: "uppercase" }}>
+                        {d.reference}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </table>
 
               <div className={style.entries}>
                 <p>Showing 1 to 50 of 100 entries</p>

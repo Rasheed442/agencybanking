@@ -34,6 +34,7 @@ function dispute() {
       Authorization: `Bearer ${token}`,
     },
   };
+
   useEffect(() => {
     Axios.get(`${process.env.NEXT_PUBLIC_API}request`, config).then(
       (response) => {

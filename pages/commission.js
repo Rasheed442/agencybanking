@@ -63,7 +63,7 @@ function setting() {
       setWithdrawal(response?.data);
     });
   }, []);
-  console.log(withdrawal);
+  // console.log(withdrawal);
 
   const [airtime, setAirtime] = useState(false);
   const [electricity, setElectricity] = useState(false);
@@ -199,6 +199,37 @@ function setting() {
                     <div className={styles.timer}>
                       <Image src="/timer.png" height={50} width={50} priority />
                       <div>
+                        <p> Withdrawals</p>
+                      </div>
+                    </div>
+                    <div className={styles.flexout}>
+                      <div className={styles.transaction}>
+                        <span>card payment (Per Transaction)</span>
+                        <span>cash payment(Per Transaction)</span>
+                        <span>others (Per Transaction)</span>
+                      </div>
+                      <div className={styles.transaction}>
+                        <p>1.2%</p>
+                        <p>1.2%</p>
+                        {/* <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p>
+                      <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p> */}
+                        <p>0%</p>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        setShow2(true);
+                      }}
+                    >
+                      update Commission
+                    </button>
+                  </div>
+
+                  <div className={styles.limits}>
+                    <div className={styles.timer}>
+                      <Image src="/timer.png" height={50} width={50} priority />
+                      <div>
                         <p>Deposits</p>
                       </div>
                     </div>
@@ -224,38 +255,7 @@ function setting() {
                         setShow(true);
                       }}
                     >
-                      Set Commission
-                    </button>
-                  </div>
-
-                  <div className={styles.limits}>
-                    <div className={styles.timer}>
-                      <Image src="/timer.png" height={50} width={50} priority />
-                      <div>
-                        <p> Withdrawals</p>
-                      </div>
-                    </div>
-                    <div className={styles.flexout}>
-                      <div className={styles.transaction}>
-                        <span>card payment (Per Transaction)</span>
-                        <span>cash payment(Per Transaction)</span>
-                        <span>others (Per Transaction)</span>
-                      </div>
-                      <div className={styles.transaction}>
-                        <p>1.2%</p>
-                        <p>1.2%</p>
-                        {/* <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p>
-                      <p>{withdrawal?.data?.funcommission?.[0]?.commission}%</p> */}
-                        <p>0%</p>
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => {
-                        setShow2(true);
-                      }}
-                    >
-                      Set Commission
+                      update Commission
                     </button>
                   </div>
                 </div>

@@ -246,7 +246,7 @@ function agent() {
                   ) : (
                     ""
                   )}
-                  {color2 ? <Term check={setTerminal} search={search} /> : ""}
+                  {color2 ? <Term search={search} /> : ""}
                   {color3 ? <Term3 /> : ""}
                 </div>
               </div>

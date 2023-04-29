@@ -57,22 +57,6 @@ function Commitransact({ canceltransact }) {
         {formList?.map((item, index) => {
           return (
             <>
-              <div
-                className={style.input}
-                style={{
-                  paddingLeft: "10px",
-                  paddingRight: "10px",
-                  paddingBottom: "20px",
-                }}
-              >
-                <label>Deposit to</label>
-                <div className={style.select}>
-                  <select>
-                    <option></option>
-                  </select>
-                  <AiOutlineCaretDown />
-                </div>
-              </div>
               <div className={style.flexout}>
                 <div className={style.input}>
                   <label>
@@ -81,7 +65,7 @@ function Commitransact({ canceltransact }) {
                   <div className={style.percentage}>
                     <input
                       type="number"
-                      placeholder="1000-5000"
+                      placeholder="1000"
                       onChange={(e) => {
                         setCommission(e.target.value);
                       }}
@@ -95,7 +79,7 @@ function Commitransact({ canceltransact }) {
                   <div className={style.percentage}>
                     <input
                       type="number"
-                      placeholder="5,0001-10,000"
+                      placeholder="5,000"
                       onChange={(e) => {
                         setCommission(e.target.value);
                       }}
@@ -109,7 +93,7 @@ function Commitransact({ canceltransact }) {
                   <div className={style.percentage}>
                     <input
                       type="number"
-                      placeholder="50"
+                      placeholder="5,000"
                       onChange={(e) => {
                         setCommission(e.target.value);
                       }}

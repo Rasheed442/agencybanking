@@ -10,7 +10,6 @@
 }
 .white{
     background-color: white;
-    height: 80%;
     width: 85%;
     overflow: hidden;
     overflow: scroll;
@@ -59,7 +58,7 @@
 .servicetype span{color: red;}
 .flexout{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 20px;
     padding-top: 25px;
 

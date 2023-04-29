@@ -32,7 +32,22 @@ function Commitransact({ canceltransact2 }) {
 
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
+  useEffect(() => {
+    Axios.get(
+      `${process.env.NEXT_PUBLIC_API_COMMISSION}commission/manager`,
+      config
+    ).then((response) => {
+      // console.log(response?.data);
+      setFormList(response?.data.data.allServiceCommissions);
+      console.log(formList);
+    });
+  }, []);
   async function Handler(e) {
     e.preventDefault();
     setLoading(true);
@@ -63,7 +78,7 @@ function Commitransact({ canceltransact2 }) {
                 <div className={style.percentage}>
                   <input
                     type="number"
-                    placeholder="1000-5000"
+                    placeholder="1000"
                     onChange={(e) => {
                       setCommission(e.target.value);
                     }}
@@ -91,7 +106,21 @@ function Commitransact({ canceltransact2 }) {
                 <div className={style.percentage}>
                   <input
                     type="number"
-                    placeholder="5,0001-10,000"
+                    placeholder="5,000"
+                    onChange={(e) => {
+                      setCommission(e.target.value);
+                    }}
+                  />
+                </div>
+              </div>
+              <div className={style.input}>
+                <label>
+                  Commission Percentage<span style={{ color: "red" }}>*</span>
+                </label>
+                <div className={style.percentage}>
+                  <input
+                    type="number"
+                    placeholder="1.7"
                     onChange={(e) => {
                       setCommission(e.target.value);
                     }}
@@ -125,20 +154,6 @@ function Commitransact({ canceltransact2 }) {
             >
               Add New <AiOutlinePlus />
             </button>
-          </div>
-        </div>
-
-        <div className={style.input} style={{ paddingTop: "20px" }}>
-          <label>Commission Percentage</label>
-          <div className={style.percentage}>
-            <input
-              type="number"
-              placeholder="1.5%"
-              onChange={(e) => {
-                setCommission(e.target.value);
-              }}
-            />
-            <p>Edit Commission</p>
           </div>
         </div>
 
